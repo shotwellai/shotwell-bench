@@ -6,11 +6,11 @@ The repo contains **no videos**. `references/episodes.json` links each episode t
 
 ## Reference status
 
-The snapshot contains the 11 visible Job 690 episodes: `homer_1`, `homer_2`, `homer_3`, `homer_4`, `homer_5`, `homer_9`, `homer_33`, `homer_37`, `homer_40`, `homer_41`, and `homer_48`. All have boundary references. **Only the first five currently have a required detail in every golden segment** (104 fixed segments, 145 required details). The `description_ready` flag is authoritative; an episode without it can be segmented but cannot receive an overall score. The reference is a dated export, not a live database query.
+The snapshot contains the 11 selected Job 690 episodes: `homer_1`, `homer_2`, `homer_3`, `homer_4`, `homer_5`, `homer_9`, `homer_33`, `homer_37`, `homer_40`, `homer_41`, and `homer_48`. All 11 now have a required detail in every golden segment (221 fixed segments, 325 required details). The `description_ready` flag is authoritative; an episode without it can be segmented but cannot receive an overall score. The reference is a dated export, not a live database query.
 
 ## Five-episode pilot
 
-The first five episodes were run at 8 fps with the guide in this repo. Scores below are micro F1 for segmentation and descriptions; overall F1 is their product. [Full scores, raw model outputs, judge decisions, and run config](benchmark-results/first5-8fps/) are included for audit.
+The first five episodes were run at 8 fps with the [earlier guide revision](https://github.com/shotwellai/shotwell-wgo-bench/blob/ed6788bcf9e1e437556748c8579bec6dec45476f/guide.txt). The current `guide.txt` adds a rule treating head-camera adjustment as IDLE. The first five golden references are unchanged, but these scores have not been rerun with the updated guide. Scores below are micro F1 for segmentation and descriptions; overall F1 is their product. [Full scores, raw model outputs, judge decisions, and run config](benchmark-results/first5-8fps/) are included for audit.
 
 | Model | Segmentation F1 | Description F1 | Overall F1 | Refused windows |
 | --- | ---: | ---: | ---: | ---: |
@@ -43,11 +43,11 @@ python3 -m shotwell_bench score --model all --subset first5 \
   --workers 24 --env .env --run-dir runs/first5-8fps
 ```
 
-Run one model with `scripts/run_astra.sh`, `run_sol.sh`, `run_argon.sh`, `run_opus.sh`, or `run_luna.sh`, passing the same options. `scripts/run_all.sh` runs all five. `--subset completed` (default) selects every description-ready episode; `--subset all` generates segmentation for all 11 and descriptions for ready episodes, but `score` requires a description-complete selection. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
+Run one model with `scripts/run_astra.sh`, `run_sol.sh`, `run_argon.sh`, `run_opus.sh`, or `run_luna.sh`, passing the same options. `scripts/run_all.sh` runs all five. `--subset completed` (default) selects every description-ready episode; with the current reference export, all 11 are ready, so it selects the same episodes as `--subset all`. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
 
 Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The candidate models are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-luna`, `google/gemini-4-argon`, and `anthropic/claude-opus-5.5` (Opus via OpenRouter).
 
-`--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals.
+`--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals. Use a new run directory when running the updated guide; the five-episode pilot artifacts were generated with the earlier guide revision.
 
 ## Visual input and prompts
 

@@ -4,7 +4,7 @@
   "source_dataset": "macrodata/WGO-Bench",
   "video_mirror": "Nano1337/wgo-bench-videos",
   "license": "CC BY-NC-SA 4.0",
-  "exported_at": "2026-10-29T15:29:29.749862+00:00",
+  "exported_at": "2026-10-29T17:10:40.385762+00:00",
   "episodes": [
     {
       "id": "wgo-bench-homer_1",
@@ -2518,7 +2518,7 @@
       "source_id": "homer_9",
       "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_9.mp4",
       "duration": 171.063333,
-      "description_ready": false,
+      "description_ready": true,
       "boundaries": [
         {
           "id": "start",
@@ -2649,6 +2649,14 @@
           "golden": true
         },
         {
+          "id": "2a8fb112-44c8-43e4-b048-1f66b4d40fde",
+          "time": 123.824753,
+          "minimum": 123.424753,
+          "maximum": 124.224753,
+          "type": "minor",
+          "golden": false
+        },
+        {
           "id": "boundary-15",
           "time": 131.07,
           "minimum": 129.74,
@@ -2762,7 +2770,10 @@
           "end_boundary_id": "boundary-6",
           "start": 7.46,
           "end": 9.12,
-          "required": [],
+          "required": [
+            "Scrub the cup with the sponge with the right hand.",
+            "Steady the cup with the left hand."
+          ],
           "optional": []
         },
         {
@@ -2770,7 +2781,10 @@
           "end_boundary_id": "boundary-7",
           "start": 9.12,
           "end": 10.15,
-          "required": [],
+          "required": [
+            "Hold the cup with the right hand.",
+            "Turn off the tap with the left hand."
+          ],
           "optional": []
         },
         {
@@ -2778,7 +2792,10 @@
           "end_boundary_id": "boundary-8",
           "start": 10.15,
           "end": 65.9,
-          "required": [],
+          "required": [
+            "Scrub the the glass with the cloth with the right hand.",
+            "[Steady / rotate] the glass with the left hand."
+          ],
           "optional": []
         },
         {
@@ -2786,15 +2803,23 @@
           "end_boundary_id": "boundary-9",
           "start": 65.9,
           "end": 67.3,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place a cup in the sink with the right hand.",
+            "Pick up a cup with the left hand."
+          ],
+          "optional": [
+            "Hold the sponge in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-9",
           "end_boundary_id": "boundary-10",
           "start": 67.3,
           "end": 103.99,
-          "required": [],
+          "required": [
+            "Scrub the glass with the sponge with the right hand.",
+            "[Steady / rotate] the glass with the left hand."
+          ],
           "optional": []
         },
         {
@@ -2802,7 +2827,11 @@
           "end_boundary_id": "boundary-11",
           "start": 103.99,
           "end": 105.55,
-          "required": [],
+          "required": [
+            "Pick up the sponge with the right hand.",
+            "Place the sponge in the sink with the right hand.",
+            "Push a glass forward with the right hand."
+          ],
           "optional": []
         },
         {
@@ -2810,7 +2839,9 @@
           "end_boundary_id": "boundary-12",
           "start": 105.55,
           "end": 106.91,
-          "required": [],
+          "required": [
+            "Turn on the faucet with the left hand."
+          ],
           "optional": []
         },
         {
@@ -2818,15 +2849,22 @@
           "end_boundary_id": "boundary-14",
           "start": 106.91,
           "end": 108.55,
-          "required": [],
-          "optional": []
+          "required": [
+            "Pick up a glass with the right hand."
+          ],
+          "optional": [
+            "Rinse both hands."
+          ]
         },
         {
           "start_boundary_id": "boundary-14",
           "end_boundary_id": "boundary-15",
           "start": 108.55,
           "end": 131.07,
-          "required": [],
+          "required": [
+            "Rub the glass with the right hand.",
+            "[Steady / rotate] the glass with the left hand."
+          ],
           "optional": []
         },
         {
@@ -2834,7 +2872,9 @@
           "end_boundary_id": "boundary-16",
           "start": 131.07,
           "end": 133.19,
-          "required": [],
+          "required": [
+            "Place the glass on the sink counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -2842,7 +2882,9 @@
           "end_boundary_id": "boundary-17",
           "start": 133.19,
           "end": 134.84,
-          "required": [],
+          "required": [
+            "Pick up a glass with the right hand."
+          ],
           "optional": []
         },
         {
@@ -2850,7 +2892,10 @@
           "end_boundary_id": "boundary-18",
           "start": 134.84,
           "end": 160.2,
-          "required": [],
+          "required": [
+            "Rub the glass with the right hand.",
+            "[Steady / rotate] the glass with the left hand."
+          ],
           "optional": []
         },
         {
@@ -2858,7 +2903,10 @@
           "end_boundary_id": "boundary-19",
           "start": 160.2,
           "end": 162.61,
-          "required": [],
+          "required": [
+            "Turn off the faucet with the left hand.",
+            "Hold the glass in the right hand."
+          ],
           "optional": []
         },
         {
@@ -2866,7 +2914,9 @@
           "end_boundary_id": "boundary-20",
           "start": 162.61,
           "end": 166.54,
-          "required": [],
+          "required": [
+            "Place the glass on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -2874,7 +2924,9 @@
           "end_boundary_id": "boundary-21",
           "start": 166.54,
           "end": 171.063333,
-          "required": [],
+          "required": [
+            "IDLE"
+          ],
           "optional": []
         }
       ]
@@ -2884,7 +2936,7 @@
       "source_id": "homer_33",
       "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_33.mp4",
       "duration": 72.233333,
-      "description_ready": false,
+      "description_ready": true,
       "boundaries": [
         {
           "id": "start",
@@ -2897,7 +2949,7 @@
         {
           "id": "boundary-1",
           "time": 3.01667,
-          "minimum": 2.88333,
+          "minimum": 2.842405,
           "maximum": 3.31667,
           "type": "major",
           "golden": true
@@ -2905,7 +2957,7 @@
         {
           "id": "boundary-2",
           "time": 5.53333,
-          "minimum": 5.36667,
+          "minimum": 5.353383,
           "maximum": 5.73333,
           "type": "major",
           "golden": true
@@ -3133,7 +3185,9 @@
           "end_boundary_id": "boundary-1",
           "start": 0.0,
           "end": 3.01667,
-          "required": [],
+          "required": [
+            "Pick up the knife with the right hand."
+          ],
           "optional": []
         },
         {
@@ -3141,7 +3195,10 @@
           "end_boundary_id": "boundary-2",
           "start": 3.01667,
           "end": 5.53333,
-          "required": [],
+          "required": [
+            "Hold the knife in the right hand.",
+            "Pick up the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3149,7 +3206,10 @@
           "end_boundary_id": "boundary-3",
           "start": 5.53333,
           "end": 11.2667,
-          "required": [],
+          "required": [
+            "Cut the onion with the knife with the right hand.",
+            "[Steady / rotate] the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3157,15 +3217,23 @@
           "end_boundary_id": "boundary-4",
           "start": 11.2667,
           "end": 12.25,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion piece on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-4",
           "end_boundary_id": "boundary-5",
           "start": 12.25,
           "end": 17.0667,
-          "required": [],
+          "required": [
+            "Steady the onion with the left hand.",
+            "Slice the onion with the knife in the right hand."
+          ],
           "optional": []
         },
         {
@@ -3173,15 +3241,23 @@
           "end_boundary_id": "boundary-6",
           "start": 17.0667,
           "end": 17.8833,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion slice on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-6",
           "end_boundary_id": "boundary-7",
           "start": 17.8833,
           "end": 20.2667,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife in the right hand.",
+            "Hold the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3189,15 +3265,23 @@
           "end_boundary_id": "boundary-8",
           "start": 20.2667,
           "end": 21.1,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion peel on the counter with the right hand.",
+            "Hold the knife with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-8",
           "end_boundary_id": "boundary-9",
           "start": 21.1,
           "end": 22.6667,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife with the right hand.",
+            "Hold the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3205,15 +3289,23 @@
           "end_boundary_id": "boundary-10",
           "start": 22.6667,
           "end": 23.3167,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion peel on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-10",
           "end_boundary_id": "boundary-11",
           "start": 23.3167,
           "end": 24.9667,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife with the right hand.",
+            "Hold the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3221,15 +3313,23 @@
           "end_boundary_id": "boundary-12",
           "start": 24.9667,
           "end": 25.8,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion peel on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion with the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-12",
           "end_boundary_id": "boundary-13",
           "start": 25.8,
           "end": 28.7667,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife with the right hand.",
+            "Hold the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3237,15 +3337,23 @@
           "end_boundary_id": "boundary-14",
           "start": 28.7667,
           "end": 30.0833,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion peel on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-14",
           "end_boundary_id": "boundary-15",
           "start": 30.0833,
           "end": 33.0333,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife with the right hand.",
+            "Hold the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3253,15 +3361,23 @@
           "end_boundary_id": "boundary-16",
           "start": 33.0333,
           "end": 33.6333,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion peel on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-16",
           "end_boundary_id": "boundary-17",
           "start": 33.6333,
           "end": 35.2667,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife with the right hand.",
+            "Hold the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3269,7 +3385,10 @@
           "end_boundary_id": "boundary-18",
           "start": 35.2667,
           "end": 35.9,
-          "required": [],
+          "required": [
+            "Hold the onion with the left hand.",
+            "Place the onion peel on the counter with the right hand."
+          ],
           "optional": []
         },
         {
@@ -3277,7 +3396,10 @@
           "end_boundary_id": "boundary-19",
           "start": 35.9,
           "end": 39.0,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife with the right hand.",
+            "Hold the onion with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3285,15 +3407,23 @@
           "end_boundary_id": "boundary-20",
           "start": 39.0,
           "end": 39.6333,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion peel on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-20",
           "end_boundary_id": "boundary-21",
           "start": 39.6333,
           "end": 40.7667,
-          "required": [],
+          "required": [
+            "Peel the onion with the knife with the right hand.",
+            "Hold the onion in the left hand."
+          ],
           "optional": []
         },
         {
@@ -3301,15 +3431,23 @@
           "end_boundary_id": "boundary-22",
           "start": 40.7667,
           "end": 41.8,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the onion peel on the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the onion in the left hand.",
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-22",
           "end_boundary_id": "boundary-23",
           "start": 41.8,
           "end": 47.0333,
-          "required": [],
+          "required": [
+            "Hold the onion with the left hand.",
+            "Cut the onion with the knife with the right hand."
+          ],
           "optional": []
         },
         {
@@ -3317,15 +3455,23 @@
           "end_boundary_id": "9b81686f-9c08-4b20-987e-7c17c2a4de08",
           "start": 47.0333,
           "end": 49.365406,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place an onion half on the [plate / cutting board] with the left hand.",
+            "Place an onion half on the [plate / cutting board] with the right hand."
+          ],
+          "optional": [
+            "Pull the onion halves apart with both hands."
+          ]
         },
         {
           "start_boundary_id": "9b81686f-9c08-4b20-987e-7c17c2a4de08",
           "end_boundary_id": "boundary-26",
           "start": 49.365406,
           "end": 63.3833,
-          "required": [],
+          "required": [
+            "Steady an onion half with the left hand.",
+            "Slice the onion half with the knife with the right hand."
+          ],
           "optional": []
         },
         {
@@ -3333,7 +3479,9 @@
           "end_boundary_id": "boundary-27",
           "start": 63.3833,
           "end": 64.95,
-          "required": [],
+          "required": [
+            "Rotate an onion half with [the left hand / both hands]."
+          ],
           "optional": []
         },
         {
@@ -3341,7 +3489,10 @@
           "end_boundary_id": "boundary-28",
           "start": 64.95,
           "end": 72.233333,
-          "required": [],
+          "required": [
+            "Slice an onion half with the knife with the right hand.",
+            "Steady the onion half with the left hand."
+          ],
           "optional": []
         }
       ]
@@ -3351,7 +3502,7 @@
       "source_id": "homer_37",
       "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_37.mp4",
       "duration": 66.133333,
-      "description_ready": false,
+      "description_ready": true,
       "boundaries": [
         {
           "id": "start",
@@ -3363,11 +3514,19 @@
         },
         {
           "id": "ebf06e6c-1848-4418-895d-1c841be57901",
-          "time": 1.745439,
+          "time": 1.695367,
           "minimum": 1.045439,
-          "maximum": 1.895439,
+          "maximum": 1.784333,
           "type": "major",
           "golden": true
+        },
+        {
+          "id": "31bdc7b8-ea3a-4c0c-b694-346b99b44d4f",
+          "time": 1.873228,
+          "minimum": 1.762833,
+          "maximum": 1.967049,
+          "type": "minor",
+          "golden": false
         },
         {
           "id": "a956d7b0-a182-4875-bb00-878964a5935b",
@@ -3411,7 +3570,7 @@
         },
         {
           "id": "04169278-6530-4d81-a4ff-95a4e7c87d21",
-          "time": 16.216816,
+          "time": 15.966816,
           "minimum": 15.466816,
           "maximum": 16.466816,
           "type": "major",
@@ -3420,7 +3579,7 @@
         {
           "id": "boundary-1",
           "time": 24.1,
-          "minimum": 23.9,
+          "minimum": 23.795046,
           "maximum": 24.2333,
           "type": "major",
           "golden": true
@@ -3430,8 +3589,8 @@
           "time": 24.9333,
           "minimum": 24.85,
           "maximum": 25.0333,
-          "type": "major",
-          "golden": true
+          "type": "minor",
+          "golden": false
         },
         {
           "id": "boundary-3",
@@ -3468,7 +3627,7 @@
         {
           "id": "ed475374-c2ea-4331-a355-a2091284f4bf",
           "time": 33.843661,
-          "minimum": 33.743661,
+          "minimum": 33.719019,
           "maximum": 34.043661,
           "type": "minor",
           "golden": false
@@ -3486,8 +3645,8 @@
           "time": 47.55,
           "minimum": 47.4,
           "maximum": 47.7833,
-          "type": "major",
-          "golden": true
+          "type": "minor",
+          "golden": false
         },
         {
           "id": "boundary-6",
@@ -3607,48 +3766,60 @@
           "start_boundary_id": "start",
           "end_boundary_id": "ebf06e6c-1848-4418-895d-1c841be57901",
           "start": 0.0,
-          "end": 1.745439,
-          "required": [],
+          "end": 1.695367,
+          "required": [
+            "Slice a tomato with the knife with the right hand.",
+            "Steady the tomato with the left hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "ebf06e6c-1848-4418-895d-1c841be57901",
           "end_boundary_id": "93e41af7-2509-40a5-90ea-ac671f0e71da",
-          "start": 1.745439,
+          "start": 1.695367,
           "end": 7.193654,
-          "required": [],
-          "optional": []
+          "required": [
+            "Slice a tomato with the knife with the right hand.",
+            "Steady the tomato with the left hand."
+          ],
+          "optional": [
+            "Rotate the tomato with the left hand."
+          ]
         },
         {
           "start_boundary_id": "93e41af7-2509-40a5-90ea-ac671f0e71da",
           "end_boundary_id": "04169278-6530-4d81-a4ff-95a4e7c87d21",
           "start": 7.193654,
-          "end": 16.216816,
-          "required": [],
-          "optional": []
+          "end": 15.966816,
+          "required": [
+            "Slice a tomato with the knife with the right hand.",
+            "Turn the tomato slices with the left hand."
+          ],
+          "optional": [
+            "Steady the tomato with the left hand."
+          ]
         },
         {
           "start_boundary_id": "04169278-6530-4d81-a4ff-95a4e7c87d21",
           "end_boundary_id": "boundary-1",
-          "start": 16.216816,
+          "start": 15.966816,
           "end": 24.1,
-          "required": [],
+          "required": [
+            "Chop a tomato with the knife with the right hand.",
+            "Steady the tomato with the left hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-1",
-          "end_boundary_id": "boundary-2",
-          "start": 24.1,
-          "end": 24.9333,
-          "required": [],
-          "optional": []
-        },
-        {
-          "start_boundary_id": "boundary-2",
           "end_boundary_id": "boundary-3",
-          "start": 24.9333,
+          "start": 24.1,
           "end": 25.5,
-          "required": [],
+          "required": [
+            "Pick up a tomato piece with the left hand.",
+            "Place the tomato piece on the cutting board with the left hand.",
+            "Move the chopped tomatoes right with the knife with the right hand."
+          ],
           "optional": []
         },
         {
@@ -3656,7 +3827,10 @@
           "end_boundary_id": "a84a756b-1631-45e8-8759-42d0e0774c34",
           "start": 25.5,
           "end": 31.381291,
-          "required": [],
+          "required": [
+            "Slice a tomato with the knife with the right hand.",
+            "Steady the tomato with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3664,23 +3838,24 @@
           "end_boundary_id": "boundary-4",
           "start": 31.381291,
           "end": 46.25,
-          "required": [],
-          "optional": []
+          "required": [
+            "[Turn / steady] the tomato pieces with the left hand.",
+            "Chop the tomato pieces with the knife with the right hand."
+          ],
+          "optional": [
+            "Align the tomato slices with both hands."
+          ]
         },
         {
           "start_boundary_id": "boundary-4",
-          "end_boundary_id": "boundary-5",
-          "start": 46.25,
-          "end": 47.55,
-          "required": [],
-          "optional": []
-        },
-        {
-          "start_boundary_id": "boundary-5",
           "end_boundary_id": "boundary-6",
-          "start": 47.55,
+          "start": 46.25,
           "end": 48.7,
-          "required": [],
+          "required": [
+            "Pick up a tomato piece with the left hand.",
+            "Push the chopped tomato to the right with the knife in the right hand.",
+            "Place the tomato piece on the cutting board with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3688,7 +3863,10 @@
           "end_boundary_id": "7ef7aadf-7741-492e-8a4d-79501630ce88",
           "start": 48.7,
           "end": 51.886686,
-          "required": [],
+          "required": [
+            "Slice a tomato with the knife with the right hand.",
+            "Steady the tomato with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3696,7 +3874,10 @@
           "end_boundary_id": "89d53371-8551-4936-963a-22aea60f180b",
           "start": 51.886686,
           "end": 53.877862,
-          "required": [],
+          "required": [
+            "[Arrange / Pick and place / Rotate] the tomato pieces with the left hand.",
+            "Hold the knife in the right hand."
+          ],
           "optional": []
         },
         {
@@ -3704,7 +3885,10 @@
           "end_boundary_id": "boundary-7",
           "start": 53.877862,
           "end": 61.9,
-          "required": [],
+          "required": [
+            "Chop tomato slices with the knife with the right hand.",
+            "Steady the tomato with the left hand."
+          ],
           "optional": []
         },
         {
@@ -3712,7 +3896,10 @@
           "end_boundary_id": "boundary-8",
           "start": 61.9,
           "end": 62.7667,
-          "required": [],
+          "required": [
+            "Pick up a tomato with the right hand.",
+            "Hold the knife in the right hand."
+          ],
           "optional": []
         },
         {
@@ -3720,15 +3907,23 @@
           "end_boundary_id": "boundary-9",
           "start": 62.7667,
           "end": 64.05,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the tomato in the bowl with [the right hand / both hands].",
+            "Turn right."
+          ],
+          "optional": [
+            "Hold the knife in the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-9",
           "end_boundary_id": "boundary-10",
           "start": 64.05,
           "end": 65.2667,
-          "required": [],
+          "required": [
+            "Place the knife on the cutting board with the right hand.",
+            "Turn left."
+          ],
           "optional": []
         },
         {
@@ -3736,7 +3931,9 @@
           "end_boundary_id": "02dde1fb-2556-4464-872a-a7eaf113c8d0",
           "start": 65.2667,
           "end": 65.788792,
-          "required": [],
+          "required": [
+            "Pick up a piece of tomato with the right hand."
+          ],
           "optional": []
         },
         {
@@ -3744,7 +3941,9 @@
           "end_boundary_id": "boundary-11",
           "start": 65.788792,
           "end": 66.133333,
-          "required": [],
+          "required": [
+            "Place the tomato piece on the cutting board with the right hand."
+          ],
           "optional": []
         }
       ]
@@ -3754,7 +3953,7 @@
       "source_id": "homer_40",
       "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_40.mp4",
       "duration": 61.5078,
-      "description_ready": false,
+      "description_ready": true,
       "boundaries": [
         {
           "id": "start",
@@ -3775,15 +3974,15 @@
         {
           "id": "boundary-2",
           "time": 3.15,
-          "minimum": 3.0,
+          "minimum": 2.969759,
           "maximum": 3.3,
           "type": "major",
           "golden": true
         },
         {
           "id": "boundary-3",
-          "time": 8.7,
-          "minimum": 8.48,
+          "time": 8.65,
+          "minimum": 8.342241,
           "maximum": 8.95,
           "type": "major",
           "golden": true
@@ -3899,7 +4098,10 @@
           "end_boundary_id": "3711fa3a-5a87-4573-a87b-3be7d15a8abf",
           "start": 0.0,
           "end": 1.550118,
-          "required": [],
+          "required": [
+            "Pick up the spray bottle with the right hand.",
+            "Hold the paper towel in the left hand."
+          ],
           "optional": []
         },
         {
@@ -3907,23 +4109,32 @@
           "end_boundary_id": "boundary-2",
           "start": 1.550118,
           "end": 3.15,
-          "required": [],
+          "required": [
+            "Spray the table with the spray bottle with the right hand.",
+            "Hold the paper towel in the left hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-2",
           "end_boundary_id": "boundary-3",
           "start": 3.15,
-          "end": 8.7,
-          "required": [],
+          "end": 8.65,
+          "required": [
+            "Wipe the table with the cloth with the left hand.",
+            "Hold the spray bottle in the right hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-3",
           "end_boundary_id": "boundary-4",
-          "start": 8.7,
+          "start": 8.65,
           "end": 9.6,
-          "required": [],
+          "required": [
+            "Spray the table with the spray bottle with the right hand.",
+            "[Hold / Pick up] the cloth in the left hand."
+          ],
           "optional": []
         },
         {
@@ -3931,7 +4142,10 @@
           "end_boundary_id": "boundary-5",
           "start": 9.6,
           "end": 22.27,
-          "required": [],
+          "required": [
+            "Wipe the table with the paper towel with the left hand.",
+            "Hold the spray bottle in the right hand."
+          ],
           "optional": []
         },
         {
@@ -3939,7 +4153,10 @@
           "end_boundary_id": "boundary-6",
           "start": 22.27,
           "end": 23.17,
-          "required": [],
+          "required": [
+            "Spray the table with the spray bottle with the right hand.",
+            "Hold the paper towel in the left hand."
+          ],
           "optional": []
         },
         {
@@ -3947,7 +4164,11 @@
           "end_boundary_id": "boundary-7",
           "start": 23.17,
           "end": 28.95,
-          "required": [],
+          "required": [
+            "Wipe the table with the paper towel with the left hand.",
+            "Hold the spray bottle in the right hand.",
+            "Place the spray bottle on the table with the right hand."
+          ],
           "optional": []
         },
         {
@@ -3955,15 +4176,23 @@
           "end_boundary_id": "boundary-9",
           "start": 28.95,
           "end": 31.25,
-          "required": [],
-          "optional": []
+          "required": [
+            "Pick up the cloth with the right hand.",
+            "Pick up the spray bottle with the left hand."
+          ],
+          "optional": [
+            "Transfer the spray bottle from the right hand to the left hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-9",
           "end_boundary_id": "boundary-10",
           "start": 31.25,
           "end": 32.8,
-          "required": [],
+          "required": [
+            "Spray the table with the spray bottle with the left hand.",
+            "Hold the cloth in the right hand."
+          ],
           "optional": []
         },
         {
@@ -3971,15 +4200,23 @@
           "end_boundary_id": "boundary-13",
           "start": 32.8,
           "end": 59.1,
-          "required": [],
-          "optional": []
+          "required": [
+            "Wipe the table with the cloth with the right hand.",
+            "Place the spray bottle on the table with the left hand."
+          ],
+          "optional": [
+            "Hold the spray bottle in the left hand.",
+            "Unfold the paper towel with the right hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-13",
           "end_boundary_id": "boundary-14",
           "start": 59.1,
           "end": 61.5078,
-          "required": [],
+          "required": [
+            "IDLE"
+          ],
           "optional": []
         }
       ]
@@ -3989,7 +4226,7 @@
       "source_id": "homer_41",
       "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_41.mp4",
       "duration": 54.3,
-      "description_ready": false,
+      "description_ready": true,
       "boundaries": [
         {
           "id": "start",
@@ -4012,14 +4249,14 @@
           "time": 6.9,
           "minimum": 6.42,
           "maximum": 7.15,
-          "type": "major",
-          "golden": true
+          "type": "minor",
+          "golden": false
         },
         {
           "id": "fc73e900-47b3-40b2-a197-efa1d4f155f4",
           "time": 8.154258,
           "minimum": 8.004258,
-          "maximum": 8.354258,
+          "maximum": 8.429485,
           "type": "major",
           "golden": true
         },
@@ -4066,7 +4303,7 @@
         {
           "id": "boundary-7",
           "time": 19.6,
-          "minimum": 19.42,
+          "minimum": 19.347849,
           "maximum": 19.88,
           "type": "major",
           "golden": true
@@ -4074,7 +4311,7 @@
         {
           "id": "boundary-8",
           "time": 23.5,
-          "minimum": 23.05,
+          "minimum": 22.986996,
           "maximum": 23.93,
           "type": "major",
           "golden": true
@@ -4115,17 +4352,17 @@
           "id": "boundary-13",
           "time": 43.75,
           "minimum": 43.53,
-          "maximum": 44.15,
+          "maximum": 44.235754,
           "type": "major",
           "golden": true
         },
         {
           "id": "boundary-14",
-          "time": 45.45,
+          "time": 45.55,
           "minimum": 44.9,
           "maximum": 45.88,
           "type": "minor",
-          "golden": false
+          "golden": true
         },
         {
           "id": "boundary-15",
@@ -4140,16 +4377,16 @@
           "time": 49.3,
           "minimum": 48.97,
           "maximum": 49.8,
-          "type": "minor",
-          "golden": false
+          "type": "major",
+          "golden": true
         },
         {
           "id": "boundary-17",
           "time": 51.0,
           "minimum": 50.8,
           "maximum": 51.23,
-          "type": "minor",
-          "golden": false
+          "type": "major",
+          "golden": true
         },
         {
           "id": "9bd05513-f217-463b-9cbf-54f3231d8462",
@@ -4174,31 +4411,32 @@
           "end_boundary_id": "boundary-1",
           "start": 0.0,
           "end": 4.4,
-          "required": [],
+          "required": [
+            "IDLE"
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-1",
-          "end_boundary_id": "boundary-2",
-          "start": 4.4,
-          "end": 6.9,
-          "required": [],
-          "optional": []
-        },
-        {
-          "start_boundary_id": "boundary-2",
           "end_boundary_id": "fc73e900-47b3-40b2-a197-efa1d4f155f4",
-          "start": 6.9,
+          "start": 4.4,
           "end": 8.154258,
-          "required": [],
-          "optional": []
+          "required": [
+            "Pick up a bottle with the left hand."
+          ],
+          "optional": [
+            "Walk toward the counter."
+          ]
         },
         {
           "start_boundary_id": "fc73e900-47b3-40b2-a197-efa1d4f155f4",
           "end_boundary_id": "boundary-4",
           "start": 8.154258,
           "end": 12.5,
-          "required": [],
+          "required": [
+            "Turn right and walk to the stove.",
+            "Carry the bottle with both hands."
+          ],
           "optional": []
         },
         {
@@ -4206,7 +4444,9 @@
           "end_boundary_id": "f3e94221-9fdb-431a-b9f1-9d43c6b0dbf8",
           "start": 12.5,
           "end": 13.874126,
-          "required": [],
+          "required": [
+            "Place the bottle on the stove with the right hand."
+          ],
           "optional": []
         },
         {
@@ -4214,15 +4454,21 @@
           "end_boundary_id": "boundary-6",
           "start": 13.874126,
           "end": 17.4,
-          "required": [],
-          "optional": []
+          "required": [
+            "Turn left and walk to the counter."
+          ],
+          "optional": [
+            "Press the bottle pump with the left hand."
+          ]
         },
         {
           "start_boundary_id": "boundary-6",
           "end_boundary_id": "boundary-7",
           "start": 17.4,
           "end": 19.6,
-          "required": [],
+          "required": [
+            "Pick up a bottle with both hands."
+          ],
           "optional": []
         },
         {
@@ -4230,7 +4476,10 @@
           "end_boundary_id": "boundary-8",
           "start": 19.6,
           "end": 23.5,
-          "required": [],
+          "required": [
+            "Turn right and walk toward the stove.",
+            "Carry the bottle with both hands."
+          ],
           "optional": []
         },
         {
@@ -4238,7 +4487,9 @@
           "end_boundary_id": "boundary-9",
           "start": 23.5,
           "end": 25.25,
-          "required": [],
+          "required": [
+            "Place the bottle on the stove with both hands."
+          ],
           "optional": []
         },
         {
@@ -4246,7 +4497,9 @@
           "end_boundary_id": "boundary-10",
           "start": 25.25,
           "end": 28.9,
-          "required": [],
+          "required": [
+            "Turn left and walk toward the counter."
+          ],
           "optional": []
         },
         {
@@ -4254,7 +4507,9 @@
           "end_boundary_id": "boundary-11",
           "start": 28.9,
           "end": 33.68,
-          "required": [],
+          "required": [
+            "Pick up the bottle with both hands."
+          ],
           "optional": []
         },
         {
@@ -4262,7 +4517,9 @@
           "end_boundary_id": "boundary-12",
           "start": 33.68,
           "end": 41.55,
-          "required": [],
+          "required": [
+            "Turn right and walk toward the stove."
+          ],
           "optional": []
         },
         {
@@ -4270,23 +4527,61 @@
           "end_boundary_id": "boundary-13",
           "start": 41.55,
           "end": 43.75,
-          "required": [],
+          "required": [
+            "Place the bottle on the stove with both hands."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-13",
-          "end_boundary_id": "boundary-15",
+          "end_boundary_id": "boundary-14",
           "start": 43.75,
+          "end": 45.55,
+          "required": [
+            "[Slide left / pull / nudge / pick and release] a bottle with the left hand.",
+            "Slide a bottle right with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-14",
+          "end_boundary_id": "boundary-15",
+          "start": 45.55,
           "end": 48.05,
-          "required": [],
+          "required": [
+            "[Nudge / hold] a bottle with the left hand.",
+            "Slide a bottle toward you with the right hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-15",
-          "end_boundary_id": "boundary-18",
+          "end_boundary_id": "boundary-16",
           "start": 48.05,
+          "end": 49.3,
+          "required": [
+            "[Nudge bottles with both hands / IDLE]"
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-16",
+          "end_boundary_id": "boundary-17",
+          "start": 49.3,
+          "end": 51.0,
+          "required": [
+            "[Step backward away from the stove / IDLE]"
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-17",
+          "end_boundary_id": "boundary-18",
+          "start": 51.0,
           "end": 54.3,
-          "required": [],
+          "required": [
+            "IDLE"
+          ],
           "optional": []
         }
       ]
@@ -4296,7 +4591,7 @@
       "source_id": "homer_48",
       "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_48.mp4",
       "duration": 55.989267,
-      "description_ready": false,
+      "description_ready": true,
       "boundaries": [
         {
           "id": "start",
@@ -4451,6 +4746,14 @@
           "golden": true
         },
         {
+          "id": "4c85ae9e-fadf-49af-9ca5-c5ad39a3fc50",
+          "time": 39.311699,
+          "minimum": 39.157962,
+          "maximum": 39.486965,
+          "type": "minor",
+          "golden": false
+        },
+        {
           "id": "boundary-17",
           "time": 41.5,
           "minimum": 41.14,
@@ -4476,7 +4779,7 @@
         },
         {
           "id": "boundary-19",
-          "time": 43.2,
+          "time": 43.25,
           "minimum": 42.99,
           "maximum": 43.33,
           "type": "major",
@@ -4484,8 +4787,8 @@
         },
         {
           "id": "boundary-20",
-          "time": 44.65,
-          "minimum": 44.46,
+          "time": 44.6,
+          "minimum": 44.416788,
           "maximum": 45.05,
           "type": "major",
           "golden": true
@@ -4553,7 +4856,9 @@
           "end_boundary_id": "1a7cb3ff-0e19-45e4-a439-ae2725ce3b62",
           "start": 0.0,
           "end": 1.727111,
-          "required": [],
+          "required": [
+            "IDLE"
+          ],
           "optional": []
         },
         {
@@ -4561,7 +4866,9 @@
           "end_boundary_id": "boundary-1",
           "start": 1.727111,
           "end": 2.4,
-          "required": [],
+          "required": [
+            "Pick up the container with both hands."
+          ],
           "optional": []
         },
         {
@@ -4569,15 +4876,21 @@
           "end_boundary_id": "boundary-2",
           "start": 2.4,
           "end": 4.45,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the container on the counter with both hands."
+          ],
+          "optional": [
+            "Turn right."
+          ]
         },
         {
           "start_boundary_id": "boundary-2",
           "end_boundary_id": "boundary-3",
           "start": 4.45,
           "end": 6.05,
-          "required": [],
+          "required": [
+            "Pick up a container with both hands."
+          ],
           "optional": []
         },
         {
@@ -4585,7 +4898,9 @@
           "end_boundary_id": "boundary-4",
           "start": 6.05,
           "end": 8.5,
-          "required": [],
+          "required": [
+            "Place the container on a container on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -4593,31 +4908,46 @@
           "end_boundary_id": "boundary-5",
           "start": 8.5,
           "end": 10.4,
-          "required": [],
-          "optional": []
+          "required": [
+            "Pick up a container with both hands."
+          ],
+          "optional": [
+            "Turn left."
+          ]
         },
         {
           "start_boundary_id": "boundary-5",
           "end_boundary_id": "boundary-6",
           "start": 10.4,
           "end": 13.3,
-          "required": [],
-          "optional": []
+          "required": [
+            "Place the container on the stack of containers on the counter with both hands."
+          ],
+          "optional": [
+            "Turn right toward the counter.",
+            "Steady the stack of containers with both hands."
+          ]
         },
         {
           "start_boundary_id": "boundary-6",
           "end_boundary_id": "boundary-7",
           "start": 13.3,
           "end": 15.55,
-          "required": [],
-          "optional": []
+          "required": [
+            "Pick up a plastic container with both hands."
+          ],
+          "optional": [
+            "Turn left toward the sink."
+          ]
         },
         {
           "start_boundary_id": "boundary-7",
           "end_boundary_id": "boundary-8",
           "start": 15.55,
           "end": 17.45,
-          "required": [],
+          "required": [
+            "Place the container on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -4625,15 +4955,21 @@
           "end_boundary_id": "boundary-9",
           "start": 17.45,
           "end": 19.45,
-          "required": [],
-          "optional": []
+          "required": [
+            "Pick up the container with both hands."
+          ],
+          "optional": [
+            "Turn left."
+          ]
         },
         {
           "start_boundary_id": "boundary-9",
           "end_boundary_id": "boundary-10",
           "start": 19.45,
           "end": 21.7,
-          "required": [],
+          "required": [
+            "Place the container on a container on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -4641,7 +4977,9 @@
           "end_boundary_id": "boundary-11",
           "start": 21.7,
           "end": 23.8,
-          "required": [],
+          "required": [
+            "Pick up a container with both hands."
+          ],
           "optional": []
         },
         {
@@ -4649,7 +4987,9 @@
           "end_boundary_id": "boundary-12",
           "start": 23.8,
           "end": 27.3,
-          "required": [],
+          "required": [
+            "Place the container on the stack of containers on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -4657,7 +4997,9 @@
           "end_boundary_id": "boundary-13",
           "start": 27.3,
           "end": 28.95,
-          "required": [],
+          "required": [
+            "Pick up the container with both hands."
+          ],
           "optional": []
         },
         {
@@ -4665,7 +5007,9 @@
           "end_boundary_id": "boundary-14",
           "start": 28.95,
           "end": 32.6,
-          "required": [],
+          "required": [
+            "Place the container on the stack of containers on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -4673,7 +5017,9 @@
           "end_boundary_id": "boundary-15",
           "start": 32.6,
           "end": 35.3,
-          "required": [],
+          "required": [
+            "Pick up a container with both hands."
+          ],
           "optional": []
         },
         {
@@ -4681,7 +5027,9 @@
           "end_boundary_id": "boundary-16",
           "start": 35.3,
           "end": 37.9,
-          "required": [],
+          "required": [
+            "Place the container on the table with both hands."
+          ],
           "optional": []
         },
         {
@@ -4689,39 +5037,55 @@
           "end_boundary_id": "boundary-17",
           "start": 37.9,
           "end": 41.5,
-          "required": [],
-          "optional": []
+          "required": [
+            "Slide the containers right with both hands."
+          ],
+          "optional": [
+            "Turn left toward the sink."
+          ]
         },
         {
           "start_boundary_id": "boundary-17",
           "end_boundary_id": "boundary-18",
           "start": 41.5,
           "end": 41.9,
-          "required": [],
+          "required": [
+            "Pick up a jar with the left hand.",
+            "Steady a jar with the right hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-18",
           "end_boundary_id": "boundary-19",
           "start": 41.9,
-          "end": 43.2,
-          "required": [],
+          "end": 43.25,
+          "required": [
+            "Place the container on the counter with the left hand.",
+            "Pick a container with the right hand.",
+            "Transfer the container from the right hand to the left hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-19",
           "end_boundary_id": "boundary-20",
-          "start": 43.2,
-          "end": 44.65,
-          "required": [],
+          "start": 43.25,
+          "end": 44.6,
+          "required": [
+            "Place the container on the counter with the left hand.",
+            "Pick up a container with the right hand."
+          ],
           "optional": []
         },
         {
           "start_boundary_id": "boundary-20",
           "end_boundary_id": "boundary-21",
-          "start": 44.65,
+          "start": 44.6,
           "end": 46.0,
-          "required": [],
+          "required": [
+            "Place the container on the stack of containers on the shelf with both hands."
+          ],
           "optional": []
         },
         {
@@ -4729,7 +5093,9 @@
           "end_boundary_id": "boundary-22",
           "start": 46.0,
           "end": 47.55,
-          "required": [],
+          "required": [
+            "Pick up a container with both hands."
+          ],
           "optional": []
         },
         {
@@ -4737,7 +5103,9 @@
           "end_boundary_id": "boundary-23",
           "start": 47.55,
           "end": 49.45,
-          "required": [],
+          "required": [
+            "Place the container on the stack of containers on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -4745,15 +5113,21 @@
           "end_boundary_id": "boundary-24",
           "start": 49.45,
           "end": 51.8,
-          "required": [],
-          "optional": []
+          "required": [
+            "Pick up the container with both hands."
+          ],
+          "optional": [
+            "Turn left toward the counter."
+          ]
         },
         {
           "start_boundary_id": "boundary-24",
           "end_boundary_id": "13f82822-c6ca-481c-beea-d049c869cbed",
           "start": 51.8,
           "end": 53.908302,
-          "required": [],
+          "required": [
+            "Place the container on the stack of containers on the counter with both hands."
+          ],
           "optional": []
         },
         {
@@ -4761,7 +5135,9 @@
           "end_boundary_id": "boundary-25",
           "start": 53.908302,
           "end": 55.989267,
-          "required": [],
+          "required": [
+            "IDLE"
+          ],
           "optional": []
         }
       ]

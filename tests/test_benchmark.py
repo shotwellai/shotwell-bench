@@ -16,6 +16,7 @@ class ReferenceTests(unittest.TestCase):
         data = references()
         self.assertEqual(len(data['episodes']), 11)
         self.assertEqual(len(select_episodes(data, 'first5')), 5)
+        self.assertEqual(len(select_episodes(data, 'completed')), 11)
         for episode in data['episodes']:
             self.assertTrue(episode['video_url'].startswith('https://huggingface.co/'))
             boundaries = episode['boundaries']
