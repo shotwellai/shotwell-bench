@@ -196,12 +196,13 @@ def _description(episodes, model_rows, judgment_path, workers):
             'judge_rubric_version': JUDGE_RUBRIC_VERSION}
 
 
-def score(models, episodes, run_dir, workers=24):
+def score(models, episodes, run_dir, workers=24, guide_path=None):
     run_dir = Path(run_dir)
+    guide_path = Path(guide_path) if guide_path else GUIDE_PATH
     config = json.loads((run_dir / 'config.json').read_text())
     if config['reference_sha256'] != hashlib.sha256(REFERENCE_PATH.read_bytes()).hexdigest():
         raise ValueError('Reference snapshot changed since generation')
-    if config['guide_sha256'] != hashlib.sha256(GUIDE_PATH.read_bytes()).hexdigest():
+    if config['guide_sha256'] != hashlib.sha256(guide_path.read_bytes()).hexdigest():
         raise ValueError('Guide changed since generation')
     results = {'benchmark': 'Shotwell-WGO-Bench', 'fps': 8,
                'episode_ids': [e['id'] for e in episodes], 'models': {}}

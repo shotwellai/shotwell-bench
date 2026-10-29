@@ -1,0 +1,31 @@
+{
+  "fps": 8,
+  "frame_width": 512,
+  "contact_sheet": "4x2",
+  "segmentation_core_seconds": 10,
+  "context_seconds": 1,
+  "guide_sha256": "6bbcf11f7d9cf232f14213908228d0eedbb7ff81fb83e89490be6fa3e321a4f8",
+  "reference_sha256": "5ff9337869cbc2a40c0385ee4df2a09701a8a9d15cc7f042ffd2dcef3e0bf84c",
+  "models": {
+    "astra": "gpt-6-astra",
+    "sol": "gpt-6.1-sol",
+    "luna": "gpt-6-luna",
+    "argon": "gemini-4-argon",
+    "opus": "claude-opus-5-5",
+    "qwen": "qwen/qwen3-vl-235b-a22b-instruct",
+    "sonnet": "claude-sonnet-5-5"
+  },
+  "episode_ids": [
+    "wgo-bench-homer_1",
+    "wgo-bench-homer_2",
+    "wgo-bench-homer_3",
+    "wgo-bench-homer_4",
+    "wgo-bench-homer_5",
+    "wgo-bench-homer_9",
+    "wgo-bench-homer_33",
+    "wgo-bench-homer_37",
+    "wgo-bench-homer_40",
+    "wgo-bench-homer_41",
+    "wgo-bench-homer_48"
+  ]
+}

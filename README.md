@@ -10,7 +10,7 @@ The snapshot contains the 11 selected Job 690 episodes: `homer_1`, `homer_2`, `h
 
 ## Eleven-episode run
 
-All 11 completed episodes were evaluated at 8 fps with the updated guide and description judge. The exact guide text, run config, model outputs, judgments, and scores are in [the archived results](benchmark-results/all11-8fps-2026-10-29/). The Markdown guide adds formatting only, but changes its byte hash, so use a new run directory for future runs.
+All 11 completed episodes were evaluated at 8 fps with the updated guide and description judge. The seven-model extension reused the original five model outputs and added Sonnet and Qwen on the same guide and reference snapshot. The exact guide text, run config, model outputs, judgments, and scores are in [the archived results](benchmark-results/all11-8fps-2026-10-29-plus2/). The Markdown guide adds formatting only, but changes its byte hash, so use a new run directory for future runs.
 
 | Model | Segmentation F1 | Description F1 | Overall F1 |
 | --- | ---: | ---: | ---: |
@@ -18,7 +18,9 @@ All 11 completed episodes were evaluated at 8 fps with the updated guide and des
 | GPT-6.1 Sol | 0.756 | 0.676 | 0.511 |
 | Gemini 4 Argon | 0.694 | 0.672 | 0.466 |
 | Claude Opus 5.5 | 0.548 | 0.590 | 0.323 |
+| Claude Sonnet 5.5 | 0.520 | 0.489 | 0.254 |
 | GPT-6 Luna | 0.474 | 0.432 | 0.204 |
+| Qwen3-VL 235B Instruct | 0.339 | 0.319 | 0.108 |
 
 ## Five-episode pilot
 
@@ -39,14 +41,15 @@ Argon refused two image windows under its provider's content policy, including o
 Python 3.11+, `ffmpeg`, and `ffprobe` are required. Install with `python3 -m venv .venv && .venv/bin/pip install -e .` and activate the environment. Copy `.env.example` to `.env` and fill in your own credentials, or set environment variables directly:
 
 - `OPENAI_KEY`: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna, and the text-only judge.
-- `ANTHROPIC_KEY`: Claude Opus 5.5 via Anthropic's API.
+- `ANTHROPIC_KEY`: Claude Opus 5.5 and Sonnet 5.5 via Anthropic's API.
+- `OPENROUTER_API_KEY`: Qwen3-VL-235B-A22B-Instruct via OpenRouter.
 - Google Cloud ADC or `gcloud auth login`: Gemini 4 Argon via Vertex AI. `GOOGLE_CLOUD_PROJECT` defaults to `robot-data-qa`; set it to a project with model access.
 
 Never commit `.env` or run outputs with credentials. The first run downloads only the selected public MP4s to `~/.cache/shotwell-wgo-bench` (override with `--cache`).
 
 ## Run
 
-All five models, first five completed episodes, with up to 32 concurrent calls:
+All seven models, first five completed episodes, with up to 32 concurrent calls:
 
 ```bash
 python3 -m shotwell_bench run --model all --subset first5 \
@@ -55,15 +58,15 @@ python3 -m shotwell_bench score --model all --subset first5 \
   --workers 24 --env .env --run-dir runs/first5-8fps
 ```
 
-Run one model with `scripts/run_astra.sh`, `run_sol.sh`, `run_argon.sh`, `run_opus.sh`, or `run_luna.sh`, passing the same options. `scripts/run_all.sh` runs all five. `--subset completed` (default) selects every description-ready episode; with the current reference export, all 11 are ready, so it selects the same episodes as `--subset all`. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
+Run one model with the corresponding script in `scripts/`, including `run_sonnet.sh` and `run_qwen.sh`. `scripts/run_all.sh` runs all seven. `--subset completed` (default) selects every description-ready episode; with the current reference export, all 11 are ready, so it selects the same episodes as `--subset all`. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
 
-Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The candidate models are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-luna`, `google/gemini-4-argon`, and `claude-opus-5-5`. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly.
+Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The candidate models are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-luna`, `gemini-4-argon`, `claude-opus-5-5`, `claude-sonnet-5-5`, and `qwen/qwen3-vl-235b-a22b-instruct`. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly. Qwen's Thinking variant was unavailable through the configured providers, so this run uses the available Instruct variant.
 
-`--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals. Use a new run directory when running the updated guide; the five-episode pilot artifacts were generated with the earlier guide revision.
+`--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals. Use a new run directory when changing the guide. To extend the archived eleven-episode run with another model, pass `--guide benchmark-results/all11-8fps-2026-10-29/guide.txt` so the exact guide hash matches; the root Markdown guide has the same prose but different bytes.
 
 ## Visual input and prompts
 
-**Every candidate model receives frames sampled at 8 fps** and resized to 512 pixels wide. Eight consecutive timestamped frames are arranged in a 4-by-2 contact sheet; this reduces API image count without dropping sampled frames. The same cached sheets and full guide are passed to every model. The segmentation pass uses 10-second nonoverlapping scoring cores with one second of context on either side. It predicts action ends and captions without seeing reference boundaries. Only predicted ends inside the core are kept; the structural video start/end are never scored. The description pass gives the model a fixed golden interval and its frames, but no reference detail text. Each fixed interval returns one imperative description or `IDLE`.
+**Every candidate model receives frames sampled at 8 fps** and resized to 512 pixels wide. Eight consecutive timestamped frames are arranged in a 4-by-2 contact sheet; this reduces API image count without dropping sampled frames. The same cached sheets and full guide are passed to every model. For unusually long intervals, the Qwen adapter stacks adjacent sheets vertically to stay within its provider's 32-image limit; every sampled frame remains present. The segmentation pass uses 10-second nonoverlapping scoring cores with one second of context on either side. It predicts action ends and captions without seeing reference boundaries. Only predicted ends inside the core are kept; the structural video start/end are never scored. The description pass gives the model a fixed golden interval and its frames, but no reference detail text. Each fixed interval returns one imperative description or `IDLE`.
 
 ## Scoring
 

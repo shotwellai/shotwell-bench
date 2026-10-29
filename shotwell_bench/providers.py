@@ -1,12 +1,15 @@
-"""Small HTTP adapters for the five candidate models and the text-only judge."""
+"""Small HTTP adapters for candidate models and the text-only judge."""
 
 import json
+import base64
+import io
 import os
 import subprocess
 import threading
 import time
 
 import requests
+from PIL import Image
 
 MODELS = {
     'astra': ('openai', 'gpt-6-astra'),
@@ -14,13 +17,16 @@ MODELS = {
     'luna': ('openai', 'gpt-6-luna'),
     'argon': ('vertex', 'gemini-4-argon'),
     'opus': ('anthropic', 'claude-opus-5-5'),
+    'sonnet': ('anthropic', 'claude-sonnet-5-5'),
+    'qwen': ('openrouter', 'qwen/qwen3-vl-235b-a22b-instruct'),
 }
 JUDGE_MODEL = 'gpt-6-astra'
 _token_lock = threading.Lock()
 _token = {'value': None, 'until': 0.0}
 _provider_limits = {'openai': threading.BoundedSemaphore(16),
                     'vertex': threading.BoundedSemaphore(8),
-                    'anthropic': threading.BoundedSemaphore(8)}
+                    'anthropic': threading.BoundedSemaphore(8),
+                    'openrouter': threading.BoundedSemaphore(8)}
 
 
 class ContentBlocked(Exception):
@@ -53,6 +59,27 @@ def _json_text(text):
     if text.startswith('```'):
         text = text.split('\n', 1)[-1].rsplit('```', 1)[0].strip()
     return json.loads(text)
+
+
+def _json_object_in_text(text, schema):
+    try:
+        return _json_text(text)
+    except json.JSONDecodeError as original:
+        decoder = json.JSONDecoder()
+        found = None
+        for index, char in enumerate(text):
+            if char != '{':
+                continue
+            try:
+                candidate, _ = decoder.raw_decode(text[index:])
+            except json.JSONDecodeError:
+                continue
+            if isinstance(candidate, dict) and all(
+                    key in candidate for key in schema.get('required', [])):
+                found = candidate
+        if found is None:
+            raise original
+        return found
 
 
 def _openai(model, prompt, images, schema, max_tokens):
@@ -128,15 +155,69 @@ def _anthropic(model, prompt, images, schema, max_tokens):
     body = r.json()
     raw = ''.join(part.get('text', '') for part in body.get('content', [])
                   if part.get('type') == 'text')
-    return _json_text(raw), body.get('usage', {})
+    if not raw.strip():
+        types = [part.get('type') for part in body.get('content', [])]
+        raise ValueError(f'Empty Anthropic response: stop_reason={body.get("stop_reason")}, '
+                         f'content_types={types}, usage={body.get("usage", {})}')
+    try:
+        output = _json_object_in_text(raw, schema)
+    except json.JSONDecodeError as exc:
+        raise ValueError(f'Invalid Anthropic JSON: stop_reason={body.get("stop_reason")}, '
+                         f'raw_prefix={raw[:240]!r}') from exc
+    return output, body.get('usage', {})
+
+
+def _pack_openrouter_images(images):
+    if len(images) <= 32:
+        return images
+    packed = []
+    group_size = (len(images) + 31) // 32
+    for index in range(0, len(images), group_size):
+        group = [Image.open(io.BytesIO(base64.b64decode(image))).convert('RGB')
+                 for image in images[index:index + group_size]]
+        canvas = Image.new('RGB', (group[0].width, sum(image.height for image in group)))
+        top = 0
+        for image in group:
+            canvas.paste(image, (0, top))
+            top += image.height
+        output = io.BytesIO()
+        canvas.save(output, format='JPEG', quality=85)
+        packed.append(base64.b64encode(output.getvalue()).decode())
+    return packed
+
+
+def _openrouter(model, prompt, images, schema, max_tokens):
+    images = _pack_openrouter_images(images)
+    content = [{'type': 'text', 'text': prompt}]
+    content.extend({'type': 'image_url', 'image_url': {
+        'url': 'data:image/jpeg;base64,' + image}} for image in images)
+    payload = {
+        'model': model,
+        'messages': [{'role': 'user', 'content': content}],
+        'response_format': {'type': 'json_schema', 'json_schema': {
+            'name': 'bench_output', 'strict': True, 'schema': schema}},
+        'provider': {'require_parameters': True},
+        'max_tokens': max_tokens,
+    }
+    r = requests.post('https://openrouter.ai/api/v1/chat/completions', json=payload,
+                      headers={'Authorization': 'Bearer ' + os.environ['OPENROUTER_API_KEY']},
+                      timeout=900)
+    r.raise_for_status()
+    body = r.json()
+    choice = body['choices'][0]
+    if choice.get('finish_reason') == 'content_filter':
+        raise ContentBlocked('content_filter')
+    return _json_text(choice['message']['content']), body.get('usage', {})
 
 
 def generate(model_name, prompt, images, schema, max_tokens=4000):
     provider, model = MODELS[model_name]
-    required_key = {'openai': 'OPENAI_KEY', 'anthropic': 'ANTHROPIC_KEY'}.get(provider)
+    required_key = {'openai': 'OPENAI_KEY', 'anthropic': 'ANTHROPIC_KEY',
+                    'openrouter': 'OPENROUTER_API_KEY'}.get(provider)
     if required_key and not os.environ.get(required_key):
         raise ValueError(f'{required_key} is not configured')
-    caller = {'openai': _openai, 'vertex': _vertex, 'anthropic': _anthropic}[provider]
+    caller = {'openai': _openai, 'vertex': _vertex, 'anthropic': _anthropic,
+              'openrouter': _openrouter}[provider]
     last = None
     with _provider_limits[provider]:
         for attempt in range(5):

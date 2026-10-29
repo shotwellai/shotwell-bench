@@ -34,6 +34,8 @@ def main():
         command.add_argument('--run-dir', type=Path, default=Path('runs/first5-8fps'))
         command.add_argument('--workers', type=int, default=32 if name == 'run' else 24)
         command.add_argument('--env', type=Path)
+        command.add_argument('--guide', type=Path,
+                             help='Guide file used for this run (defaults to guide.md)')
     run_command = commands.choices['run']
     run_command.add_argument('--cache', type=Path,
                              default=Path.home() / '.cache/shotwell-wgo-bench')
@@ -51,9 +53,9 @@ def main():
     if args.command == 'run':
         run(models, episodes, args.run_dir, args.cache,
             workers=args.workers, stage=args.stage, limit_tasks=args.limit_tasks,
-            retry_refusals=args.retry_refusals)
+            retry_refusals=args.retry_refusals, guide_path=args.guide)
     else:
-        score(models, episodes, args.run_dir, workers=args.workers)
+        score(models, episodes, args.run_dir, workers=args.workers, guide_path=args.guide)
 
 
 if __name__ == '__main__':

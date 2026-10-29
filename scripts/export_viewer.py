@@ -16,6 +16,8 @@ MODEL_NAMES = {
     'argon': 'Gemini 4 Argon',
     'opus': 'Claude Opus 5.5',
     'luna': 'GPT-6 Luna',
+    'sonnet': 'Claude Sonnet 5.5',
+    'qwen': 'Qwen3-VL 235B Instruct',
 }
 
 
@@ -35,9 +37,10 @@ def js_assignment(name, value):
     return f'window.{name} = {json.dumps(value, ensure_ascii=False, separators=(",", ":"))};\n'
 
 
-def export(run_dir, website_dir, task_labels):
+def export(run_dir, website_dir, task_labels, guide_path=None):
+    guide_path = Path(guide_path) if guide_path else GUIDE_PATH
     config = json.loads((run_dir / 'config.json').read_text())
-    for name, path in [('reference_sha256', REFERENCE_PATH), ('guide_sha256', GUIDE_PATH)]:
+    for name, path in [('reference_sha256', REFERENCE_PATH), ('guide_sha256', guide_path)]:
         if config[name] != hashlib.sha256(path.read_bytes()).hexdigest():
             raise ValueError(f'{path.name} differs from the completed run')
     scores = json.loads((run_dir / 'scores.json').read_text())
@@ -150,8 +153,9 @@ def main():
     parser.add_argument('--run-dir', type=Path, required=True)
     parser.add_argument('--website-dir', type=Path, required=True)
     parser.add_argument('--task-labels', type=Path)
+    parser.add_argument('--guide', type=Path)
     args = parser.parse_args()
-    export(args.run_dir, args.website_dir, args.task_labels)
+    export(args.run_dir, args.website_dir, args.task_labels, args.guide)
 
 
 if __name__ == '__main__':

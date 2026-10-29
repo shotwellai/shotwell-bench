@@ -1,14 +1,17 @@
 import unittest
+import base64
 import hashlib
+import io
 import json
 import tempfile
 from pathlib import Path
 from unittest.mock import patch
+from PIL import Image
 
 from shotwell_bench.boundary_score import score_boundaries
 from shotwell_bench.alternatives import expand_alternatives
-from shotwell_bench.providers import ContentBlocked, _anthropic, generate
-from shotwell_bench.runner import SEG_SCHEMA, _done_ids, references, select_episodes, tasks_for_episode
+from shotwell_bench.providers import ContentBlocked, _anthropic, _openrouter, _pack_openrouter_images, generate
+from shotwell_bench.runner import SEG_SCHEMA, _done_ids, references, run, select_episodes, tasks_for_episode
 from shotwell_bench.scoring import _f1, _judge_prompt, judgment_key
 
 
@@ -104,6 +107,61 @@ class ReferenceTests(unittest.TestCase):
         self.assertEqual(payload['messages'][0]['content'][1]['source']['media_type'], 'image/jpeg')
         self.assertEqual(output['description'], 'Pick the cup.')
         self.assertEqual(usage['input_tokens'], 10)
+
+    def test_anthropic_extracts_json_after_explanatory_text(self):
+        with patch.dict('os.environ', {'ANTHROPIC_KEY': 'test-key'}), \
+                patch('shotwell_bench.providers.requests.post') as post:
+            post.return_value.json.return_value = {
+                'content': [{'type': 'text', 'text':
+                             'The action ends here.\n\n{"description":"Pick the cup."}'}],
+            }
+            output, _ = _anthropic('claude-sonnet-5-5', 'Describe', [],
+                                    {'required': ['description']}, 500)
+        self.assertEqual(output, {'description': 'Pick the cup.'})
+
+    def test_qwen_uses_openrouter_images_and_schema(self):
+        with patch.dict('os.environ', {'OPENROUTER_API_KEY': 'test-key'}), \
+                patch('shotwell_bench.providers.requests.post') as post:
+            post.return_value.json.return_value = {
+                'choices': [{'message': {'content': '{"description":"Pick the cup."}'}}],
+                'usage': {'prompt_tokens': 10},
+            }
+            output, usage = _openrouter('qwen/qwen3-vl-235b-a22b-instruct', 'Describe',
+                                        ['image-data'], {'type': 'object'}, 500)
+        payload = post.call_args.kwargs['json']
+        self.assertEqual(payload['model'], 'qwen/qwen3-vl-235b-a22b-instruct')
+        self.assertEqual(payload['messages'][0]['content'][1]['image_url']['url'],
+                         'data:image/jpeg;base64,image-data')
+        self.assertEqual(payload['response_format']['json_schema']['schema'],
+                         {'type': 'object'})
+        self.assertEqual(output['description'], 'Pick the cup.')
+        self.assertEqual(usage['prompt_tokens'], 10)
+
+    def test_openrouter_packs_long_8fps_contact_sheet_series(self):
+        image = Image.new('RGB', (16, 8), 'white')
+        buffer = io.BytesIO()
+        image.save(buffer, format='JPEG')
+        encoded = base64.b64encode(buffer.getvalue()).decode()
+        packed = _pack_openrouter_images([encoded] * 50)
+        self.assertEqual(len(packed), 25)
+        combined = Image.open(io.BytesIO(base64.b64decode(packed[0])))
+        self.assertEqual(combined.size, (16, 16))
+        long_packed = _pack_openrouter_images([encoded] * 112)
+        self.assertEqual(len(long_packed), 28)
+        long_combined = Image.open(io.BytesIO(base64.b64decode(long_packed[0])))
+        self.assertEqual(long_combined.size, (16, 32))
+
+    def test_resuming_run_rejects_different_guide(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            guide = root / 'guide.txt'
+            guide.write_text('Original guide')
+            run([], [], root / 'run', root / 'cache', guide_path=guide)
+            original = (root / 'run' / 'config.json').read_text()
+            guide.write_text('Changed guide')
+            with self.assertRaisesRegex(ValueError, 'guide_sha256'):
+                run([], [], root / 'run', root / 'cache', guide_path=guide)
+            self.assertEqual((root / 'run' / 'config.json').read_text(), original)
 
     def test_retry_refusals_keeps_successful_tasks(self):
         with tempfile.TemporaryDirectory() as folder:

@@ -114,22 +114,34 @@ def _done_ids(path, retry_refusals=False):
 
 
 def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=None,
-        retry_refusals=False):
+        retry_refusals=False, guide_path=None):
     out_dir = Path(out_dir)
     cache = Path(cache)
+    guide_path = Path(guide_path) if guide_path else GUIDE_PATH
     out_dir.mkdir(parents=True, exist_ok=True)
-    guide_text = guide()
+    guide_text = guide_path.read_text(encoding='utf-8-sig')
     episode_by_id = {e['id']: e for e in episodes}
     tasks = [task for e in episodes for task in tasks_for_episode(e, stage)]
     if limit_tasks is not None:
         tasks = tasks[:limit_tasks]
     metadata = {'fps': FPS, 'frame_width': FRAME_WIDTH, 'contact_sheet': '4x2',
                 'segmentation_core_seconds': 10, 'context_seconds': 1,
-                'guide_sha256': hashlib.sha256(GUIDE_PATH.read_bytes()).hexdigest(),
+                'guide_sha256': hashlib.sha256(guide_path.read_bytes()).hexdigest(),
                 'reference_sha256': hashlib.sha256(REFERENCE_PATH.read_bytes()).hexdigest(),
                 'models': {name: MODELS[name][1] for name in models},
                 'episode_ids': list(episode_by_id)}
-    (out_dir / 'config.json').write_text(json.dumps(metadata, indent=2) + '\n')
+    config_path = out_dir / 'config.json'
+    if config_path.exists():
+        existing = json.loads(config_path.read_text())
+        for key in ('fps', 'frame_width', 'contact_sheet', 'segmentation_core_seconds',
+                    'context_seconds', 'guide_sha256', 'reference_sha256', 'episode_ids'):
+            if existing[key] != metadata[key]:
+                raise ValueError(f'Run config mismatch for {key}; use a new run directory')
+        for name, model_id in metadata['models'].items():
+            if name in existing['models'] and existing['models'][name] != model_id:
+                raise ValueError(f'Run config mismatch for model {name}')
+        metadata['models'] = {**existing['models'], **metadata['models']}
+    config_path.write_text(json.dumps(metadata, indent=2) + '\n')
 
     done_by_model = {model: _done_ids(out_dir / f'{model}.jsonl', retry_refusals)
                      for model in models}
