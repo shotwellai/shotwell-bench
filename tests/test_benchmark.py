@@ -1,4 +1,5 @@
 import unittest
+import hashlib
 import json
 import tempfile
 from pathlib import Path
@@ -6,9 +7,9 @@ from unittest.mock import patch
 
 from shotwell_bench.boundary_score import score_boundaries
 from shotwell_bench.alternatives import expand_alternatives
-from shotwell_bench.providers import ContentBlocked, generate
+from shotwell_bench.providers import ContentBlocked, _anthropic, generate
 from shotwell_bench.runner import SEG_SCHEMA, _done_ids, references, select_episodes, tasks_for_episode
-from shotwell_bench.scoring import _f1
+from shotwell_bench.scoring import _f1, _judge_prompt, judgment_key
 
 
 class ReferenceTests(unittest.TestCase):
@@ -57,6 +58,22 @@ class ReferenceTests(unittest.TestCase):
     def test_f1(self):
         self.assertAlmostEqual(_f1(8, 2, 2)['f1'], .8)
 
+    def test_judge_allows_compatible_specificity_but_not_new_actions(self):
+        prompt = _judge_prompt(['Pour liquid into the glass with the right hand.'], [],
+                               'Pour water from a jug into the glass with the right hand.')
+        self.assertIn('Allow compatible extra specificity', prompt)
+        self.assertIn('slight generalization', prompt)
+        self.assertIn('a separate action absent from both', prompt)
+        segment = {'required': ['Pour liquid into the glass with the right hand.'],
+                   'optional': []}
+        legacy = hashlib.sha256(json.dumps(
+            [segment['required'], segment['optional'], 'Pour water.'],
+            ensure_ascii=False).encode()).hexdigest()
+        self.assertNotEqual(judgment_key('d:test:0', segment, 'Pour water.'),
+                            f'd:test:0:{legacy}')
+        self.assertNotEqual(judgment_key('d:test:0', segment, 'Pour water.'),
+                            judgment_key('d:test:0', segment, 'Pour juice.'))
+
     def test_bracketed_alternatives(self):
         self.assertEqual(expand_alternatives('[Rub / rotate] the glass with the left hand.'),
                          ['Rub the glass with the left hand.',
@@ -72,6 +89,21 @@ class ReferenceTests(unittest.TestCase):
             result = generate('argon', 'Describe the video', [], SEG_SCHEMA)
         self.assertEqual(result['output'], {'segments': []})
         self.assertEqual(result['refusal_reason'], 'PROHIBITED_CONTENT')
+
+    def test_opus_uses_direct_anthropic_vision_format(self):
+        with patch.dict('os.environ', {'ANTHROPIC_KEY': 'test-key'}), \
+                patch('shotwell_bench.providers.requests.post') as post:
+            post.return_value.json.return_value = {
+                'content': [{'type': 'text', 'text': '{"description":"Pick the cup."}'}],
+                'usage': {'input_tokens': 10},
+            }
+            output, usage = _anthropic('claude-opus-5-5', 'Describe', ['image-data'], {}, 500)
+        payload = post.call_args.kwargs['json']
+        self.assertEqual(payload['model'], 'claude-opus-5-5')
+        self.assertNotIn('temperature', payload)
+        self.assertEqual(payload['messages'][0]['content'][1]['source']['media_type'], 'image/jpeg')
+        self.assertEqual(output['description'], 'Pick the cup.')
+        self.assertEqual(usage['input_tokens'], 10)
 
     def test_retry_refusals_keeps_successful_tasks(self):
         with tempfile.TemporaryDirectory() as folder:

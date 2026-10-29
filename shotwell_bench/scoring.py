@@ -20,6 +20,14 @@ JUDGE_SCHEMA = {
         'format_violation': {'type': 'string'},
     },
 }
+JUDGE_RUBRIC_VERSION = 'core-action-v2'
+
+
+def judgment_key(task_id, segment, description):
+    fingerprint = hashlib.sha256(json.dumps(
+        [JUDGE_RUBRIC_VERSION, segment['required'], segment['optional'], description],
+        ensure_ascii=False).encode()).hexdigest()
+    return f'{task_id}:{fingerprint}'
 
 
 def _latest_rows(path, key_field='task_id'):
@@ -92,23 +100,31 @@ def _judge_prompt(required, optional, description):
     return (
         'You are a blinded semantic judge for egocentric action annotations. '
         'Evaluate the candidate only against the reference facts below; do not infer '
-        'unlisted events from an unseen video. Required details are atomic actions or '
-        'facts that MUST be expressed. Optional details are allowed but need not be '
-        'expressed. A required detail matches only if its action, object, hand, tool '
-        'and destination (when specified) are all semantically conveyed. Synonyms '
-        'and grammatical differences are fine. Bracketed alternatives have '
+        'events from an unseen video. Every distinct required action must be expressed. '
+        'Optional actions are allowed but need not be expressed. Match a required action '
+        'when its core verb (or equivalent), manipulated object, and acting hand(s) are '
+        'correct. Allow a slight generalization that omits a nonessential modifier, '
+        'tool, material, or destination, provided the same action is still clear. '
+        'Allow compatible extra specificity about that same action, such as water for '
+        'liquid, jug for container, or a more precise object subtype. Do not call a '
+        'compatible refinement unsupported merely because the reference is less specific. '
+        'Synonyms and grammatical differences are fine. Bracketed alternatives have '
         'already been expanded into the acceptable variants: [Rub / rotate] '
         'allows either verb, a single bracketed phrase may be omitted, and '
         'nested alternatives are also disjunctions. Match ONE acceptable '
         'variant to credit the original required detail. For IDLE, only an '
         'IDLE-equivalent candidate matches. Return zero-based indices of fully '
-        'matched required details. List each independent candidate action or factual '
-        'claim that is not entailed by ANY required or optional detail in '
-        '"unsupported"; a wrong hand, object, tool, or location counts as one '
-        'unsupported claim. Duplicate actions also count as unsupported. Set '
+        'matched required details. List in "unsupported" only a clearly contradictory '
+        'verb, object, hand, tool, or destination; a separate action absent from both '
+        'required and optional details; or a distinct outcome, intention, or causal '
+        'claim with no reference support. Duplicate actions also count as unsupported. '
+        'A compatible elaboration of a referenced action is not a separate action. '
+        'Do not penalize merely uncertain harmless specificity or a slight '
+        'generalization. Set '
         '"format_violation" to a short reason if the candidate breaks the '
         'guide\'s imperative/compound-sentence form, otherwise an empty string. '
-        'Do not credit a partly correct required detail. Return only JSON.\n\n'
+        'Do not credit a required action with a wrong core verb, object, or hand. '
+        'Return only JSON.\n\n'
         + reference)
 
 
@@ -122,10 +138,7 @@ def _description(episodes, model_rows, judgment_path, workers):
         for task in tasks_for_episode(episode, 'description'):
             segment = episode['segments'][task.segment_index]
             description = model_rows[task.id]['output']['description']
-            fingerprint = hashlib.sha256(json.dumps(
-                [segment['required'], segment['optional'], description],
-                ensure_ascii=False).encode()).hexdigest()
-            key = f'{task.id}:{fingerprint}'
+            key = judgment_key(task.id, segment, description)
             all_tasks.append((task, segment, description, key))
             if key not in existing:
                 pending.append((task, segment, description, key))
@@ -179,7 +192,8 @@ def _description(episodes, model_rows, judgment_path, workers):
         item['segments'] += 1
     return {**_f1(tp, fp, fn), 'required_details': tp + fn,
             'valid_segments': valid_segments, 'segment_total': len(all_tasks),
-            'by_episode': by_episode, 'judge_model': JUDGE_MODEL}
+            'by_episode': by_episode, 'judge_model': JUDGE_MODEL,
+            'judge_rubric_version': JUDGE_RUBRIC_VERSION}
 
 
 def score(models, episodes, run_dir, workers=24):

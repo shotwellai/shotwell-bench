@@ -13,14 +13,14 @@ MODELS = {
     'sol': ('openai', 'gpt-6.1-sol'),
     'luna': ('openai', 'gpt-6-luna'),
     'argon': ('vertex', 'gemini-4-argon'),
-    'opus': ('openrouter', 'anthropic/claude-opus-5.5'),
+    'opus': ('anthropic', 'claude-opus-5-5'),
 }
 JUDGE_MODEL = 'gpt-6-astra'
 _token_lock = threading.Lock()
 _token = {'value': None, 'until': 0.0}
 _provider_limits = {'openai': threading.BoundedSemaphore(16),
                     'vertex': threading.BoundedSemaphore(8),
-                    'openrouter': threading.BoundedSemaphore(8)}
+                    'anthropic': threading.BoundedSemaphore(8)}
 
 
 class ContentBlocked(Exception):
@@ -114,28 +114,29 @@ def _vertex(model, prompt, images, schema, max_tokens):
     return _json_text(raw), body.get('usageMetadata', {})
 
 
-def _openrouter(model, prompt, images, schema, max_tokens):
+def _anthropic(model, prompt, images, schema, max_tokens):
     content = [{'type': 'text', 'text': prompt + '\nReturn only valid JSON.'}]
-    content.extend({'type': 'image_url',
-                    'image_url': {'url': 'data:image/jpeg;base64,' + image}}
-                   for image in images)
-    r = requests.post('https://openrouter.ai/api/v1/chat/completions',
+    content.extend({'type': 'image', 'source': {
+        'type': 'base64', 'media_type': 'image/jpeg', 'data': image}}
+        for image in images)
+    r = requests.post('https://api.anthropic.com/v1/messages',
                       json={'model': model, 'messages': [{'role': 'user', 'content': content}],
-                            'temperature': 0, 'max_tokens': max_tokens},
-                      headers={'Authorization': 'Bearer ' + os.environ['OPENROUTER_API_KEY'],
-                               'HTTP-Referer': 'https://shotwell.ai/',
-                               'X-Title': 'Shotwell-WGO-Bench'}, timeout=900)
+                            'max_tokens': max_tokens},
+                      headers={'x-api-key': os.environ['ANTHROPIC_KEY'],
+                               'anthropic-version': '2023-06-01'}, timeout=900)
     r.raise_for_status()
     body = r.json()
-    return _json_text(body['choices'][0]['message']['content']), body.get('usage', {})
+    raw = ''.join(part.get('text', '') for part in body.get('content', [])
+                  if part.get('type') == 'text')
+    return _json_text(raw), body.get('usage', {})
 
 
 def generate(model_name, prompt, images, schema, max_tokens=4000):
     provider, model = MODELS[model_name]
-    required_key = {'openai': 'OPENAI_KEY', 'openrouter': 'OPENROUTER_API_KEY'}.get(provider)
+    required_key = {'openai': 'OPENAI_KEY', 'anthropic': 'ANTHROPIC_KEY'}.get(provider)
     if required_key and not os.environ.get(required_key):
         raise ValueError(f'{required_key} is not configured')
-    caller = {'openai': _openai, 'vertex': _vertex, 'openrouter': _openrouter}[provider]
+    caller = {'openai': _openai, 'vertex': _vertex, 'anthropic': _anthropic}[provider]
     last = None
     with _provider_limits[provider]:
         for attempt in range(5):
@@ -146,6 +147,13 @@ def generate(model_name, prompt, images, schema, max_tokens=4000):
                 output = {'segments': []} if 'segments' in schema['properties'] else {'description': ''}
                 return {'output': output, 'usage': {}, 'model_id': model,
                         'refusal_reason': str(exc)}
+            except requests.HTTPError as exc:
+                status = exc.response.status_code if exc.response is not None else None
+                if status is not None and 400 <= status < 500 and status != 429:
+                    raise RuntimeError(f'{model_name} request rejected: {exc.response.text[:500]}') from exc
+                last = exc
+                if attempt < 4:
+                    time.sleep(min(90, 3 * 2 ** attempt))
             except (requests.RequestException, ValueError, KeyError,
                     json.JSONDecodeError, subprocess.SubprocessError) as exc:
                 last = exc
