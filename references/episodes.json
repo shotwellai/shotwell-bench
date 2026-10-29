@@ -1,0 +1,4770 @@
+{
+  "schema_version": 1,
+  "source_job": 690,
+  "source_dataset": "macrodata/WGO-Bench",
+  "video_mirror": "Nano1337/wgo-bench-videos",
+  "license": "CC BY-NC-SA 4.0",
+  "exported_at": "2026-10-29T15:29:29.749862+00:00",
+  "episodes": [
+    {
+      "id": "wgo-bench-homer_1",
+      "source_id": "homer_1",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_1.mp4",
+      "duration": 161.183333,
+      "description_ready": true,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "b78fce26-3424-4f71-9803-3e50e60052e3",
+          "time": 5.311726,
+          "minimum": 5.061726,
+          "maximum": 5.311726,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 8.05,
+          "minimum": 7.86,
+          "maximum": 8.2,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "cb904f9f-3921-49f0-9cc8-8692516a7412",
+          "time": 9.743831,
+          "minimum": 9.468717,
+          "maximum": 10.180032,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-2",
+          "time": 11.9,
+          "minimum": 10.195179,
+          "maximum": 11.9,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 13.158144,
+          "minimum": 12.93,
+          "maximum": 13.260333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-4",
+          "time": 14.75,
+          "minimum": 14.25,
+          "maximum": 15.75,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "0514e4c2-41d3-4720-8c4d-51b1f06b2b62",
+          "time": 17.963927,
+          "minimum": 17.27251,
+          "maximum": 18.789825,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-5",
+          "time": 20.7,
+          "minimum": 20.43,
+          "maximum": 20.8,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 21.8,
+          "minimum": 21.55,
+          "maximum": 22.029577,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 26.3,
+          "minimum": 26.07,
+          "maximum": 26.38,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-8",
+          "time": 27.7,
+          "minimum": 27.25,
+          "maximum": 27.85,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "b23d0158-de23-4732-8f02-7f8285647ab3",
+          "time": 29.47391,
+          "minimum": 29.12391,
+          "maximum": 29.62391,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "32d1ec36-780e-4ba9-b953-b374fba2d1ed",
+          "time": 58.280585,
+          "minimum": 58.030585,
+          "maximum": 58.480585,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "b2cb5fe2-9e4a-49a7-a6ec-a70539ca73e4",
+          "time": 59.118108,
+          "minimum": 58.768108,
+          "maximum": 59.868108,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-9",
+          "time": 61.3,
+          "minimum": 61.0,
+          "maximum": 61.65,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-10",
+          "time": 62.9,
+          "minimum": 62.41,
+          "maximum": 63.05,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "b108ef7d-aad9-43bd-9014-33024684aaec",
+          "time": 65.867364,
+          "minimum": 64.497261,
+          "maximum": 66.667364,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-12",
+          "time": 67.8,
+          "minimum": 67.34,
+          "maximum": 67.9,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "586c5fb1-b2e7-4e9c-a243-d625c09905bd",
+          "time": 69.326809,
+          "minimum": 69.073201,
+          "maximum": 69.476809,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-13",
+          "time": 72.7,
+          "minimum": 72.56,
+          "maximum": 72.82,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "01fd13da-35ff-4f0d-ae50-a63b07af5f76",
+          "time": 74.05515,
+          "minimum": 73.70515,
+          "maximum": 74.45515,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "5594bfee-a825-4fbf-b5c2-4102f32b10db",
+          "time": 76.246211,
+          "minimum": 75.946211,
+          "maximum": 76.546211,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-15",
+          "time": 79.7,
+          "minimum": 79.182529,
+          "maximum": 79.8,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-16",
+          "time": 82.9,
+          "minimum": 82.67,
+          "maximum": 83.05,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "d69ea822-a3b3-43b7-88e4-da71e3c8c408",
+          "time": 84.698349,
+          "minimum": 84.198349,
+          "maximum": 84.848349,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-17",
+          "time": 134.05,
+          "minimum": 133.7926,
+          "maximum": 134.2,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "bf8202a3-d8e2-4b88-9374-3c2fa19e0de8",
+          "time": 135.555946,
+          "minimum": 135.255946,
+          "maximum": 135.655946,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-18",
+          "time": 137.5,
+          "minimum": 137.21415,
+          "maximum": 137.687,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-19",
+          "time": 140.55,
+          "minimum": 140.287941,
+          "maximum": 140.618,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-20",
+          "time": 141.35,
+          "minimum": 141.082,
+          "maximum": 141.508,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "1021b86e-1c81-465a-a161-cbb42ae09462",
+          "time": 145.217666,
+          "minimum": 144.917666,
+          "maximum": 145.417666,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-21",
+          "time": 147.4,
+          "minimum": 147.293,
+          "maximum": 147.652,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-22",
+          "time": 152.2,
+          "minimum": 152.053,
+          "maximum": 152.3,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "8a946fe1-c56d-403e-a27d-cf9c2083d145",
+          "time": 153.29714,
+          "minimum": 153.09714,
+          "maximum": 153.64714,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-23",
+          "time": 157.2,
+          "minimum": 157.062,
+          "maximum": 157.407,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "e202d932-50ad-4fc6-8a7b-382a916006f3",
+          "time": 161.133333,
+          "minimum": 161.083333,
+          "maximum": 161.183333,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-24",
+          "time": 161.183333,
+          "minimum": 161.183333,
+          "maximum": 161.183333,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "b78fce26-3424-4f71-9803-3e50e60052e3",
+          "start": 0.0,
+          "end": 5.311726,
+          "required": [
+            "Twist the jug's lid with the left hand.",
+            "Steady the jug with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "b78fce26-3424-4f71-9803-3e50e60052e3",
+          "end_boundary_id": "boundary-1",
+          "start": 5.311726,
+          "end": 8.05,
+          "required": [
+            "Twist the jug's lid with the right hand.",
+            "Steady the container with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 8.05,
+          "end": 11.9,
+          "required": [
+            "Pick up the pitcher with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 11.9,
+          "end": 13.158144,
+          "required": [
+            "[Slide left / push] a glass with the left hand.",
+            "Hold the pitcher in the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "boundary-4",
+          "start": 13.158144,
+          "end": 14.75,
+          "required": [
+            "Pull the glass with the left hand.",
+            "Hold the pitcher in the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "boundary-5",
+          "start": 14.75,
+          "end": 20.7,
+          "required": [
+            "Pour water into the glass with the right hand."
+          ],
+          "optional": [
+            "Hold the glass with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 20.7,
+          "end": 21.8,
+          "required": [
+            "Place the jug on the table with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 21.8,
+          "end": 26.3,
+          "required": [
+            "Twist the jug lid with the right hand.",
+            "Steady the jug with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-8",
+          "start": 26.3,
+          "end": 27.7,
+          "required": [
+            "Pick up the pitcher with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "boundary-10",
+          "start": 27.7,
+          "end": 62.9,
+          "required": [
+            "Steady the wine glass with the left hand.",
+            "Pour liquid into the wine glass with the pitcher in the right hand."
+          ],
+          "optional": [
+            "Hold the pitcher in the right hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "boundary-12",
+          "start": 62.9,
+          "end": 67.8,
+          "required": [
+            "Slide a glass to the right with the left hand.",
+            "Place the pitcher on the table with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-12",
+          "end_boundary_id": "boundary-13",
+          "start": 67.8,
+          "end": 72.7,
+          "required": [
+            "Twist the jug lid with the right hand.",
+            "Steady the jug with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-13",
+          "end_boundary_id": "boundary-15",
+          "start": 72.7,
+          "end": 79.7,
+          "required": [
+            "Pick up the pitcher with the right hand.",
+            "Slide a glass to the right with the left hand.",
+            "Pour water into the glass with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-15",
+          "end_boundary_id": "boundary-16",
+          "start": 79.7,
+          "end": 82.9,
+          "required": [
+            "Slide the stemmed glass left with the left hand.",
+            "Hold the jug in the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-16",
+          "end_boundary_id": "d69ea822-a3b3-43b7-88e4-da71e3c8c408",
+          "start": 82.9,
+          "end": 84.698349,
+          "required": [
+            "Hold the jug in the right hand.",
+            "[Push / Slide left] a glass with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "d69ea822-a3b3-43b7-88e4-da71e3c8c408",
+          "end_boundary_id": "boundary-17",
+          "start": 84.698349,
+          "end": 134.05,
+          "required": [
+            "Pour water into the glass with the right hand.",
+            "Steady the glass with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-17",
+          "end_boundary_id": "boundary-18",
+          "start": 134.05,
+          "end": 137.5,
+          "required": [
+            "Slide a glass to the right with the left hand.",
+            "Pour water into the glass from the pitcher with the right hand."
+          ],
+          "optional": [
+            "Steady the glass with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-18",
+          "end_boundary_id": "boundary-19",
+          "start": 137.5,
+          "end": 140.55,
+          "required": [
+            "Pour water into the glass with the right hand."
+          ],
+          "optional": [
+            "Steady a glass with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-19",
+          "end_boundary_id": "boundary-20",
+          "start": 140.55,
+          "end": 141.35,
+          "required": [
+            "Place the pitcher on the table with the right hand."
+          ],
+          "optional": [
+            "Hold a glass with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-20",
+          "end_boundary_id": "boundary-21",
+          "start": 141.35,
+          "end": 147.4,
+          "required": [
+            "[Slide left / Pick up and then place on the table] a glass with the left hand.",
+            "Pull a glass with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-21",
+          "end_boundary_id": "boundary-22",
+          "start": 147.4,
+          "end": 152.2,
+          "required": [
+            "Push a glass forward [and to the right] with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-22",
+          "end_boundary_id": "boundary-24",
+          "start": 152.2,
+          "end": 161.183333,
+          "required": [
+            "Slide the pitcher away from you with [the left hand / both hands].",
+            "Rotate the pitcher with [the left hand / both hands]."
+          ],
+          "optional": [
+            "Slide the pitcher toward you with the right hand.",
+            "Slide the pitcher left with [both hands / the right hand]."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_2",
+      "source_id": "homer_2",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_2.mp4",
+      "duration": 154.2,
+      "description_ready": true,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "d49e942c-13ca-4efd-aea4-a3941306634f",
+          "time": 3.521456,
+          "minimum": 3.171456,
+          "maximum": 3.821456,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "ab78ef22-c018-4549-8f18-ad667bf7bab7",
+          "time": 5.434161,
+          "minimum": 5.284161,
+          "maximum": 5.684161,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-1",
+          "time": 7.3,
+          "minimum": 7.05,
+          "maximum": 7.5,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 11.27,
+          "minimum": 11.18,
+          "maximum": 11.42,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "961d65fb-1abf-4958-b6fc-753ae257b730",
+          "time": 13.502665,
+          "minimum": 13.152665,
+          "maximum": 13.652665,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "abc79ff1-79e6-4306-b3e3-3b88283bd7e3",
+          "time": 14.348238,
+          "minimum": 14.198238,
+          "maximum": 14.548238,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 16.53,
+          "minimum": 16.03,
+          "maximum": 16.88,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 19.75,
+          "minimum": 19.12,
+          "maximum": 20.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 20.75,
+          "minimum": 20.55,
+          "maximum": 20.93,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-8",
+          "time": 21.55,
+          "minimum": 21.35,
+          "maximum": 21.75,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-9",
+          "time": 22.5,
+          "minimum": 22.35,
+          "maximum": 22.7,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "b67c658f-0414-4419-aa98-a12cc77bdf7b",
+          "time": 23.334302,
+          "minimum": 23.184302,
+          "maximum": 23.534302,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "2f986c79-cded-4d3e-aa25-abb005440d0e",
+          "time": 26.116494,
+          "minimum": 25.516494,
+          "maximum": 26.516493999999998,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-10",
+          "time": 28.58,
+          "minimum": 28.4,
+          "maximum": 28.72,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-11",
+          "time": 30.0,
+          "minimum": 29.8,
+          "maximum": 30.15,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "499a373f-ba2b-4bdc-a301-95f425db616c",
+          "time": 33.838479,
+          "minimum": 33.738479,
+          "maximum": 34.288479,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-13",
+          "time": 37.88,
+          "minimum": 37.63,
+          "maximum": 38.22,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "282f2e97-e195-44ea-9fc7-1e8c9e65bf5c",
+          "time": 38.12,
+          "minimum": 37.77,
+          "maximum": 38.27,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-14",
+          "time": 42.73,
+          "minimum": 42.45,
+          "maximum": 43.03,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-15",
+          "time": 47.1,
+          "minimum": 46.85,
+          "maximum": 47.27,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-16",
+          "time": 48.4,
+          "minimum": 48.25,
+          "maximum": 48.5,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "ac69f00a-f05d-4fa2-b8d6-2e88706ae72c",
+          "time": 50.012313,
+          "minimum": 49.862313,
+          "maximum": 50.162313,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-18",
+          "time": 51.6,
+          "minimum": 51.28,
+          "maximum": 51.77,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "abef2a65-13b7-44e5-8490-38b06422bfa9",
+          "time": 53.068544,
+          "minimum": 52.918544,
+          "maximum": 53.268544,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-19",
+          "time": 55.4,
+          "minimum": 55.3,
+          "maximum": 55.83,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "2e857a98-18a3-4b62-a425-2b1725e69ab2",
+          "time": 55.956334,
+          "minimum": 55.556334,
+          "maximum": 56.056334,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "boundary-20",
+          "time": 59.8,
+          "minimum": 59.35,
+          "maximum": 59.98,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-21",
+          "time": 62.3,
+          "minimum": 61.93,
+          "maximum": 62.5,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-22",
+          "time": 65.07,
+          "minimum": 64.78,
+          "maximum": 65.12,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "e0668bae-61a8-488f-9a1c-7715214f11e1",
+          "time": 66.427747,
+          "minimum": 66.077747,
+          "maximum": 66.577747,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-23",
+          "time": 69.33,
+          "minimum": 69.18,
+          "maximum": 69.68,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "f719a4e3-0a5c-457b-b99a-3d68f25bb5bf",
+          "time": 70.112272,
+          "minimum": 69.512272,
+          "maximum": 70.162272,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "850c8320-3e55-460b-9a45-373e0ee2b97b",
+          "time": 73.139139,
+          "minimum": 73.039139,
+          "maximum": 73.239139,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "2c0a216a-ef83-4ce6-a320-2c54ee1b2af8",
+          "time": 73.517956,
+          "minimum": 73.367956,
+          "maximum": 73.817956,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "dca08fdc-7fae-4d36-a7b0-86b0ade76fa8",
+          "time": 79.172398,
+          "minimum": 78.822398,
+          "maximum": 79.272398,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-24",
+          "time": 80.8,
+          "minimum": 80.47,
+          "maximum": 81.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-25",
+          "time": 82.23,
+          "minimum": 81.78,
+          "maximum": 82.55,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-26",
+          "time": 84.35,
+          "minimum": 84.22,
+          "maximum": 84.5,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "892d8f49-6543-40cd-b7b0-05d849375e5a",
+          "time": 87.231274,
+          "minimum": 87.081274,
+          "maximum": 87.331274,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "8ff462c4-c1c1-40fe-8449-255549690075",
+          "time": 89.575045,
+          "minimum": 89.125045,
+          "maximum": 89.825045,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-28",
+          "time": 91.2,
+          "minimum": 90.92,
+          "maximum": 91.4,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-29",
+          "time": 91.9,
+          "minimum": 91.65,
+          "maximum": 92.1,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-30",
+          "time": 92.73,
+          "minimum": 92.42,
+          "maximum": 92.85,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-31",
+          "time": 95.42,
+          "minimum": 95.27,
+          "maximum": 95.55,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-32",
+          "time": 96.23,
+          "minimum": 96.08,
+          "maximum": 96.42,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "11f0fc4c-682b-4684-a65c-599b4c6deeab",
+          "time": 98.437224,
+          "minimum": 98.337224,
+          "maximum": 98.537224,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-33",
+          "time": 99.4,
+          "minimum": 99.2,
+          "maximum": 99.62,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "6e87225c-a626-4ee7-a6e2-693e7e90ef44",
+          "time": 101.144251,
+          "minimum": 100.894251,
+          "maximum": 101.694251,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-35",
+          "time": 102.5,
+          "minimum": 102.2,
+          "maximum": 102.77,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "a65f4cd3-5651-4068-8fcd-6c2d756a2ea2",
+          "time": 109.157571,
+          "minimum": 108.407571,
+          "maximum": 109.507571,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "eb698569-ad46-4e4f-bf53-55889dfafd7a",
+          "time": 114.475994,
+          "minimum": 113.250653,
+          "maximum": 114.685126,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-38",
+          "time": 116.25,
+          "minimum": 115.95,
+          "maximum": 116.57,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "0fc2514e-fd0f-4753-a1d5-5a488c4d2eb5",
+          "time": 118.048947,
+          "minimum": 117.948947,
+          "maximum": 118.148947,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "84514a7d-c4ab-4cc2-9029-1b6dff9aa94d",
+          "time": 118.961702,
+          "minimum": 118.761702,
+          "maximum": 119.111702,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-44",
+          "time": 123.1,
+          "minimum": 122.8,
+          "maximum": 123.25,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "24e84784-2c14-4f71-a6d7-954e9bd79cc8",
+          "time": 129.901692,
+          "minimum": 129.601692,
+          "maximum": 130.101692,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-46",
+          "time": 133.33,
+          "minimum": 133.07,
+          "maximum": 133.57,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "dd36f51c-865a-4187-a2da-f24db2da4fe2",
+          "time": 134.877659,
+          "minimum": 134.727659,
+          "maximum": 135.027659,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "boundary-47",
+          "time": 140.8,
+          "minimum": 140.55,
+          "maximum": 141.05,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-48",
+          "time": 145.45,
+          "minimum": 145.25,
+          "maximum": 145.52,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-49",
+          "time": 146.55,
+          "minimum": 146.4,
+          "maximum": 146.7,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "6528cd43-75c6-4a96-aefb-6794fbd00c60",
+          "time": 149.979759,
+          "minimum": 149.779759,
+          "maximum": 150.129759,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-51",
+          "time": 151.4,
+          "minimum": 151.07,
+          "maximum": 151.53,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "22a3f795-fb1c-4eba-9375-1200a1fa2e9d",
+          "time": 154.149997,
+          "minimum": 154.099997,
+          "maximum": 154.2,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-52",
+          "time": 154.2,
+          "minimum": 154.2,
+          "maximum": 154.2,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "d49e942c-13ca-4efd-aea4-a3941306634f",
+          "start": 0.0,
+          "end": 3.521456,
+          "required": [
+            "Squeeze the sponge with the right hand.",
+            "Turn on the faucet with the left hand."
+          ],
+          "optional": [
+            "Rinse the sponge under running water with the right hand."
+          ]
+        },
+        {
+          "start_boundary_id": "d49e942c-13ca-4efd-aea4-a3941306634f",
+          "end_boundary_id": "boundary-1",
+          "start": 3.521456,
+          "end": 7.3,
+          "required": [
+            "Squeeze the sponge with the right hand."
+          ],
+          "optional": [
+            "[Hold / Adjust] the faucet handle with the left hand.",
+            "Rinse the sponge under running water with the right hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 7.3,
+          "end": 11.27,
+          "required": [
+            "Hold the sponge with the right hand.",
+            "Pump the soap dispenser soap onto the sponge with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "961d65fb-1abf-4958-b6fc-753ae257b730",
+          "start": 11.27,
+          "end": 13.502665,
+          "required": [
+            "IDLE"
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "961d65fb-1abf-4958-b6fc-753ae257b730",
+          "end_boundary_id": "abc79ff1-79e6-4306-b3e3-3b88283bd7e3",
+          "start": 13.502665,
+          "end": 14.348238,
+          "required": [
+            "Squeeze the sponge with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "abc79ff1-79e6-4306-b3e3-3b88283bd7e3",
+          "end_boundary_id": "boundary-5",
+          "start": 14.348238,
+          "end": 16.53,
+          "required": [
+            "[Adjust / Turn] the faucet with the left hand.",
+            "Hold the sponge with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 16.53,
+          "end": 19.75,
+          "required": [
+            "IDLE"
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-9",
+          "start": 19.75,
+          "end": 22.5,
+          "required": [
+            "Pick up a spoon with the left hand.",
+            "Hold the sponge in the right hand."
+          ],
+          "optional": [
+            "Transfer the spoon from the left hand to the right hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "2f986c79-cded-4d3e-aa25-abb005440d0e",
+          "start": 22.5,
+          "end": 26.116494,
+          "required": [
+            "Scrub the spoon with the sponge with [the right hand / both hands].",
+            "Flip the spoon with [both hands / the left hand]."
+          ],
+          "optional": [
+            "Transfer the spoon from the right hand to the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "2f986c79-cded-4d3e-aa25-abb005440d0e",
+          "end_boundary_id": "boundary-10",
+          "start": 26.116494,
+          "end": 28.58,
+          "required": [
+            "[[Rub / Rinse] the spoon with [the right hand / both hands] / IDLE]"
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "boundary-11",
+          "start": 28.58,
+          "end": 30.0,
+          "required": [
+            "Hold the the spoon with the left hand.",
+            "Pick a mug with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-11",
+          "end_boundary_id": "499a373f-ba2b-4bdc-a301-95f425db616c",
+          "start": 30.0,
+          "end": 33.838479,
+          "required": [
+            "Place the spoon on the [dishes / drying cloth / counter] with the left hand.",
+            "[Wash / rotate] the mug with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "499a373f-ba2b-4bdc-a301-95f425db616c",
+          "end_boundary_id": "282f2e97-e195-44ea-9fc7-1e8c9e65bf5c",
+          "start": 33.838479,
+          "end": 38.12,
+          "required": [
+            "Scrub the mug with the sponge with the right hand.",
+            "Put the sponge in the sink with the right hand."
+          ],
+          "optional": [
+            "[Steady / rotate] the mug with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "282f2e97-e195-44ea-9fc7-1e8c9e65bf5c",
+          "end_boundary_id": "boundary-14",
+          "start": 38.12,
+          "end": 42.73,
+          "required": [
+            "Rub the inside of the mug with [the left hand / both hands]."
+          ],
+          "optional": [
+            "Steady the mug with both hands.",
+            "Rotate the mug with both hands."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-14",
+          "end_boundary_id": "boundary-15",
+          "start": 42.73,
+          "end": 47.1,
+          "required": [
+            "Place the glass on the drying mat with both hands."
+          ],
+          "optional": [
+            "Rinse the glass with both hands."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-15",
+          "end_boundary_id": "boundary-16",
+          "start": 47.1,
+          "end": 48.4,
+          "required": [
+            "Pick up the sponge with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-16",
+          "end_boundary_id": "boundary-18",
+          "start": 48.4,
+          "end": 51.6,
+          "required": [
+            "Squeeze the sponge with [the right hand / both hands].",
+            "Pick up the mug with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-18",
+          "end_boundary_id": "abef2a65-13b7-44e5-8490-38b06422bfa9",
+          "start": 51.6,
+          "end": 53.068544,
+          "required": [
+            "[Flip / Reorient] the mug with both hands."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "abef2a65-13b7-44e5-8490-38b06422bfa9",
+          "end_boundary_id": "2e857a98-18a3-4b62-a425-2b1725e69ab2",
+          "start": 53.068544,
+          "end": 55.956334,
+          "required": [
+            "Scrub the mug with the sponge with the right hand.",
+            "Drop the sponge in the sink with the right hand."
+          ],
+          "optional": [
+            "Steady the mug with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "2e857a98-18a3-4b62-a425-2b1725e69ab2",
+          "end_boundary_id": "boundary-20",
+          "start": 55.956334,
+          "end": 59.8,
+          "required": [
+            "[Rinse / rub] the mug with both hands.",
+            "[Rotate / flip] the cup with both hands."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-20",
+          "end_boundary_id": "boundary-21",
+          "start": 59.8,
+          "end": 62.3,
+          "required": [
+            "Place the mug on the [dishes / drying towel] with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-21",
+          "end_boundary_id": "boundary-22",
+          "start": 62.3,
+          "end": 65.07,
+          "required": [
+            "Pick up the sponge with the right hand.",
+            "Pick up the glass with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-22",
+          "end_boundary_id": "f719a4e3-0a5c-457b-b99a-3d68f25bb5bf",
+          "start": 65.07,
+          "end": 70.112272,
+          "required": [
+            "Scrub the glass with the sponge with the right hand.",
+            "Place the sponge in the [sink / bowl] with the right hand."
+          ],
+          "optional": [
+            "Steady the glass with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "f719a4e3-0a5c-457b-b99a-3d68f25bb5bf",
+          "end_boundary_id": "dca08fdc-7fae-4d36-a7b0-86b0ade76fa8",
+          "start": 70.112272,
+          "end": 79.172398,
+          "required": [
+            "Rub the glass with the right hand."
+          ],
+          "optional": [
+            "Steady the glass with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "dca08fdc-7fae-4d36-a7b0-86b0ade76fa8",
+          "end_boundary_id": "boundary-24",
+          "start": 79.172398,
+          "end": 80.8,
+          "required": [
+            "Transfer the glass from the right hand to the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-24",
+          "end_boundary_id": "boundary-25",
+          "start": 80.8,
+          "end": 82.23,
+          "required": [
+            "Place the glass on a plate on the counter with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-25",
+          "end_boundary_id": "boundary-26",
+          "start": 82.23,
+          "end": 84.35,
+          "required": [
+            "Pick up the sponge with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-26",
+          "end_boundary_id": "892d8f49-6543-40cd-b7b0-05d849375e5a",
+          "start": 84.35,
+          "end": 87.231274,
+          "required": [
+            "Pull the bowl with the left hand."
+          ],
+          "optional": [
+            "Squeeze the sponge under running water with both hands."
+          ]
+        },
+        {
+          "start_boundary_id": "892d8f49-6543-40cd-b7b0-05d849375e5a",
+          "end_boundary_id": "8ff462c4-c1c1-40fe-8449-255549690075",
+          "start": 87.231274,
+          "end": 89.575045,
+          "required": [
+            "Pick up the plate with [the right hand / both hands].",
+            "Hold the sponge with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "8ff462c4-c1c1-40fe-8449-255549690075",
+          "end_boundary_id": "boundary-33",
+          "start": 89.575045,
+          "end": 99.4,
+          "required": [
+            "Scrub the plate with the sponge with the right hand.",
+            "Flip the plate with [both hands / the right hand].",
+            "Place the plate [on the pot / mug / dishes] on the counter with the left hand."
+          ],
+          "optional": [
+            "Steady the plate with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-33",
+          "end_boundary_id": "6e87225c-a626-4ee7-a6e2-693e7e90ef44",
+          "start": 99.4,
+          "end": 101.144251,
+          "required": [
+            "Pick up the bowl with [the right hand / both hands]."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "6e87225c-a626-4ee7-a6e2-693e7e90ef44",
+          "end_boundary_id": "eb698569-ad46-4e4f-bf53-55889dfafd7a",
+          "start": 101.144251,
+          "end": 114.475994,
+          "required": [
+            "Scrub the bowl with the sponge with the right hand."
+          ],
+          "optional": [
+            "Steady the bowl with the left hand.",
+            "Flip the bowl over with [both hands / the left hand].",
+            "Shake water off the bowl with the left hand,"
+          ]
+        },
+        {
+          "start_boundary_id": "eb698569-ad46-4e4f-bf53-55889dfafd7a",
+          "end_boundary_id": "boundary-38",
+          "start": 114.475994,
+          "end": 116.25,
+          "required": [
+            "Place the bowl on the dishes on the counter with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-38",
+          "end_boundary_id": "boundary-44",
+          "start": 116.25,
+          "end": 123.1,
+          "required": [
+            "Hold the sponge in the right hand.",
+            "Pick up the [spoon / ladle] with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-44",
+          "end_boundary_id": "24e84784-2c14-4f71-a6d7-954e9bd79cc8",
+          "start": 123.1,
+          "end": 129.901692,
+          "required": [
+            "Scrub the [spoon / ladle] with the sponge with the right hand.",
+            "Steady the utensil with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "24e84784-2c14-4f71-a6d7-954e9bd79cc8",
+          "end_boundary_id": "dd36f51c-865a-4187-a2da-f24db2da4fe2",
+          "start": 129.901692,
+          "end": 134.877659,
+          "required": [
+            "Place the ladle on the dishes on the towel with the left hand.",
+            "[Place the sponge in the sink / Scrub the sink with the sponge] with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "dd36f51c-865a-4187-a2da-f24db2da4fe2",
+          "end_boundary_id": "boundary-47",
+          "start": 134.877659,
+          "end": 140.8,
+          "required": [
+            "Scrub the sink with the sponge with the right hand.",
+            "Gather the food scraps with the sponge with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-47",
+          "end_boundary_id": "boundary-48",
+          "start": 140.8,
+          "end": 145.45,
+          "required": [
+            "Squeeze the sponge with [both hands / the right hand]."
+          ],
+          "optional": [
+            "Rinse the sponge with the right hand.",
+            "Rinse the left hand under running water."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-48",
+          "end_boundary_id": "boundary-49",
+          "start": 145.45,
+          "end": 146.55,
+          "required": [
+            "Put the sponge in the basket with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-49",
+          "end_boundary_id": "6528cd43-75c6-4a96-aefb-6794fbd00c60",
+          "start": 146.55,
+          "end": 149.979759,
+          "required": [
+            "[Rub / Wash] both hands."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "6528cd43-75c6-4a96-aefb-6794fbd00c60",
+          "end_boundary_id": "boundary-51",
+          "start": 149.979759,
+          "end": 151.4,
+          "required": [
+            "Turn off the faucet with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-51",
+          "end_boundary_id": "boundary-52",
+          "start": 151.4,
+          "end": 154.2,
+          "required": [
+            "Shake water off the hands with both hands."
+          ],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_3",
+      "source_id": "homer_3",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_3.mp4",
+      "duration": 137.485444,
+      "description_ready": true,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "aa5f9dcb-3599-4268-a87a-b8a906673ee8",
+          "time": 1.591607,
+          "minimum": 1.379552,
+          "maximum": 1.691607,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 2.74994,
+          "minimum": 2.35,
+          "maximum": 2.946011,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "236c7743-08cf-4d17-b04b-de4eacc6f049",
+          "time": 4.285971,
+          "minimum": 3.885971,
+          "maximum": 4.585971,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 8.64,
+          "minimum": 8.433845,
+          "maximum": 8.84,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 10.59,
+          "minimum": 10.34,
+          "maximum": 10.81,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-4",
+          "time": 11.74,
+          "minimum": 11.49,
+          "maximum": 11.949865,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 17.31,
+          "minimum": 16.83,
+          "maximum": 17.49,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 18.67,
+          "minimum": 18.51,
+          "maximum": 18.82,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "9fbf4e89-8751-4f53-8f56-e207803bf3b9",
+          "time": 19.568226,
+          "minimum": 19.368226,
+          "maximum": 19.718226,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-7",
+          "time": 20.49,
+          "minimum": 20.24,
+          "maximum": 20.69,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-8",
+          "time": 132.05,
+          "minimum": 131.57,
+          "maximum": 132.35,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "ffa57cbf-951c-40df-941b-0ee33ecc2744",
+          "time": 135.747111,
+          "minimum": 135.159169,
+          "maximum": 135.797111,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-9",
+          "time": 137.485444,
+          "minimum": 137.385444,
+          "maximum": 137.485444,
+          "type": "minor",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "aa5f9dcb-3599-4268-a87a-b8a906673ee8",
+          "start": 0.0,
+          "end": 1.591607,
+          "required": [
+            "IDLE"
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "aa5f9dcb-3599-4268-a87a-b8a906673ee8",
+          "end_boundary_id": "boundary-1",
+          "start": 1.591607,
+          "end": 2.74994,
+          "required": [
+            "Pick the the bag with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "236c7743-08cf-4d17-b04b-de4eacc6f049",
+          "start": 2.74994,
+          "end": 4.285971,
+          "required": [
+            "[Reorient / Further open] the bag with both hands."
+          ],
+          "optional": [
+            "Tilt the bag with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "236c7743-08cf-4d17-b04b-de4eacc6f049",
+          "end_boundary_id": "boundary-2",
+          "start": 4.285971,
+          "end": 8.64,
+          "required": [
+            "Pour the powder into the pan with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 8.64,
+          "end": 10.59,
+          "required": [
+            "Place the packet on the counter with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "boundary-4",
+          "start": 10.59,
+          "end": 11.74,
+          "required": [
+            "Pick up the cup with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "boundary-5",
+          "start": 11.74,
+          "end": 17.31,
+          "required": [
+            "Pour water into the pan with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 17.31,
+          "end": 18.67,
+          "required": [
+            "Place the cup on the counter with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 18.67,
+          "end": 20.49,
+          "required": [
+            "Pick up the rice spoon with the left hand.",
+            "Pick up the pan with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-8",
+          "start": 20.49,
+          "end": 132.05,
+          "required": [
+            "Stir the mixture in the pan with the spatula with the left hand.",
+            "Steady the pan with the right hand."
+          ],
+          "optional": [
+            "Place the spoon in the pot with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "ffa57cbf-951c-40df-941b-0ee33ecc2744",
+          "start": 132.05,
+          "end": 135.747111,
+          "required": [
+            "Lower the pan onto the counter with the right hand."
+          ],
+          "optional": [
+            "Hold the spoon with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "ffa57cbf-951c-40df-941b-0ee33ecc2744",
+          "end_boundary_id": "boundary-9",
+          "start": 135.747111,
+          "end": 137.485444,
+          "required": [
+            "IDLE"
+          ],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_4",
+      "source_id": "homer_4",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_4.mp4",
+      "duration": 130.033333,
+      "description_ready": true,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 4.98333,
+          "minimum": 4.83333,
+          "maximum": 5.08333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 5.63333,
+          "minimum": 5.5,
+          "maximum": 5.78333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 14.7,
+          "minimum": 14.4667,
+          "maximum": 14.9,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-4",
+          "time": 15.35,
+          "minimum": 15.25,
+          "maximum": 15.4833,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 23.4,
+          "minimum": 22.8667,
+          "maximum": 23.7833,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-6",
+          "time": 26.4667,
+          "minimum": 26.2667,
+          "maximum": 26.5667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 27.2833,
+          "minimum": 26.95,
+          "maximum": 27.4833,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-8",
+          "time": 44.6333,
+          "minimum": 44.1833,
+          "maximum": 44.95,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "bcb347aa-21a5-4cc0-a7c5-115a9038c06f",
+          "time": 47.376824,
+          "minimum": 47.026824,
+          "maximum": 47.676824,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-9",
+          "time": 53.6667,
+          "minimum": 53.5667,
+          "maximum": 54.3167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-10",
+          "time": 58.4667,
+          "minimum": 58.2167,
+          "maximum": 58.6667,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "3c8957bc-eaee-4982-afca-19e339419b2f",
+          "time": 59.070805,
+          "minimum": 58.920805,
+          "maximum": 59.220805,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-11",
+          "time": 59.65,
+          "minimum": 59.4,
+          "maximum": 59.9,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-12",
+          "time": 78.7667,
+          "minimum": 78.2333,
+          "maximum": 79.1,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "08c6301e-e397-45b5-aac4-71fff835e5be",
+          "time": 80.324549,
+          "minimum": 79.974549,
+          "maximum": 80.624549,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-14",
+          "time": 86.7,
+          "minimum": 86.6,
+          "maximum": 87.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "5d37a473-aed1-4a38-823a-7ed136d2981b",
+          "time": 88.01786,
+          "minimum": 87.76786,
+          "maximum": 88.16786,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-16",
+          "time": 95.8667,
+          "minimum": 95.5167,
+          "maximum": 96.0667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-17",
+          "time": 97.2333,
+          "minimum": 97.05,
+          "maximum": 97.7333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "82949cf6-d91f-49fc-a1bf-9b872ecc47f3",
+          "time": 106.4873,
+          "minimum": 106.0873,
+          "maximum": 106.88730000000001,
+          "type": "minor",
+          "golden": true
+        },
+        {
+          "id": "boundary-18",
+          "time": 126.017,
+          "minimum": 125.867,
+          "maximum": 126.267,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "95c004e2-c4b7-4d72-8332-2d1baa2f7a34",
+          "time": 126.676355,
+          "minimum": 126.363186,
+          "maximum": 127.026355,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-19",
+          "time": 130.033333,
+          "minimum": 129.933333,
+          "maximum": 130.033333,
+          "type": "minor",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "boundary-1",
+          "start": 0.0,
+          "end": 4.98333,
+          "required": [
+            "Wipe the table with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 4.98333,
+          "end": 5.63333,
+          "required": [
+            "[Flip / open / place] the cloth on the table with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 5.63333,
+          "end": 14.7,
+          "required": [
+            "Wipe the cabinet with the cloth with the right hand."
+          ],
+          "optional": [
+            "Steady the cabinet with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "boundary-4",
+          "start": 14.7,
+          "end": 15.35,
+          "required": [
+            "Transfer the cloth from the right hand to the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "boundary-6",
+          "start": 15.35,
+          "end": 26.4667,
+          "required": [
+            "Wipe the cabinet with the cloth with the left hand.",
+            "Open the drawer with the right hand."
+          ],
+          "optional": [
+            "Steady the cabinet with the right hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-8",
+          "start": 26.4667,
+          "end": 44.6333,
+          "required": [
+            "Wipe the drawer with the cloth with the right hand."
+          ],
+          "optional": [
+            "Steady the drawer with the left hand.",
+            "Transfer the cloth from the left hand to the right hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "boundary-9",
+          "start": 44.6333,
+          "end": 53.6667,
+          "required": [
+            "Close the drawer with the left hand.",
+            "Wipe the the cabinet with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-11",
+          "start": 53.6667,
+          "end": 59.65,
+          "required": [
+            "[Lift / open] the garment with both hands."
+          ],
+          "optional": [
+            "Place the garment on the table with both hands."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-11",
+          "end_boundary_id": "boundary-12",
+          "start": 59.65,
+          "end": 78.7667,
+          "required": [
+            "Wipe the cabinet with the cloth with the right hand."
+          ],
+          "optional": [
+            "Steady the cabinet with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-12",
+          "end_boundary_id": "08c6301e-e397-45b5-aac4-71fff835e5be",
+          "start": 78.7667,
+          "end": 80.324549,
+          "required": [
+            "[Unfold / open] the cloth with both hands."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "08c6301e-e397-45b5-aac4-71fff835e5be",
+          "end_boundary_id": "boundary-14",
+          "start": 80.324549,
+          "end": 86.7,
+          "required": [
+            "Wipe the [drawer / drawer handle] with the cloth with both hands."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-14",
+          "end_boundary_id": "boundary-16",
+          "start": 86.7,
+          "end": 95.8667,
+          "required": [
+            "Wipe the cabinet top with the cloth with the right hand."
+          ],
+          "optional": [
+            "[Adjust / flip] the cloth with both hands."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-16",
+          "end_boundary_id": "boundary-17",
+          "start": 95.8667,
+          "end": 97.2333,
+          "required": [
+            "[Pick up / spread] the garment with both hands."
+          ],
+          "optional": [
+            "Place the garment on the cabinet with both hands."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-17",
+          "end_boundary_id": "82949cf6-d91f-49fc-a1bf-9b872ecc47f3",
+          "start": 97.2333,
+          "end": 106.4873,
+          "required": [
+            "Wipe the tabletop with the cloth with both hands."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "82949cf6-d91f-49fc-a1bf-9b872ecc47f3",
+          "end_boundary_id": "boundary-18",
+          "start": 106.4873,
+          "end": 126.017,
+          "required": [
+            "Wipe the cabinet with the cloth with the right hand."
+          ],
+          "optional": [
+            "Steady the cabinet with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-18",
+          "end_boundary_id": "95c004e2-c4b7-4d72-8332-2d1baa2f7a34",
+          "start": 126.017,
+          "end": 126.676355,
+          "required": [
+            "Transfer the cloth from the right hand to the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "95c004e2-c4b7-4d72-8332-2d1baa2f7a34",
+          "end_boundary_id": "boundary-19",
+          "start": 126.676355,
+          "end": 130.033333,
+          "required": [
+            "Wipe the table with the cloth with the left hand."
+          ],
+          "optional": [
+            "Steady the table with the right hand."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_5",
+      "source_id": "homer_5",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_5.mp4",
+      "duration": 129.465,
+      "description_ready": true,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "6e837787-669d-4088-89c0-5faa14c80e9e",
+          "time": 4.910461,
+          "minimum": 4.710461,
+          "maximum": 5.260461,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 12.445,
+          "minimum": 12.112,
+          "maximum": 12.945,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "65d195af-508f-446b-9ff7-18d9f82db08a",
+          "time": 14.328224,
+          "minimum": 13.928224,
+          "maximum": 14.628224,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-4",
+          "time": 20.143,
+          "minimum": 19.96,
+          "maximum": 20.393,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "84f8e2fc-20ed-4e8b-bf47-2a1627e73f5d",
+          "time": 21.474241,
+          "minimum": 21.074241,
+          "maximum": 21.674241,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "ca279126-92cb-4a64-8d69-d2e3a4c589d1",
+          "time": 22.279872,
+          "minimum": 22.029872,
+          "maximum": 22.381146,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "af44bef4-57de-44e9-8435-f23c95359dbc",
+          "time": 28.681799,
+          "minimum": 28.431799,
+          "maximum": 29.131799,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 39.175,
+          "minimum": 38.892,
+          "maximum": 39.375,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 40.292,
+          "minimum": 40.142,
+          "maximum": 40.775,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 44.342,
+          "minimum": 43.958,
+          "maximum": 44.625,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "926dc027-aabd-43d8-b5db-1a622f9cab09",
+          "time": 63.105114,
+          "minimum": 62.905114,
+          "maximum": 63.305114,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "554b63fc-3bb9-4530-899f-a4fcc258812b",
+          "time": 64.438731,
+          "minimum": 64.288731,
+          "maximum": 64.588731,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "5da94667-e076-4458-a148-130d48c69fb9",
+          "time": 68.370041,
+          "minimum": 68.020041,
+          "maximum": 68.870041,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "c8d2a00f-1978-4c72-88ff-bcf7e54ce587",
+          "time": 73.782906,
+          "minimum": 73.532906,
+          "maximum": 74.182906,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "9d3560fc-0391-4496-a663-6c4236e2c7c5",
+          "time": 82.402501,
+          "minimum": 82.202501,
+          "maximum": 82.552501,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "5d23631a-404a-4fb9-8c0a-13f818c2f4b0",
+          "time": 83.018021,
+          "minimum": 82.918021,
+          "maximum": 83.168021,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "2005c3bb-dbea-44e0-9968-3fdec02f09da",
+          "time": 91.166692,
+          "minimum": 90.916692,
+          "maximum": 91.566692,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-9",
+          "time": 107.335,
+          "minimum": 107.185,
+          "maximum": 107.568,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-11",
+          "time": 129.465,
+          "minimum": 129.465,
+          "maximum": 129.465,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "6e837787-669d-4088-89c0-5faa14c80e9e",
+          "start": 0.0,
+          "end": 4.910461,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "6e837787-669d-4088-89c0-5faa14c80e9e",
+          "end_boundary_id": "boundary-1",
+          "start": 4.910461,
+          "end": 12.445,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "af44bef4-57de-44e9-8435-f23c95359dbc",
+          "start": 12.445,
+          "end": 28.681799,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand.",
+            "[Push / nudge / steady] the cup with the left hand."
+          ],
+          "optional": [
+            "Steady the magazine with the left hand."
+          ]
+        },
+        {
+          "start_boundary_id": "af44bef4-57de-44e9-8435-f23c95359dbc",
+          "end_boundary_id": "boundary-5",
+          "start": 28.681799,
+          "end": 39.175,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 39.175,
+          "end": 40.292,
+          "required": [
+            "[Open / unfold] the cloth with both hands."
+          ],
+          "optional": [
+            "Wipe the shelf with the cloth with both hands."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 40.292,
+          "end": 44.342,
+          "required": [
+            "Wipe the shelf with the cloth with both hands."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "5da94667-e076-4458-a148-130d48c69fb9",
+          "start": 44.342,
+          "end": 68.370041,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "5da94667-e076-4458-a148-130d48c69fb9",
+          "end_boundary_id": "c8d2a00f-1978-4c72-88ff-bcf7e54ce587",
+          "start": 68.370041,
+          "end": 73.782906,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "c8d2a00f-1978-4c72-88ff-bcf7e54ce587",
+          "end_boundary_id": "2005c3bb-dbea-44e0-9968-3fdec02f09da",
+          "start": 73.782906,
+          "end": 91.166692,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "2005c3bb-dbea-44e0-9968-3fdec02f09da",
+          "end_boundary_id": "boundary-9",
+          "start": 91.166692,
+          "end": 107.335,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-11",
+          "start": 107.335,
+          "end": 129.465,
+          "required": [
+            "Wipe the shelf with the cloth with the right hand."
+          ],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_9",
+      "source_id": "homer_9",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_9.mp4",
+      "duration": 171.063333,
+      "description_ready": false,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 2.95,
+          "minimum": 2.54,
+          "maximum": 3.27,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 4.75,
+          "minimum": 4.49,
+          "maximum": 4.86,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 5.55,
+          "minimum": 5.33,
+          "maximum": 5.77,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 7.46,
+          "minimum": 7.16,
+          "maximum": 7.59,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 9.12,
+          "minimum": 8.990051,
+          "maximum": 9.33,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 10.15,
+          "minimum": 9.93,
+          "maximum": 10.4,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "2b681350-eee2-41fd-aeb0-64509f7404d2",
+          "time": 13.972109,
+          "minimum": 13.522109,
+          "maximum": 14.122109,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "4b09bbaf-c8fe-40a5-b520-2b06e947b2dd",
+          "time": 16.227425,
+          "minimum": 15.827425,
+          "maximum": 16.577425,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-8",
+          "time": 65.9,
+          "minimum": 65.52,
+          "maximum": 66.18,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-9",
+          "time": 67.3,
+          "minimum": 66.95,
+          "maximum": 67.45,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-10",
+          "time": 103.99,
+          "minimum": 103.65,
+          "maximum": 104.12,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "52ece247-49ae-4c64-a43d-5436ecb207be",
+          "time": 104.543718,
+          "minimum": 104.293718,
+          "maximum": 104.693718,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-11",
+          "time": 105.55,
+          "minimum": 105.2,
+          "maximum": 105.63,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-12",
+          "time": 106.91,
+          "minimum": 106.73,
+          "maximum": 107.01,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-14",
+          "time": 108.55,
+          "minimum": 108.25,
+          "maximum": 108.7,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-15",
+          "time": 131.07,
+          "minimum": 129.74,
+          "maximum": 131.26,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-16",
+          "time": 133.19,
+          "minimum": 132.78,
+          "maximum": 133.35,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-17",
+          "time": 134.84,
+          "minimum": 134.64,
+          "maximum": 135.5,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-18",
+          "time": 160.2,
+          "minimum": 159.24,
+          "maximum": 160.32,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-19",
+          "time": 162.61,
+          "minimum": 161.86,
+          "maximum": 162.87,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-20",
+          "time": 166.54,
+          "minimum": 166.19,
+          "maximum": 166.72,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "4d3ccaed-2d61-481d-bbbb-60a3856efa72",
+          "time": 171.013333,
+          "minimum": 170.963333,
+          "maximum": 171.063333,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-21",
+          "time": 171.063333,
+          "minimum": 171.063333,
+          "maximum": 171.063333,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "boundary-1",
+          "start": 0.0,
+          "end": 2.95,
+          "required": [
+            "IDLE"
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 2.95,
+          "end": 4.75,
+          "required": [
+            "Move a cup left with the right hand.",
+            "Move a cup right with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 4.75,
+          "end": 5.55,
+          "required": [
+            "Turn on the faucet with the left hand."
+          ],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "boundary-5",
+          "start": 5.55,
+          "end": 7.46,
+          "required": [
+            "Pick up the glass with the right hand."
+          ],
+          "optional": [
+            "Rinse both hands under the faucet."
+          ]
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 7.46,
+          "end": 9.12,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 9.12,
+          "end": 10.15,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-8",
+          "start": 10.15,
+          "end": 65.9,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "boundary-9",
+          "start": 65.9,
+          "end": 67.3,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-10",
+          "start": 67.3,
+          "end": 103.99,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "boundary-11",
+          "start": 103.99,
+          "end": 105.55,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-11",
+          "end_boundary_id": "boundary-12",
+          "start": 105.55,
+          "end": 106.91,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-12",
+          "end_boundary_id": "boundary-14",
+          "start": 106.91,
+          "end": 108.55,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-14",
+          "end_boundary_id": "boundary-15",
+          "start": 108.55,
+          "end": 131.07,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-15",
+          "end_boundary_id": "boundary-16",
+          "start": 131.07,
+          "end": 133.19,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-16",
+          "end_boundary_id": "boundary-17",
+          "start": 133.19,
+          "end": 134.84,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-17",
+          "end_boundary_id": "boundary-18",
+          "start": 134.84,
+          "end": 160.2,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-18",
+          "end_boundary_id": "boundary-19",
+          "start": 160.2,
+          "end": 162.61,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-19",
+          "end_boundary_id": "boundary-20",
+          "start": 162.61,
+          "end": 166.54,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-20",
+          "end_boundary_id": "boundary-21",
+          "start": 166.54,
+          "end": 171.063333,
+          "required": [],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_33",
+      "source_id": "homer_33",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_33.mp4",
+      "duration": 72.233333,
+      "description_ready": false,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 3.01667,
+          "minimum": 2.88333,
+          "maximum": 3.31667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 5.53333,
+          "minimum": 5.36667,
+          "maximum": 5.73333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 11.2667,
+          "minimum": 10.85,
+          "maximum": 11.5333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-4",
+          "time": 12.25,
+          "minimum": 11.9833,
+          "maximum": 12.55,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 17.0667,
+          "minimum": 16.6667,
+          "maximum": 17.35,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 17.8833,
+          "minimum": 17.7333,
+          "maximum": 18.1667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 20.2667,
+          "minimum": 19.9333,
+          "maximum": 20.5167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-8",
+          "time": 21.1,
+          "minimum": 20.7833,
+          "maximum": 21.4167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-9",
+          "time": 22.6667,
+          "minimum": 22.3833,
+          "maximum": 22.9667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-10",
+          "time": 23.3167,
+          "minimum": 23.0667,
+          "maximum": 23.6,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-11",
+          "time": 24.9667,
+          "minimum": 24.5833,
+          "maximum": 25.35,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-12",
+          "time": 25.8,
+          "minimum": 25.5833,
+          "maximum": 26.0167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-13",
+          "time": 28.7667,
+          "minimum": 28.3167,
+          "maximum": 29.1667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-14",
+          "time": 30.0833,
+          "minimum": 29.6833,
+          "maximum": 30.3167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-15",
+          "time": 33.0333,
+          "minimum": 32.4,
+          "maximum": 33.2833,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-16",
+          "time": 33.6333,
+          "minimum": 33.4333,
+          "maximum": 33.8667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-17",
+          "time": 35.2667,
+          "minimum": 34.9833,
+          "maximum": 35.5667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-18",
+          "time": 35.9,
+          "minimum": 35.7167,
+          "maximum": 36.0167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-19",
+          "time": 39.0,
+          "minimum": 38.5833,
+          "maximum": 39.3167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-20",
+          "time": 39.6333,
+          "minimum": 39.4,
+          "maximum": 39.8833,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-21",
+          "time": 40.7667,
+          "minimum": 40.35,
+          "maximum": 41.1333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-22",
+          "time": 41.8,
+          "minimum": 41.4333,
+          "maximum": 42.25,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-23",
+          "time": 47.0333,
+          "minimum": 46.6667,
+          "maximum": 47.3,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-24",
+          "time": 48.4,
+          "minimum": 48.2,
+          "maximum": 48.5333,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "9b81686f-9c08-4b20-987e-7c17c2a4de08",
+          "time": 49.365406,
+          "minimum": 49.015406,
+          "maximum": 49.665406,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-25",
+          "time": 50.2667,
+          "minimum": 49.9333,
+          "maximum": 50.45,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-26",
+          "time": 63.3833,
+          "minimum": 63.1,
+          "maximum": 63.8333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-27",
+          "time": 64.95,
+          "minimum": 64.4667,
+          "maximum": 65.25,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-28",
+          "time": 72.233333,
+          "minimum": 72.233333,
+          "maximum": 72.233333,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "boundary-1",
+          "start": 0.0,
+          "end": 3.01667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 3.01667,
+          "end": 5.53333,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 5.53333,
+          "end": 11.2667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "boundary-4",
+          "start": 11.2667,
+          "end": 12.25,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "boundary-5",
+          "start": 12.25,
+          "end": 17.0667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 17.0667,
+          "end": 17.8833,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 17.8833,
+          "end": 20.2667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-8",
+          "start": 20.2667,
+          "end": 21.1,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "boundary-9",
+          "start": 21.1,
+          "end": 22.6667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-10",
+          "start": 22.6667,
+          "end": 23.3167,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "boundary-11",
+          "start": 23.3167,
+          "end": 24.9667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-11",
+          "end_boundary_id": "boundary-12",
+          "start": 24.9667,
+          "end": 25.8,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-12",
+          "end_boundary_id": "boundary-13",
+          "start": 25.8,
+          "end": 28.7667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-13",
+          "end_boundary_id": "boundary-14",
+          "start": 28.7667,
+          "end": 30.0833,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-14",
+          "end_boundary_id": "boundary-15",
+          "start": 30.0833,
+          "end": 33.0333,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-15",
+          "end_boundary_id": "boundary-16",
+          "start": 33.0333,
+          "end": 33.6333,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-16",
+          "end_boundary_id": "boundary-17",
+          "start": 33.6333,
+          "end": 35.2667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-17",
+          "end_boundary_id": "boundary-18",
+          "start": 35.2667,
+          "end": 35.9,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-18",
+          "end_boundary_id": "boundary-19",
+          "start": 35.9,
+          "end": 39.0,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-19",
+          "end_boundary_id": "boundary-20",
+          "start": 39.0,
+          "end": 39.6333,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-20",
+          "end_boundary_id": "boundary-21",
+          "start": 39.6333,
+          "end": 40.7667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-21",
+          "end_boundary_id": "boundary-22",
+          "start": 40.7667,
+          "end": 41.8,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-22",
+          "end_boundary_id": "boundary-23",
+          "start": 41.8,
+          "end": 47.0333,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-23",
+          "end_boundary_id": "9b81686f-9c08-4b20-987e-7c17c2a4de08",
+          "start": 47.0333,
+          "end": 49.365406,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "9b81686f-9c08-4b20-987e-7c17c2a4de08",
+          "end_boundary_id": "boundary-26",
+          "start": 49.365406,
+          "end": 63.3833,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-26",
+          "end_boundary_id": "boundary-27",
+          "start": 63.3833,
+          "end": 64.95,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-27",
+          "end_boundary_id": "boundary-28",
+          "start": 64.95,
+          "end": 72.233333,
+          "required": [],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_37",
+      "source_id": "homer_37",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_37.mp4",
+      "duration": 66.133333,
+      "description_ready": false,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "ebf06e6c-1848-4418-895d-1c841be57901",
+          "time": 1.745439,
+          "minimum": 1.045439,
+          "maximum": 1.895439,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "a956d7b0-a182-4875-bb00-878964a5935b",
+          "time": 2.576966,
+          "minimum": 2.476966,
+          "maximum": 2.776966,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "93e41af7-2509-40a5-90ea-ac671f0e71da",
+          "time": 7.193654,
+          "minimum": 6.943654,
+          "maximum": 7.443654,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "5c58fd73-bf51-44e0-a15c-e7b3374bff12",
+          "time": 8.579253,
+          "minimum": 8.329253,
+          "maximum": 8.829253,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "5ba29805-6f65-4f8a-ad8d-036352e9594d",
+          "time": 11.943553,
+          "minimum": 10.993553,
+          "maximum": 12.243553,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "f242a5ed-a624-43d9-894f-b6d2f692809b",
+          "time": 15.096026,
+          "minimum": 14.796026,
+          "maximum": 15.296026,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "04169278-6530-4d81-a4ff-95a4e7c87d21",
+          "time": 16.216816,
+          "minimum": 15.466816,
+          "maximum": 16.466816,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 24.1,
+          "minimum": 23.9,
+          "maximum": 24.2333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 24.9333,
+          "minimum": 24.85,
+          "maximum": 25.0333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 25.5,
+          "minimum": 25.3,
+          "maximum": 25.75,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "97abeec0-5dc8-4894-9706-6eba5d4074a2",
+          "time": 26.128919,
+          "minimum": 25.978919,
+          "maximum": 26.328919,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "a84a756b-1631-45e8-8759-42d0e0774c34",
+          "time": 31.381291,
+          "minimum": 31.031291,
+          "maximum": 31.781291,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "1a87393d-5e62-4318-bdf8-37b2acfe6f5b",
+          "time": 32.804222,
+          "minimum": 32.604222,
+          "maximum": 33.054222,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "ed475374-c2ea-4331-a355-a2091284f4bf",
+          "time": 33.843661,
+          "minimum": 33.743661,
+          "maximum": 34.043661,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-4",
+          "time": 46.25,
+          "minimum": 46.0667,
+          "maximum": 46.45,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 47.55,
+          "minimum": 47.4,
+          "maximum": 47.7833,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 48.7,
+          "minimum": 48.4833,
+          "maximum": 48.8167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "7ef7aadf-7741-492e-8a4d-79501630ce88",
+          "time": 51.886686,
+          "minimum": 51.386686,
+          "maximum": 52.036686,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "e7e4eb1e-3556-412d-9ab7-281ccd72def9",
+          "time": 52.55518,
+          "minimum": 52.45518,
+          "maximum": 52.75518,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "3d6f9b0c-0987-4dc0-9450-83fed868436e",
+          "time": 52.927939,
+          "minimum": 52.827939,
+          "maximum": 53.027939,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "89d53371-8551-4936-963a-22aea60f180b",
+          "time": 53.877862,
+          "minimum": 53.527862,
+          "maximum": 54.177862,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 61.9,
+          "minimum": 61.45,
+          "maximum": 62.15,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-8",
+          "time": 62.7667,
+          "minimum": 62.4833,
+          "maximum": 62.9167,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "e4987f5b-5e21-4d86-a776-1ed5a24c60fc",
+          "time": 63.411071,
+          "minimum": 63.211071,
+          "maximum": 63.711071,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-9",
+          "time": 64.05,
+          "minimum": 63.85,
+          "maximum": 64.15,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "7f42a395-a93e-46d2-897e-fd3551d03fcc",
+          "time": 64.687303,
+          "minimum": 64.537303,
+          "maximum": 64.837303,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-10",
+          "time": 65.2667,
+          "minimum": 65.1833,
+          "maximum": 65.3667,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "02dde1fb-2556-4464-872a-a7eaf113c8d0",
+          "time": 65.788792,
+          "minimum": 65.538792,
+          "maximum": 65.883333,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "74d7509f-ad0f-4cd3-bc83-08c3fe3f9f50",
+          "time": 66.083332,
+          "minimum": 66.033332,
+          "maximum": 66.133333,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-11",
+          "time": 66.133333,
+          "minimum": 66.133333,
+          "maximum": 66.133333,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "ebf06e6c-1848-4418-895d-1c841be57901",
+          "start": 0.0,
+          "end": 1.745439,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "ebf06e6c-1848-4418-895d-1c841be57901",
+          "end_boundary_id": "93e41af7-2509-40a5-90ea-ac671f0e71da",
+          "start": 1.745439,
+          "end": 7.193654,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "93e41af7-2509-40a5-90ea-ac671f0e71da",
+          "end_boundary_id": "04169278-6530-4d81-a4ff-95a4e7c87d21",
+          "start": 7.193654,
+          "end": 16.216816,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "04169278-6530-4d81-a4ff-95a4e7c87d21",
+          "end_boundary_id": "boundary-1",
+          "start": 16.216816,
+          "end": 24.1,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 24.1,
+          "end": 24.9333,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 24.9333,
+          "end": 25.5,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "a84a756b-1631-45e8-8759-42d0e0774c34",
+          "start": 25.5,
+          "end": 31.381291,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "a84a756b-1631-45e8-8759-42d0e0774c34",
+          "end_boundary_id": "boundary-4",
+          "start": 31.381291,
+          "end": 46.25,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "boundary-5",
+          "start": 46.25,
+          "end": 47.55,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 47.55,
+          "end": 48.7,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "7ef7aadf-7741-492e-8a4d-79501630ce88",
+          "start": 48.7,
+          "end": 51.886686,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "7ef7aadf-7741-492e-8a4d-79501630ce88",
+          "end_boundary_id": "89d53371-8551-4936-963a-22aea60f180b",
+          "start": 51.886686,
+          "end": 53.877862,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "89d53371-8551-4936-963a-22aea60f180b",
+          "end_boundary_id": "boundary-7",
+          "start": 53.877862,
+          "end": 61.9,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-8",
+          "start": 61.9,
+          "end": 62.7667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "boundary-9",
+          "start": 62.7667,
+          "end": 64.05,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-10",
+          "start": 64.05,
+          "end": 65.2667,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "02dde1fb-2556-4464-872a-a7eaf113c8d0",
+          "start": 65.2667,
+          "end": 65.788792,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "02dde1fb-2556-4464-872a-a7eaf113c8d0",
+          "end_boundary_id": "boundary-11",
+          "start": 65.788792,
+          "end": 66.133333,
+          "required": [],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_40",
+      "source_id": "homer_40",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_40.mp4",
+      "duration": 61.5078,
+      "description_ready": false,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "3711fa3a-5a87-4573-a87b-3be7d15a8abf",
+          "time": 1.550118,
+          "minimum": 1.200118,
+          "maximum": 1.850118,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 3.15,
+          "minimum": 3.0,
+          "maximum": 3.3,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 8.7,
+          "minimum": 8.48,
+          "maximum": 8.95,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-4",
+          "time": 9.6,
+          "minimum": 9.43,
+          "maximum": 9.82,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 22.27,
+          "minimum": 21.98,
+          "maximum": 22.48,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 23.17,
+          "minimum": 23.05,
+          "maximum": 23.33,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "be83e2b4-78ba-439a-a17c-8fe7d3a16aed",
+          "time": 27.973181,
+          "minimum": 27.723181,
+          "maximum": 28.223181,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-7",
+          "time": 28.95,
+          "minimum": 28.61,
+          "maximum": 29.35,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-9",
+          "time": 31.25,
+          "minimum": 30.38,
+          "maximum": 31.58,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-10",
+          "time": 32.8,
+          "minimum": 32.63,
+          "maximum": 33.06,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "50f564bb-1273-4ed8-8b53-aaad347087d7",
+          "time": 34.089013,
+          "minimum": 33.889013,
+          "maximum": 34.439013,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "970f1d13-236b-457d-b7c0-02ec88aa2ba1",
+          "time": 34.828817,
+          "minimum": 34.428817,
+          "maximum": 35.028817,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-12",
+          "time": 56.85,
+          "minimum": 56.54,
+          "maximum": 57.03,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-13",
+          "time": 59.1,
+          "minimum": 58.84,
+          "maximum": 59.36,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "aa906eca-2ee8-4c16-98bf-e5befcebf0d8",
+          "time": 61.4578,
+          "minimum": 61.4078,
+          "maximum": 61.5078,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-14",
+          "time": 61.5078,
+          "minimum": 61.5078,
+          "maximum": 61.5078,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "3711fa3a-5a87-4573-a87b-3be7d15a8abf",
+          "start": 0.0,
+          "end": 1.550118,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "3711fa3a-5a87-4573-a87b-3be7d15a8abf",
+          "end_boundary_id": "boundary-2",
+          "start": 1.550118,
+          "end": 3.15,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 3.15,
+          "end": 8.7,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "boundary-4",
+          "start": 8.7,
+          "end": 9.6,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "boundary-5",
+          "start": 9.6,
+          "end": 22.27,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 22.27,
+          "end": 23.17,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 23.17,
+          "end": 28.95,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-9",
+          "start": 28.95,
+          "end": 31.25,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-10",
+          "start": 31.25,
+          "end": 32.8,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "boundary-13",
+          "start": 32.8,
+          "end": 59.1,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-13",
+          "end_boundary_id": "boundary-14",
+          "start": 59.1,
+          "end": 61.5078,
+          "required": [],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_41",
+      "source_id": "homer_41",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_41.mp4",
+      "duration": 54.3,
+      "description_ready": false,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 4.4,
+          "minimum": 4.12,
+          "maximum": 4.7,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 6.9,
+          "minimum": 6.42,
+          "maximum": 7.15,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "fc73e900-47b3-40b2-a197-efa1d4f155f4",
+          "time": 8.154258,
+          "minimum": 8.004258,
+          "maximum": 8.354258,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 9.12,
+          "minimum": 8.75,
+          "maximum": 9.73,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-4",
+          "time": 12.5,
+          "minimum": 12.2,
+          "maximum": 12.83,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "f3e94221-9fdb-431a-b9f1-9d43c6b0dbf8",
+          "time": 13.874126,
+          "minimum": 13.474126,
+          "maximum": 14.324126,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 15.0,
+          "minimum": 14.85,
+          "maximum": 15.18,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-6",
+          "time": 17.4,
+          "minimum": 17.17,
+          "maximum": 17.65,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 19.6,
+          "minimum": 19.42,
+          "maximum": 19.88,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-8",
+          "time": 23.5,
+          "minimum": 23.05,
+          "maximum": 23.93,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-9",
+          "time": 25.25,
+          "minimum": 25.03,
+          "maximum": 25.48,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-10",
+          "time": 28.9,
+          "minimum": 28.52,
+          "maximum": 29.3,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-11",
+          "time": 33.68,
+          "minimum": 33.27,
+          "maximum": 33.95,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-12",
+          "time": 41.55,
+          "minimum": 41.0,
+          "maximum": 41.97,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-13",
+          "time": 43.75,
+          "minimum": 43.53,
+          "maximum": 44.15,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-14",
+          "time": 45.45,
+          "minimum": 44.9,
+          "maximum": 45.88,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-15",
+          "time": 48.05,
+          "minimum": 47.68,
+          "maximum": 48.4,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-16",
+          "time": 49.3,
+          "minimum": 48.97,
+          "maximum": 49.8,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-17",
+          "time": 51.0,
+          "minimum": 50.8,
+          "maximum": 51.23,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "9bd05513-f217-463b-9cbf-54f3231d8462",
+          "time": 54.25,
+          "minimum": 54.2,
+          "maximum": 54.3,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-18",
+          "time": 54.3,
+          "minimum": 54.3,
+          "maximum": 54.3,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "boundary-1",
+          "start": 0.0,
+          "end": 4.4,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 4.4,
+          "end": 6.9,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "fc73e900-47b3-40b2-a197-efa1d4f155f4",
+          "start": 6.9,
+          "end": 8.154258,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "fc73e900-47b3-40b2-a197-efa1d4f155f4",
+          "end_boundary_id": "boundary-4",
+          "start": 8.154258,
+          "end": 12.5,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "f3e94221-9fdb-431a-b9f1-9d43c6b0dbf8",
+          "start": 12.5,
+          "end": 13.874126,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "f3e94221-9fdb-431a-b9f1-9d43c6b0dbf8",
+          "end_boundary_id": "boundary-6",
+          "start": 13.874126,
+          "end": 17.4,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 17.4,
+          "end": 19.6,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-8",
+          "start": 19.6,
+          "end": 23.5,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "boundary-9",
+          "start": 23.5,
+          "end": 25.25,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-10",
+          "start": 25.25,
+          "end": 28.9,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "boundary-11",
+          "start": 28.9,
+          "end": 33.68,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-11",
+          "end_boundary_id": "boundary-12",
+          "start": 33.68,
+          "end": 41.55,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-12",
+          "end_boundary_id": "boundary-13",
+          "start": 41.55,
+          "end": 43.75,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-13",
+          "end_boundary_id": "boundary-15",
+          "start": 43.75,
+          "end": 48.05,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-15",
+          "end_boundary_id": "boundary-18",
+          "start": 48.05,
+          "end": 54.3,
+          "required": [],
+          "optional": []
+        }
+      ]
+    },
+    {
+      "id": "wgo-bench-homer_48",
+      "source_id": "homer_48",
+      "video_url": "https://huggingface.co/datasets/Nano1337/wgo-bench-videos/resolve/3f3d01542aad6ed66332001f077ff1b208700ae7/videos/homer_48.mp4",
+      "duration": 55.989267,
+      "description_ready": false,
+      "boundaries": [
+        {
+          "id": "start",
+          "time": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "1a7cb3ff-0e19-45e4-a439-ae2725ce3b62",
+          "time": 1.727111,
+          "minimum": 1.527111,
+          "maximum": 1.877111,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-1",
+          "time": 2.4,
+          "minimum": 2.15,
+          "maximum": 2.65,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-2",
+          "time": 4.45,
+          "minimum": 4.07,
+          "maximum": 4.75,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-3",
+          "time": 6.05,
+          "minimum": 5.76,
+          "maximum": 6.29,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-4",
+          "time": 8.5,
+          "minimum": 8.28,
+          "maximum": 8.83,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-5",
+          "time": 10.4,
+          "minimum": 10.16,
+          "maximum": 10.83,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-6",
+          "time": 13.3,
+          "minimum": 12.46,
+          "maximum": 13.78,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-7",
+          "time": 15.55,
+          "minimum": 15.35,
+          "maximum": 15.93,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-8",
+          "time": 17.45,
+          "minimum": 17.13,
+          "maximum": 17.68,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-9",
+          "time": 19.45,
+          "minimum": 19.14,
+          "maximum": 19.97,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-10",
+          "time": 21.7,
+          "minimum": 21.22,
+          "maximum": 22.04,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-11",
+          "time": 23.8,
+          "minimum": 23.34,
+          "maximum": 24.17,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "d342c4a4-5c1c-43ab-89a3-a69260fdeaac",
+          "time": 25.534421,
+          "minimum": 25.384421,
+          "maximum": 25.684421,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-12",
+          "time": 27.3,
+          "minimum": 26.94,
+          "maximum": 27.49,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-13",
+          "time": 28.95,
+          "minimum": 28.71,
+          "maximum": 29.56,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-14",
+          "time": 32.6,
+          "minimum": 31.97,
+          "maximum": 33.33,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-15",
+          "time": 35.3,
+          "minimum": 35.02,
+          "maximum": 35.7,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-16",
+          "time": 37.9,
+          "minimum": 37.64,
+          "maximum": 38.17,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-17",
+          "time": 41.5,
+          "minimum": 41.14,
+          "maximum": 41.61,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-18",
+          "time": 41.9,
+          "minimum": 41.76,
+          "maximum": 42.06,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "41bababa-3924-40fd-aa93-5d8edf885966",
+          "time": 42.634674,
+          "minimum": 42.334674,
+          "maximum": 42.834674,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-19",
+          "time": 43.2,
+          "minimum": 42.99,
+          "maximum": 43.33,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-20",
+          "time": 44.65,
+          "minimum": 44.46,
+          "maximum": 45.05,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-21",
+          "time": 46.0,
+          "minimum": 45.63,
+          "maximum": 46.25,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-22",
+          "time": 47.55,
+          "minimum": 47.4,
+          "maximum": 47.93,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-23",
+          "time": 49.45,
+          "minimum": 49.17,
+          "maximum": 49.93,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "boundary-24",
+          "time": 51.8,
+          "minimum": 51.42,
+          "maximum": 52.24,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "13f82822-c6ca-481c-beea-d049c869cbed",
+          "time": 53.908302,
+          "minimum": 53.658302,
+          "maximum": 54.308302,
+          "type": "major",
+          "golden": true
+        },
+        {
+          "id": "53d439e7-c134-4aa1-8733-74d9e383012c",
+          "time": 55.86542,
+          "minimum": 55.86542,
+          "maximum": 55.989267,
+          "type": "minor",
+          "golden": false
+        },
+        {
+          "id": "boundary-25",
+          "time": 55.989267,
+          "minimum": 55.989267,
+          "maximum": 55.989267,
+          "type": "major",
+          "golden": true
+        }
+      ],
+      "segments": [
+        {
+          "start_boundary_id": "start",
+          "end_boundary_id": "1a7cb3ff-0e19-45e4-a439-ae2725ce3b62",
+          "start": 0.0,
+          "end": 1.727111,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "1a7cb3ff-0e19-45e4-a439-ae2725ce3b62",
+          "end_boundary_id": "boundary-1",
+          "start": 1.727111,
+          "end": 2.4,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-1",
+          "end_boundary_id": "boundary-2",
+          "start": 2.4,
+          "end": 4.45,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-2",
+          "end_boundary_id": "boundary-3",
+          "start": 4.45,
+          "end": 6.05,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-3",
+          "end_boundary_id": "boundary-4",
+          "start": 6.05,
+          "end": 8.5,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-4",
+          "end_boundary_id": "boundary-5",
+          "start": 8.5,
+          "end": 10.4,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-5",
+          "end_boundary_id": "boundary-6",
+          "start": 10.4,
+          "end": 13.3,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-6",
+          "end_boundary_id": "boundary-7",
+          "start": 13.3,
+          "end": 15.55,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-7",
+          "end_boundary_id": "boundary-8",
+          "start": 15.55,
+          "end": 17.45,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-8",
+          "end_boundary_id": "boundary-9",
+          "start": 17.45,
+          "end": 19.45,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-9",
+          "end_boundary_id": "boundary-10",
+          "start": 19.45,
+          "end": 21.7,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-10",
+          "end_boundary_id": "boundary-11",
+          "start": 21.7,
+          "end": 23.8,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-11",
+          "end_boundary_id": "boundary-12",
+          "start": 23.8,
+          "end": 27.3,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-12",
+          "end_boundary_id": "boundary-13",
+          "start": 27.3,
+          "end": 28.95,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-13",
+          "end_boundary_id": "boundary-14",
+          "start": 28.95,
+          "end": 32.6,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-14",
+          "end_boundary_id": "boundary-15",
+          "start": 32.6,
+          "end": 35.3,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-15",
+          "end_boundary_id": "boundary-16",
+          "start": 35.3,
+          "end": 37.9,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-16",
+          "end_boundary_id": "boundary-17",
+          "start": 37.9,
+          "end": 41.5,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-17",
+          "end_boundary_id": "boundary-18",
+          "start": 41.5,
+          "end": 41.9,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-18",
+          "end_boundary_id": "boundary-19",
+          "start": 41.9,
+          "end": 43.2,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-19",
+          "end_boundary_id": "boundary-20",
+          "start": 43.2,
+          "end": 44.65,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-20",
+          "end_boundary_id": "boundary-21",
+          "start": 44.65,
+          "end": 46.0,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-21",
+          "end_boundary_id": "boundary-22",
+          "start": 46.0,
+          "end": 47.55,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-22",
+          "end_boundary_id": "boundary-23",
+          "start": 47.55,
+          "end": 49.45,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-23",
+          "end_boundary_id": "boundary-24",
+          "start": 49.45,
+          "end": 51.8,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "boundary-24",
+          "end_boundary_id": "13f82822-c6ca-481c-beea-d049c869cbed",
+          "start": 51.8,
+          "end": 53.908302,
+          "required": [],
+          "optional": []
+        },
+        {
+          "start_boundary_id": "13f82822-c6ca-481c-beea-d049c869cbed",
+          "end_boundary_id": "boundary-25",
+          "start": 53.908302,
+          "end": 55.989267,
+          "required": [],
+          "optional": []
+        }
+      ]
+    }
+  ]
+}

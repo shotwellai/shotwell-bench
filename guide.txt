@@ -1,0 +1,115 @@
+﻿Annotation Guide
+Overview
+Watch the provided Ego POV video of a human performing tasks. Every part of the video belongs to exactly one segment.
+This guide covers two tasks: dividing the video into segments, or describing segments that have already been made. 
+Segments and actions
+A hand action is something done by the human’s hands that acts on an object whose purpose is to affect the object in some way. A navigation action changes the location of the human.
+A segment may cover:
+1. A hand action of a single hand ("Scrub the mirror with the cloth with the left hand.")
+2. Both hands performing the same hand action on the same object simultaneously ("Lift the bowl with both hands." or “Lift the beans with both hands”)
+3. A navigation action moving from one place to another and/or turning significantly ("Walk to the kitchen.")
+Actions may overlap so that segment boundaries cannot divide them perfectly. In that case, a single segment includes multiple actions. For example, one hand performs one action while the other hand performs a different action at the same time, or the person walks while interacting with an object in their hands. 
+Segmenting
+* Divide the video exhaustively, so that every part of the video is in exactly one segment.
+* Set boundaries so that each segment features a single complete or attempted action, fully contained within that segment.
+* Merge actions into a single segment only when the actions overlap in time.
+* Consider motions done by both hands to be a single action only if they are working together on the same object at the same time. If one hand does an action on an object, and then afterwards the other hand does the same action on the object, these are two separate actions that should be two separate segments if there is no overlap. For example, if the left hand steadies a pot while the right stirs, and then the right hands steadies the pot while the left stirs, these are two separate actions. 
+* A navigation segment should be at least 1 second long. Otherwise, treat it as the "preparation" of the following action and include it in that segment.
+* Segments where no actions are occurring are called IDLE. An IDLE segment should be at least 1.5 seconds long. 
+Action Rules
+Each action below warrants a segment, subject to the grouping and exclusion rules. Each rule explains what motions are considered to be part of that action and how they should be segmented. 
+The “Start” rule only refers to when the previous segment is an IDLE or a navigation segment - in these two cases, use the given Start rule to set the boundary with the previous segment. Otherwise, simply use the end rule of the previous segment as the start boundary of the segment. 
+Pick up: Grabbing an object with one or both hands and lifting it. The object must be completely lifted from its supporting surface; otherwise, it is a single Move action rather than separate Pick up and Place actions. Keep multiple lifting attempts of the same object together unless the operator completely releases the object between attempts. If the object is released without being lifted but a clear attempt to lift the object was made, treat the attempt as a Pickup action (completed unsuccessfully).
+* Start: When hands start reaching or moving toward the object, or the operator starts leaning forward to pick up the items.
+* End: Once the object is lifted and not in contact with the surface. For an unsuccessful attempt, end when the hands completely release it.
+Place: Placing / fully releasing an object that is held in hand(s), or pouring a liquid or grain, or spraying using a spray nozzle.
+* Start: When the object begins moving toward its destination.
+* End: When the hands completely release the object. For pouring, end when no more liquid or grain is being transferred. For spraying, after the spray leaves the nozzle. If it has stopped moving the object entirely but not released when another action begins, mark the end when the object stops moving instead of overlapping. If the hands nudge the placed item for the purposes of securing it in place after placement, include that nudging in the segment and end after.
+Move: Moving an object that is on a surface without lifting. The object should never be lifted completely off the surface - if it is, treat this as separate Pick Up and Place actions instead of one Move action. This action can apply to moving an object across the surface or rotating it while on the surface.
+* Start: When the hand begins reaching toward the object.
+* End: When the hand completely releases the object. If it has stopped moving the object entirely but not released when another action begins, mark the end when the object stops moving instead of overlapping.
+Screw on: Screwing an object, such as a bottle cap, container lid, or screw (with a screwdriver).
+* Start: When the hand carrying the cap/lid/etc begins reaching toward the bottle/container/etc.
+* End: When the hand releases the cap/lid/etc. If it is not released before another action begins, mark the end when the screwing motion ends.
+Unscrew: Unscrewing an object, such as a bottle cap, container lid, or screw removed with a screwdriver.
+* Start: When the hand begins reaching toward the object to be screwed off.
+* End: When the object is fully removed, or when the hand completely releases it.
+Flip: Purposefully turning an object completely over while holding it, or picking it up, flipping it over, and placing it in one smooth motion. Small rotations of a held object are not relevant. If a flip overlaps with Place—for example, flipping a lid while moving it toward a container—treat them as simultaneous actions.
+* Start: Just before the flip begins, or after the previous action ends.
+* End: Just after the flip ends.
+Handoff: Transferring an object from one hand to the other. If the transfer occurs on a surface, the object must clearly move or slide between the hands. A handoff should only be treated as an action if no major hand action is occurring at the same time - there should be a clear duration of time where the hands are transferring the item fully from one hand to another while no other hand activity is happening. For example, if an item is being picked up with one hand and then lifted with both hands with slight shifts between hands in one continuous overlapping motion to place the item, consider this one “Pick item with both hands” + “Place item on shelf with both hands”, not “Pick item with left hand” + “Transfer item from left hand to right hand” + “Place item on shelf with both hands”. Simply adding or removing a second hand during an action does not constitute a hand off, or a need to break a segment into two.
+* Start: When the giving hand reaches toward the receiving hand, or after the previous action ends.
+* End: Just after the receiving hand receives the object and the giving hand completely releases it.
+Reorient: Transferring an object between the hands so that it ultimately returns to the original hand. This differs from Handoff because the object ends up in the hand that initially held it, and its main purpose is to adjust the grip of the item by the hands. Similar to Handoff, this action should only be noted if no other major hand action is occurring during that time.
+* Start: Before the first handoff.
+* End: After the last handoff.
+Stir: Using a tool to stir liquid in a container.
+* Start: If the tool is already held, when the operator moves the tool toward the liquid with it. If the tool is already in the liquid, when the hand begins reaching to grab it.
+* End: When the operator releases the tool or stops moving it.
+Rub: Rubbing or wiping a surface or object using a tool, such as a sponge or cloth, or using the hands directly.
+* Start: When the hand begins reaching toward the object.
+* End: When the hand releases the rubbing tool or removes it from the object.
+Open: Opening a hinged lid, door, or drawer; flipping on a switch or handle; or pressing a button or dispenser.
+* Start: When the hand begins reaching toward the relevant object.
+* End: When the hand releases it. If the hand does not release it, end when the movement stops. If something is opened then immediately closed, end the open segment when it reverses direction, then start the close segment.
+Close: Closing a hinged lid, door or drawer; flipping off a switch or handle; or pressing a button or dispenser.
+* Start: When the hand begins reaching toward the relevant object or control, or at the end of the previous action.
+* End: When the hand releases it. If the hand does not release it, end when the movement stops.
+Squeeze: Squeezing an object or pressing down on it.
+* Start: When squeezing begins.
+* End: When squeezing ends. If the object is released, end after release. If it is placed, end after placement.
+Navigate: Walking from one place to another or turning in a single motion with a significant (over 60 degrees) change in angle of view. When a navigation segment borders a hand action segment, defer to the hand actions boundary rules.
+* Start: When the movement starts.
+* End: Before the arms move or begin to reach for the next action.
+Additional Rules
+Clothing + Fabric. Create segments for major manipulations, such as lifting or folding. Ignore brief pats, smoothing, and alignment motions. Quick smoothing or patting immediately after a manipulation should be ignored for description and be included in the preceding major manipulations segment. Group repeated, related, consecutive manipulations—such as opening up a cloth—into one action.
+Repetitive actions. Group short, repetitive motions into one segment when they act on the same object(s), use the same hand(s), and are performed in the same way. They may act on different parts of the same object, for example cleaning the top and sides of furniture is the same and should remain in one segment. There is one exception, which is cleaning different shelves, even if they’re connected. Split the repetitions when the object or hand changes, or when a separate action occurs between them, such as rotating the object. The segment starts with the first occurrence’s start condition and ends with the last occurrence’s end condition.
+Contact without effect. Ignore grabbing or other hand contact when it produces no movement or other change and there is no clear intent to cause an effect. This exclusion does not apply to a clearly unsuccessful attempt to achieve an objective. Ignored contact does not affect segmentation. Gestures or hand movements that do not interact with any object and have no impact on objects are not actions.
+Simultaneous actions. Group overlapping actions into one segment when each hand is performing an action and the first action’s end condition occurs after the next action’s start condition. Start at the first action’s start condition and end at the last action’s end condition. Simply holding an object in a hand does not constitute a simultaneous action. 
+IDLE A segment is IDLE when no object is acted on and no purposeful activity or navigation is occurring. This includes the person looking around or moving their hands without purpose. A segment where the person simply holds items picked up in earlier segments while doing no purposeful activity is also IDLE.
+Create an IDLE segment when the behavior lasts at least 1.5 seconds. Ignore idle periods and split them into adjacent segments.
+Rinsing (holding an item under running water) alone is not an action. Ignore holding or slightly moving an object under running water, and mark it as an IDLE segment if it lasts at least 1.5 seconds when no other action occurs. Holding an item under running water passively is the same as holding an item in any other scenario - not an action worth its own description as an independent segment.
+Off Screen Activity Sometimes, a hand is off-screen, but an action can still be clearly inferred due to the result of the action being on-screen at that time or later. For example, it may not be visible when an off-screen hand picks up a bottle, but when the hand re-enters the screen with the bottle we know the bottle has been picked. Mark the boundary of the off screen activity when its “result” is observed, e.g. “Pick the bottle with the left hand.” when a bottle appears on-screen.
+Unsuccessful Attempts If an attempt very clearly fails, still consider it an action, append "unsuccessfully" to that action description clause. For example, an attempt to pick an item that ends in a missed grasp, or the item slipping out during acquisition: "Pick the apple with the right hand unsuccessfully". Do not mention a very brief missed grasp that is quickly followed by a successful grasp, if the brief missed grasp segment would be shorter than 0.5s. Simply omit its mention and include its time in the successful attempts' segment.
+Accidental Drops If an item is unintentionally dropped, or an item not in the hands is accidentally knocked over, describe it with "accidentally" ("Drop the spatula from the left hand accidentally").
+
+
+Describing
+Description format
+Descriptions take the imperative form. They explain what action was performed and which hands (and which tools, if any) were used.
+* Standard action sentence: "{verb} + {object} + {hand (+ tool) used}."
+* Navigation sentence: "{verb} {destination}".
+* No extra detail beyond these structures, other than the exceptions in this guide.
+* For an IDLE segment, write just "IDLE".
+Compound sentences
+When a segment contains overlapping actions, its description is a compound sentence. Each action gets a full, independent description that could stand alone, joined with "and" in the order the actions start. In the compound sentence, the clauses should be fully independent without any reference to each other (no "Pick the cup with the left hand and pick the other cup with the right hand"). For example:
+1. One hand performs one action while the other hand performs a different action, overlapping in time ("Pick the cup with the left hand and pick the bowl with the right hand.")
+2. The person walks while interacting with an object in their hands ("Walk to the trash can and carry the paper plate in both hands.")
+3. An item is picked up and then transferred quickly, such that either the pick or transfer segments individually would be shorter than 0.5s ("Pick up the bottle with the left hand and transfer the bottle from the left hand to the right hand.")
+Location details
+Give brief location information in only two cases:
+1. The destination of a navigation segment ("Walk toward the counter.")
+2. Placing an item ("Put the bottle on the shelf with the right hand.")
+   * Placed inside a container → name the container ("Put the bottle in the fridge", not "Put the bottle on the top shelf of the fridge").
+   * Placed on a surface → name the surface ("Place the plate on the table").
+   * Placing / stacking on top of other item(s) → name the other items and the surface or container they are on/in ("Place the book on the stack of books on the shelf with the left hand" or “Place the bottle on the coaster on the table with the right hand”).
+Do not give extra detail on the location (not "kitchen-side counter" or "top shelf").
+For an object moved along a surface without lifting it, provide the direction of movement using one of the following options for the verb: 
+1. Slide left
+2. Slide right
+3. Pull
+4. Push
+ ("Slide the bottle left with the right hand").
+Object identity
+Do not add adjectives to disambiguate when several items matching a description are present, but use “a/an {object}” in place of “the {object}” when interacting with an object not already in the hands and several objects fit the description during the segment. When several apples are in view, "Pick an apple with the left hand" is correct; "Pick the nearest apple with the left hand" is incorrect.
+If unsure about the identity of an item, use a broader category ("garment" instead of "shirt", "fruit" instead of "apple").
+Hand changes and releases
+* Describe a change in the hand holding an item as an action ("Transfer the bottle from the left hand to the right hand".  
+* Describe 2 or more consecutive handoffs that happen such that they are not longer than 0.5 seconds each grouped into one segment as a single repetitive motion ("Shuffle the bag between hands."). 
+* After both hands have secured an item, do not mention when only one hand releases its grip. Do mention when an item is released entirely after being held by one or both hands.
+Holding and other passive actions
+If one hand holds an item during a segment created for another, more noticeable activity, mention the held item too ("Wipe the mirror with the cloth with the right hand and hold the spray bottle in the left hand."). This also applies to other passive but useful interactions with objects ("Place the bottle in the fridge with the left hand and hold the fridge door open with the right hand.").
+Do not name passive, non-useful actions, such as resting a hand on a surface or on an item. For example, do not write "Place item in container with right hand and hold container with left hand" if the left hand is only resting on the container edge.
+Do name a hand that is actively steadying an item, perhaps because the other hand's activity may destabilize it ("Scrub the container with the cloth with the right hand and steady the container with the left hand"). 
+
+“Releasing” an item from grasp usually should not be noted. Do not name the “release” of an item by a hand separately if the hand was moving the item along a surface or steadying the item without lifting it off a surface. For items lifted off a surface, then placing the item should be noted, but there shouldn’t be an additional “release” action as well. (no “Release the cup with the left hand” after “Place the cup on the table with the left hand.”)

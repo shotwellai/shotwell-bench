@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shotwell-wgo-bench"
+version = "0.1.0"
+description = "Reproducible segmentation and description benchmark for egocentric video"
+requires-python = ">=3.11"
+dependencies = ["Pillow>=10", "requests>=2.31"]
+
+[project.optional-dependencies]
+export = ["psycopg[binary]>=3.2"]
+
+[project.scripts]
+shotwell-wgo-bench = "shotwell_bench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["shotwell_bench*"]
+
