@@ -51,6 +51,12 @@ def clip_plan(episode):
     duration = float(episode['duration'])
     if duration <= 120:
         clips = [(0.0, duration)]
+        if duration > 45:
+            split_candidates = [float(segment['end']) for segment in episode['segments']
+                                if duration * .3 <= float(segment['end']) <= duration * .7]
+            if split_candidates:
+                split = min(split_candidates, key=lambda time: abs(time - duration / 2))
+                clips = [(0.0, split), (split, duration)]
     elif duration <= 200:
         clips = [(0.0, 100.0), (80.0, duration)]
     else:
@@ -135,6 +141,8 @@ def infer_episode(episode):
                 captioner = LoadedModel(model, processor)
                 predictions = []
                 descriptions = {}
+                split_point = ((clips[0][1] + clips[1][0]) / 2
+                               if len(clips) > 1 else None)
                 for index, videos in enumerate(videos_by_clip):
                     native = predicted_by_clip.get(index, [])
                     golden = assignments[index]
@@ -153,8 +161,8 @@ def infer_episode(episode):
                         absolute = clips[index][0] + float(segment['end_s'])
                         if not 0 < absolute < episode['duration'] - .001:
                             continue
-                        if len(clips) > 1 and (index == 0 and absolute > 90
-                                                or index == 1 and absolute <= 90):
+                        if split_point is not None and (index == 0 and absolute > split_point
+                                                        or index == 1 and absolute <= split_point):
                             continue
                         predictions.append({
                             'time': absolute,

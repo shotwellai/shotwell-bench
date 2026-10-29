@@ -26,6 +26,14 @@ class FloraAdapterTests(unittest.TestCase):
                     self.assertLessEqual(local_end, end - start + 1e-4)
             self.assertEqual(sorted(assigned), list(range(len(episode['segments']))))
 
+    def test_medium_episode_splits_at_golden_boundary(self):
+        episode = select_episodes(references(), 'homer_41')[0]
+        clips, assignments = clip_plan(episode)
+        self.assertEqual(len(clips), 2)
+        self.assertEqual(clips[0][1], clips[1][0])
+        self.assertLess(max(end - start for start, end in clips), 40)
+        self.assertEqual(sum(map(len, assignments.values())), len(episode['segments']))
+
     def test_native_outputs_fit_standard_scoring_rows(self):
         episode = select_episodes(references(), 'homer_33')[0]
         result = {

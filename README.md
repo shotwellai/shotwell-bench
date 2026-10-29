@@ -10,13 +10,14 @@ The snapshot contains the 11 selected Job 690 episodes: `homer_1`, `homer_2`, `h
 
 ## Eleven-episode run
 
-All 11 completed episodes were evaluated at 8 fps with the updated guide and description judge. The seven-model extension reused the original five model outputs and added Sonnet and Qwen on the same guide and reference snapshot. The exact guide text, run config, model outputs, judgments, and scores are in [the archived results](benchmark-results/all11-8fps-2026-10-29-plus2/). The Markdown guide adds formatting only, but changes its byte hash, so use a new run directory for future runs.
+All 11 completed episodes were evaluated with the updated guide and description judge. The API models received 8-fps contact sheets; FLORA received 8-fps video but its native temporal model sampled internally at 4 fps and used a condensed instruction. The eight scored models share the same reference snapshot. The exact guide text, run config, model outputs, judgments, and scores are in [the archived results](benchmark-results/all11-8fps-2026-10-29-plus2/). The Markdown guide adds formatting only, but changes its byte hash, so use a new run directory for future runs.
 
 | Model | Segmentation F1 | Description F1 | Overall F1 |
 | --- | ---: | ---: | ---: |
 | GPT-6 Astra | 0.773 | 0.709 | **0.548** |
 | GPT-6.1 Sol | 0.756 | 0.676 | 0.511 |
 | Gemini 4 Argon | 0.694 | 0.672 | 0.466 |
+| NVIDIA FLORA | 0.529 | 0.670 | 0.354 |
 | Claude Opus 5.5 | 0.548 | 0.590 | 0.323 |
 | Claude Sonnet 5.5 | 0.520 | 0.489 | 0.254 |
 | GPT-6 Luna | 0.474 | 0.432 | 0.204 |
