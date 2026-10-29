@@ -2,15 +2,27 @@
 
 Shotwell-WGO-Bench measures how well a vision-language model (1) segments an egocentric video into actions and (2) describes actions inside fixed reference intervals. It builds on [WGO-Bench](https://huggingface.co/datasets/macrodata/WGO-Bench) with a detailed [annotation guide](https://docs.google.com/document/d/1DT8Nu9IEP5oZ7uSj0GgQoOuZyltjdQMlGYVQgc76qVI/edit) and references that accept boundary ranges and optional splits. See the [article](https://shotwell.ai/blog/shotwell-wgo-bench/) and [reference browser](https://shotwell.ai/blog/shotwell-wgo-bench/episodes/).
 
-The repo contains **no videos**. `references/episodes.json` links each episode to a pinned, publicly hosted MP4 in [Nano1337/wgo-bench-videos](https://huggingface.co/datasets/Nano1337/wgo-bench-videos). The source dataset is [macrodata/WGO-Bench](https://huggingface.co/datasets/macrodata/WGO-Bench); its listed license is CC BY-NC-SA 4.0. The runner caches downloaded MP4s outside the repo. `guide.txt` is a snapshot of the linked guide used by this run.
+The repo contains **no videos**. `references/episodes.json` links each episode to a pinned, publicly hosted MP4 in [Nano1337/wgo-bench-videos](https://huggingface.co/datasets/Nano1337/wgo-bench-videos). The source dataset is [macrodata/WGO-Bench](https://huggingface.co/datasets/macrodata/WGO-Bench); its listed license is CC BY-NC-SA 4.0. The runner caches downloaded MP4s outside the repo. The current [Markdown guide](guide.md) matches the linked Google Doc in prose; the exact text guide used for the completed run is archived with its results.
 
 ## Reference status
 
 The snapshot contains the 11 selected Job 690 episodes: `homer_1`, `homer_2`, `homer_3`, `homer_4`, `homer_5`, `homer_9`, `homer_33`, `homer_37`, `homer_40`, `homer_41`, and `homer_48`. All 11 now have a required detail in every golden segment (221 fixed segments, 325 required details). The `description_ready` flag is authoritative; an episode without it can be segmented but cannot receive an overall score. The reference is a dated export, not a live database query.
 
+## Eleven-episode run
+
+All 11 completed episodes were evaluated at 8 fps with the updated guide and description judge. The exact guide text, run config, model outputs, judgments, and scores are in [the archived results](benchmark-results/all11-8fps-2026-10-29/). The Markdown guide adds formatting only, but changes its byte hash, so use a new run directory for future runs.
+
+| Model | Segmentation F1 | Description F1 | Overall F1 |
+| --- | ---: | ---: | ---: |
+| GPT-6 Astra | 0.773 | 0.709 | **0.548** |
+| GPT-6.1 Sol | 0.756 | 0.676 | 0.511 |
+| Gemini 4 Argon | 0.694 | 0.672 | 0.466 |
+| Claude Opus 5.5 | 0.548 | 0.590 | 0.323 |
+| GPT-6 Luna | 0.474 | 0.432 | 0.204 |
+
 ## Five-episode pilot
 
-The first five episodes were run at 8 fps with the [earlier guide revision](https://github.com/shotwellai/shotwell-wgo-bench/blob/ed6788bcf9e1e437556748c8579bec6dec45476f/guide.txt) and the earlier, stricter description judge. The current `guide.txt` adds a rule treating head-camera adjustment as IDLE, and the current judge accepts compatible specificity and slight generalizations. The first five golden references are unchanged, but the scores below have not been rerun under either revision and should not be compared directly with the new run. Scores are micro F1 for segmentation and descriptions; overall F1 is their product. [Full scores, raw model outputs, judge decisions, and run config](benchmark-results/first5-8fps/) are included for audit.
+The first five episodes were run at 8 fps with the [earlier guide revision](https://github.com/shotwellai/shotwell-wgo-bench/blob/ed6788bcf9e1e437556748c8579bec6dec45476f/guide.txt) and the earlier, stricter description judge. The current [guide](guide.md) adds a rule treating head-camera adjustment as IDLE, and the current judge accepts compatible specificity and slight generalizations. The first five golden references are unchanged, but the scores below have not been rerun under either revision and should not be compared directly with the new run. Scores are micro F1 for segmentation and descriptions; overall F1 is their product. [Full scores, raw model outputs, judge decisions, and run config](benchmark-results/first5-8fps/) are included for audit.
 
 | Model | Segmentation F1 | Description F1 | Overall F1 | Refused windows |
 | --- | ---: | ---: | ---: | ---: |

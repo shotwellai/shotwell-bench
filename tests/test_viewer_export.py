@@ -14,7 +14,7 @@ class ViewerExportTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             reference_path = root / 'episodes.json'
-            guide_path = root / 'guide.txt'
+            guide_path = root / 'guide.md'
             run_dir = root / 'run'
             website_dir = root / 'website'
             (run_dir / 'judgments').mkdir(parents=True)

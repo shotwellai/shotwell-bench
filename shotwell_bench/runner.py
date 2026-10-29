@@ -11,7 +11,7 @@ from .providers import MODELS, generate
 from .video import FPS, FRAME_WIDTH, contact_sheets, video_path
 
 REFERENCE_PATH = Path(__file__).resolve().parents[1] / 'references' / 'episodes.json'
-GUIDE_PATH = Path(__file__).resolve().parents[1] / 'guide.txt'
+GUIDE_PATH = Path(__file__).resolve().parents[1] / 'guide.md'
 SEG_SCHEMA = {
     'type': 'object', 'additionalProperties': False, 'required': ['segments'],
     'properties': {'segments': {'type': 'array', 'items': {
