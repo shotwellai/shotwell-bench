@@ -42,14 +42,14 @@ Python 3.11+, `ffmpeg`, and `ffprobe` are required. Install with `python3 -m ven
 
 - `OPENAI_KEY`: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna, and the text-only judge.
 - `ANTHROPIC_KEY`: Claude Opus 5.5 and Sonnet 5.5 via Anthropic's API.
-- `OPENROUTER_API_KEY`: Qwen3-VL-235B-A22B-Instruct via OpenRouter.
+- `OPENROUTER_API_KEY`: Qwen3-VL-235B-A22B-Instruct and Qwen3.5-397B-A17B via OpenRouter.
 - Google Cloud ADC or `gcloud auth login`: Gemini 4 Argon via Vertex AI. `GOOGLE_CLOUD_PROJECT` defaults to `robot-data-qa`; set it to a project with model access.
 
 Never commit `.env` or run outputs with credentials. The first run downloads only the selected public MP4s to `~/.cache/shotwell-wgo-bench` (override with `--cache`).
 
 ## Run
 
-All seven models, first five completed episodes, with up to 32 concurrent calls:
+All eight API models, first five completed episodes, with up to 32 concurrent calls:
 
 ```bash
 python3 -m shotwell_bench run --model all --subset first5 \
@@ -58,15 +58,45 @@ python3 -m shotwell_bench score --model all --subset first5 \
   --workers 24 --env .env --run-dir runs/first5-8fps
 ```
 
-Run one model with the corresponding script in `scripts/`, including `run_sonnet.sh` and `run_qwen.sh`. `scripts/run_all.sh` runs all seven. `--subset completed` (default) selects every description-ready episode; with the current reference export, all 11 are ready, so it selects the same episodes as `--subset all`. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
+Run one API model with the corresponding script in `scripts/`, including `run_sonnet.sh`, `run_qwen.sh`, and `run_qwen35.sh`. `scripts/run_all.sh` runs all eight API models; FLORA has a separate GPU runner below. `--subset completed` (default) selects every description-ready episode; with the current reference export, all 11 are ready, so it selects the same episodes as `--subset all`. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
 
-Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The candidate models are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-luna`, `gemini-4-argon`, `claude-opus-5-5`, `claude-sonnet-5-5`, and `qwen/qwen3-vl-235b-a22b-instruct`. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly. Qwen's Thinking variant was unavailable through the configured providers, so this run uses the available Instruct variant.
+`scripts/run_qwen35.sh` adds the open-weight Qwen3.5-397B-A17B model through OpenRouter. This adapter disables its default thinking mode so the provider returns a JSON answer within the per-task output limit; the model name and this setting should both be reported with its score. The older Qwen3-VL run remains available for comparison.
 
-`--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals. Use a new run directory when changing the guide. To extend the archived eleven-episode run with another model, pass `--guide benchmark-results/all11-8fps-2026-10-29/guide.txt` so the exact guide hash matches; the root Markdown guide has the same prose but different bytes.
+NVIDIA FLORA runs through its pinned native TempSeg and Captioner pipeline on Modal H100 workers. Install the optional `modal` package, configure a Modal profile with access to the `flora-eval` volume, then run:
+
+```bash
+modal run scripts/run_flora.py --run-dir runs/your-run \
+  --guide path/to/the-run-guide.txt --subset completed
+python3 -m shotwell_bench score --model flora --run-dir runs/your-run \
+  --guide path/to/the-run-guide.txt --subset completed --env .env
+```
+
+The FLORA runner converts source video to 8 fps, but its released temporal model samples frames internally at **4 fps**. It accepts at most 2,000 instruction characters, so the adapter passes a concise guide summary rather than the full benchmark guide. These differences are recorded in `config.json` and must be disclosed beside any comparison with the API models' 8-fps contact-sheet results. FLORA's weights and inference code use NVIDIA's noncommercial research license; see the [official release](https://github.com/NVIDIA/Flora).
+
+Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The API candidates are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-luna`, `gemini-4-argon`, `claude-opus-5-5`, `claude-sonnet-5-5`, `qwen/qwen3-vl-235b-a22b-instruct`, and `qwen/qwen3.5-397b-a17b`; NVIDIA FLORA uses the separate GPU adapter above. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly. Qwen3-VL's Thinking variant was unavailable through the configured providers, so the older run uses the available Instruct variant.
+
+`--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals. Use a new run directory when changing the guide. To extend the archived eleven-episode run with another model, pass `--guide benchmark-results/all11-8fps-2026-10-29-plus2/guide.txt` so the exact guide hash matches; the root Markdown guide has the same prose but different bytes.
 
 ## Visual input and prompts
 
-**Every candidate model receives frames sampled at 8 fps** and resized to 512 pixels wide. Eight consecutive timestamped frames are arranged in a 4-by-2 contact sheet; this reduces API image count without dropping sampled frames. The same cached sheets and full guide are passed to every model. For unusually long intervals, the Qwen adapter stacks adjacent sheets vertically to stay within its provider's 32-image limit; every sampled frame remains present. The segmentation pass uses 10-second nonoverlapping scoring cores with one second of context on either side. It predicts action ends and captions without seeing reference boundaries. Only predicted ends inside the core are kept; the structural video start/end are never scored. The description pass gives the model a fixed golden interval and its frames, but no reference detail text. Each fixed interval returns one imperative description or `IDLE`.
+**Every API candidate receives frames sampled at 8 fps** and resized to 512 pixels wide. Eight consecutive timestamped frames are arranged in a 4-by-2 contact sheet; this reduces API image count without dropping sampled frames. The same cached sheets and full guide are passed to every API model. For unusually long intervals, the Qwen adapter stacks adjacent sheets vertically to stay within its provider's 32-image limit; every sampled frame remains present. The segmentation pass uses 10-second nonoverlapping scoring cores with one second of context on either side. It predicts action ends and captions without seeing reference boundaries. Only predicted ends inside the core are kept; the structural video start/end are never scored. The description pass gives the model a fixed golden interval and its frames, but no reference detail text. Each fixed interval returns one imperative description or `IDLE`. FLORA uses its native pipeline and the input differences documented above.
+
+## WGO-prompt comparison examples
+
+The article's "Astra on WGO" rows are a separate segmentation run, not copies of
+the Shotwell-guided output. Reproduce them with:
+
+```bash
+python3 -m scripts.run_wgo_prompt_examples --env .env
+```
+
+This uses WGO-Bench's published completed-events prompt, 2-fps contact sheets
+with 224-pixel tiles, and the source dataset's episode instructions. Its raw
+segments and prompt are in
+`benchmark-results/wgo-prompt-examples/astra-official.jsonl`. The article's
+"Astra on Shotwell-WGO" rows instead come from the 8-fps guided run. The
+comparison markers report segmentation only and apply each benchmark's own
+boundary-matching rule, not the description judge.
 
 ## Scoring
 
@@ -76,7 +106,7 @@ Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded jud
 
 If a provider refuses a visual input under its content policy, the run records the refusal and scores that window as producing no annotation. It does not alter the 8 fps input to evade the block. The aggregate results report refused-task counts so model scores can be interpreted with that caveat.
 
-This judge is itself a model and uses Astra, one of the candidates. Its decisions should be audited before making strong comparative claims. The reference can also be incomplete or ambiguous. The current five-episode evaluation is a pilot, not a population estimate; it should not be presented as a result across all of WGO-Bench. Contact sheets preserve 8 fps sampling but are not the same input format as a native video API.
+This judge is itself a model and uses Astra, one of the candidates. Its decisions should be audited before making strong comparative claims. The reference can also be incomplete or ambiguous. These 11 selected episodes are not a population estimate for all of WGO-Bench. Contact sheets preserve 8 fps sampling but are not the same input format as a native video API.
 
 ## Maintainer reference export
 

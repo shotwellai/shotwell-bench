@@ -108,7 +108,11 @@ def _done_ids(path, retry_refusals=False):
             row = json.loads(line)
         except json.JSONDecodeError:
             continue
-        if row.get('status') == 'done':
+        output = row.get('output')
+        expected = 'segments' if row.get('kind') == 'segmentation' else 'description'
+        valid = (isinstance(output, dict) and expected in output and
+                 isinstance(output[expected], list if expected == 'segments' else str))
+        if row.get('status') == 'done' and valid:
             done[row['task_id']] = not (retry_refusals and row.get('refusal_reason'))
     return {task_id for task_id, complete in done.items() if complete}
 
@@ -141,6 +145,7 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
             if name in existing['models'] and existing['models'][name] != model_id:
                 raise ValueError(f'Run config mismatch for model {name}')
         metadata['models'] = {**existing['models'], **metadata['models']}
+        metadata = {**existing, **metadata}
     config_path.write_text(json.dumps(metadata, indent=2) + '\n')
 
     done_by_model = {model: _done_ids(out_dir / f'{model}.jsonl', retry_refusals)
@@ -173,8 +178,10 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
         images = contact_sheets(ep, task.start, task.end, cache)
         schema = SEG_SCHEMA if task.kind == 'segmentation' else DESC_SCHEMA
         try:
+            max_tokens = (1000 if task.kind == 'segmentation' else 300) if model == 'qwen35' else (
+                5000 if task.kind == 'segmentation' else 2500)
             result = generate(model, _prompt(task, guide_text), images, schema,
-                              max_tokens=5000 if task.kind == 'segmentation' else 2500)
+                              max_tokens=max_tokens)
             row = {'task_id': task.id, 'kind': task.kind, 'episode_id': task.episode_id,
                    'model': model, 'model_id': result['model_id'], 'status': 'done',
                    'start': task.start, 'end': task.end,

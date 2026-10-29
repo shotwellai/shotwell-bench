@@ -88,6 +88,15 @@ class ViewerExportTests(unittest.TestCase):
             self.assertEqual(chart['judge_rubric_version'], JUDGE_RUBRIC_VERSION)
             self.assertEqual(chart['models']['astra']['description']['f1'], .5)
 
+            data_path = website_dir / 'data.js'
+            data = json.loads(data_path.read_text().removeprefix(
+                'window.SHOTWELL_WGO_REFERENCE = ').rstrip(';\n'))
+            data['episodes'][0]['task'] = 'Wash the dishes'
+            data_path.write_text(export_viewer.js_assignment('SHOTWELL_WGO_REFERENCE', data))
+            with patch.object(export_viewer, 'REFERENCE_PATH', reference_path):
+                export_viewer.export(run_dir, website_dir, None, guide_path)
+            self.assertIn('Wash the dishes', data_path.read_text())
+
 
 if __name__ == '__main__':
     unittest.main()

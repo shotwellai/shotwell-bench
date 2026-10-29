@@ -28,7 +28,7 @@ def main():
     commands = parser.add_subparsers(dest='command', required=True)
     for name in ('run', 'score'):
         command = commands.add_parser(name)
-        command.add_argument('--model', choices=[*MODELS, 'all'], default='all')
+        command.add_argument('--model', choices=[*MODELS, 'flora', 'all'], default='all')
         command.add_argument('--subset', default='completed',
                              help='completed, first5, all, or comma-separated episode IDs')
         command.add_argument('--run-dir', type=Path, default=Path('runs/first5-8fps'))
@@ -46,7 +46,11 @@ def main():
                              help='Rerun policy-refused tasks with the same cached frames')
     args = parser.parse_args()
     load_env(args.env)
+    if args.command == 'run' and args.model == 'flora':
+        parser.error('FLORA uses the GPU runner: modal run scripts/run_flora.py')
     models = list(MODELS) if args.model == 'all' else [args.model]
+    if args.command == 'score' and args.model == 'all' and (args.run_dir / 'flora.jsonl').exists():
+        models.append('flora')
     episodes = select_episodes(references(), args.subset)
     if not episodes:
         parser.error('No episodes selected')

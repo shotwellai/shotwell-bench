@@ -13,7 +13,9 @@
     "argon": "gemini-4-argon",
     "opus": "claude-opus-5-5",
     "qwen": "qwen/qwen3-vl-235b-a22b-instruct",
-    "sonnet": "claude-sonnet-5-5"
+    "sonnet": "claude-sonnet-5-5",
+    "qwen35": "qwen/qwen3.5-397b-a17b",
+    "flora": "nvidia/Flora-TempSeg+Flora-Captioner@78a0e4ac75d33509f077fdf985ebb51153920e7c"
   },
   "episode_ids": [
     "wgo-bench-homer_1",
@@ -27,5 +29,13 @@
     "wgo-bench-homer_40",
     "wgo-bench-homer_41",
     "wgo-bench-homer_48"
-  ]
+  ],
+  "model_inputs": {
+    "flora": {
+      "source_fps": 8,
+      "temporal_model_fps": 4,
+      "pipeline": "NVIDIA native TempSeg + Captioner",
+      "instruction": "Follow Shotwell-WGO annotation rules: segment complete or attempted hand actions, navigation, and IDLE. Each distinct action merits a segment; group overlapping actions, and group short repetitive motions using the same object and hand. Pick up only when an item is fully lifted from its supporting surface; moving an item along a surface is one Move action, not Pick up plus Place. Ignore contact without effect, brief pats and clothing alignment, passive rinsing, and head-camera adjustment. IDLE requires at least 1.5 seconds, navigation at least 1 second. Caption in imperative form: verb, object, acting hand(s), and tool when used. For overlapping actions, join full clauses with and. For a placed item, give the destination; for an item slid on a surface, give direction. Do not invent intentions or unseen details."
+    }
+  }
 }

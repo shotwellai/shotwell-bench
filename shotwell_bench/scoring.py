@@ -204,8 +204,14 @@ def score(models, episodes, run_dir, workers=24, guide_path=None):
         raise ValueError('Reference snapshot changed since generation')
     if config['guide_sha256'] != hashlib.sha256(guide_path.read_bytes()).hexdigest():
         raise ValueError('Guide changed since generation')
+    results_path = run_dir / 'scores.json'
     results = {'benchmark': 'Shotwell-WGO-Bench', 'fps': 8,
                'episode_ids': [e['id'] for e in episodes], 'models': {}}
+    if results_path.exists():
+        existing = json.loads(results_path.read_text())
+        if any(existing[key] != results[key] for key in ('benchmark', 'fps', 'episode_ids')):
+            raise ValueError('Existing scores use a different benchmark selection')
+        results['models'] = existing['models']
     for model in models:
         rows = _latest_rows(run_dir / f'{model}.jsonl')
         required_ids = {task.id for episode in episodes for task in tasks_for_episode(episode)}
@@ -224,5 +230,5 @@ def score(models, episodes, run_dir, workers=24, guide_path=None):
         print(f'{model}: seg {segmentation["f1"]:.3f}, '
               f'desc {description["f1"]:.3f}, '
               f'overall {results["models"][model]["overall_f1"]:.3f}', flush=True)
-        (run_dir / 'scores.json').write_text(json.dumps(results, indent=2) + '\n')
+        results_path.write_text(json.dumps(results, indent=2) + '\n')
     return results

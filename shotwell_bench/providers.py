@@ -19,6 +19,7 @@ MODELS = {
     'opus': ('anthropic', 'claude-opus-5-5'),
     'sonnet': ('anthropic', 'claude-sonnet-5-5'),
     'qwen': ('openrouter', 'qwen/qwen3-vl-235b-a22b-instruct'),
+    'qwen35': ('openrouter', 'qwen/qwen3.5-397b-a17b'),
 }
 JUDGE_MODEL = 'gpt-6-astra'
 _token_lock = threading.Lock()
@@ -199,6 +200,8 @@ def _openrouter(model, prompt, images, schema, max_tokens):
         'provider': {'require_parameters': True},
         'max_tokens': max_tokens,
     }
+    if model == 'qwen/qwen3.5-397b-a17b':
+        payload['reasoning'] = {'enabled': False}
     r = requests.post('https://openrouter.ai/api/v1/chat/completions', json=payload,
                       headers={'Authorization': 'Bearer ' + os.environ['OPENROUTER_API_KEY']},
                       timeout=900)
@@ -207,7 +210,11 @@ def _openrouter(model, prompt, images, schema, max_tokens):
     choice = body['choices'][0]
     if choice.get('finish_reason') == 'content_filter':
         raise ContentBlocked('content_filter')
-    return _json_text(choice['message']['content']), body.get('usage', {})
+    content = choice['message'].get('content')
+    if not content:
+        raise RuntimeError(f'Empty OpenRouter content: finish_reason={choice.get("finish_reason")}, '
+                           f'usage={body.get("usage", {})}')
+    return _json_text(content), body.get('usage', {})
 
 
 def generate(model_name, prompt, images, schema, max_tokens=4000):
@@ -223,6 +230,13 @@ def generate(model_name, prompt, images, schema, max_tokens=4000):
         for attempt in range(5):
             try:
                 result, usage = caller(model, prompt, images, schema, max_tokens)
+                expected = 'segments' if 'segments' in schema['properties'] else 'description'
+                if not isinstance(result, dict) or expected not in result:
+                    raise ValueError(f'{model_name} returned an invalid {expected} response')
+                if expected == 'segments' and not isinstance(result[expected], list):
+                    raise ValueError(f'{model_name} returned non-list segments')
+                if expected == 'description' and not isinstance(result[expected], str):
+                    raise ValueError(f'{model_name} returned a non-string description')
                 return {'output': result, 'usage': usage, 'model_id': model}
             except ContentBlocked as exc:
                 output = {'segments': []} if 'segments' in schema['properties'] else {'description': ''}
@@ -230,11 +244,15 @@ def generate(model_name, prompt, images, schema, max_tokens=4000):
                         'refusal_reason': str(exc)}
             except requests.HTTPError as exc:
                 status = exc.response.status_code if exc.response is not None else None
-                if status is not None and 400 <= status < 500 and status != 429:
+                in_flight_limit = (status == 402 and exc.response is not None and
+                                   'in_flight_budget_exhausted' in exc.response.text)
+                if status is not None and 400 <= status < 500 and status != 429 and not in_flight_limit:
                     raise RuntimeError(f'{model_name} request rejected: {exc.response.text[:500]}') from exc
                 last = exc
                 if attempt < 4:
-                    time.sleep(min(90, 3 * 2 ** attempt))
+                    retry_after = exc.response.headers.get('Retry-After') if exc.response is not None else None
+                    delay = min(120, int(retry_after)) if in_flight_limit and retry_after and retry_after.isdigit() else min(90, 3 * 2 ** attempt)
+                    time.sleep(delay)
             except (requests.RequestException, ValueError, KeyError,
                     json.JSONDecodeError, subprocess.SubprocessError) as exc:
                 last = exc

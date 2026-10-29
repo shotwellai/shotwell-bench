@@ -18,6 +18,8 @@ MODEL_NAMES = {
     'luna': 'GPT-6 Luna',
     'sonnet': 'Claude Sonnet 5.5',
     'qwen': 'Qwen3-VL 235B Instruct',
+    'qwen35': 'Qwen3.5 397B',
+    'flora': 'NVIDIA FLORA',
 }
 
 
@@ -37,6 +39,17 @@ def js_assignment(name, value):
     return f'window.{name} = {json.dumps(value, ensure_ascii=False, separators=(",", ":"))};\n'
 
 
+def existing_task_labels(path):
+    if not path.exists():
+        return {}
+    prefix = 'window.SHOTWELL_WGO_REFERENCE = '
+    source = path.read_text()
+    if not source.startswith(prefix):
+        raise ValueError(f'Unexpected reference data format in {path}')
+    data = json.loads(source[len(prefix):].strip().removesuffix(';'))
+    return {episode['id']: episode.get('task', '') for episode in data['episodes']}
+
+
 def export(run_dir, website_dir, task_labels, guide_path=None):
     guide_path = Path(guide_path) if guide_path else GUIDE_PATH
     config = json.loads((run_dir / 'config.json').read_text())
@@ -51,7 +64,8 @@ def export(run_dir, website_dir, task_labels, guide_path=None):
     selected = [by_id[episode_id] for episode_id in scores['episode_ids']]
     if any(not episode['description_ready'] for episode in selected):
         raise ValueError('The viewer requires complete reference descriptions')
-    labels = json.loads(task_labels.read_text()) if task_labels else {}
+    labels = (json.loads(task_labels.read_text()) if task_labels else
+              existing_task_labels(website_dir / 'data.js'))
 
     public_episodes = []
     for episode in selected:

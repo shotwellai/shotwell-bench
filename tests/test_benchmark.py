@@ -7,12 +7,14 @@ import tempfile
 from pathlib import Path
 from unittest.mock import patch
 from PIL import Image
+import requests
 
 from shotwell_bench.boundary_score import score_boundaries
 from shotwell_bench.alternatives import expand_alternatives
 from shotwell_bench.providers import ContentBlocked, _anthropic, _openrouter, _pack_openrouter_images, generate
 from shotwell_bench.runner import SEG_SCHEMA, _done_ids, references, run, select_episodes, tasks_for_episode
-from shotwell_bench.scoring import _f1, _judge_prompt, judgment_key
+from shotwell_bench.scoring import _f1, _judge_prompt, judgment_key, score
+from shotwell_bench.runner import GUIDE_PATH, REFERENCE_PATH
 
 
 class ReferenceTests(unittest.TestCase):
@@ -93,6 +95,42 @@ class ReferenceTests(unittest.TestCase):
         self.assertEqual(result['output'], {'segments': []})
         self.assertEqual(result['refusal_reason'], 'PROHIBITED_CONTENT')
 
+    def test_openrouter_in_flight_budget_is_retried(self):
+        response = requests.Response()
+        response.status_code = 402
+        response._content = b'{"error":{"metadata":{"reason":"in_flight_budget_exhausted"}}}'
+        response.headers['Retry-After'] = '120'
+        error = requests.HTTPError(response=response)
+        with patch.dict('os.environ', {'OPENROUTER_API_KEY': 'test-key'}), \
+                patch('shotwell_bench.providers._openrouter', side_effect=[
+                    error, ({'segments': []}, {'tokens': 1})]) as caller, \
+                patch('shotwell_bench.providers.time.sleep') as sleep:
+            result = generate('qwen35', 'Describe', [], SEG_SCHEMA)
+        self.assertEqual(result['output'], {'segments': []})
+        self.assertEqual(caller.call_count, 2)
+        sleep.assert_called_once_with(120)
+
+    def test_openrouter_other_payment_error_is_fatal(self):
+        response = requests.Response()
+        response.status_code = 402
+        response._content = b'{"error":"insufficient credits"}'
+        with patch.dict('os.environ', {'OPENROUTER_API_KEY': 'test-key'}), \
+                patch('shotwell_bench.providers._openrouter',
+                      side_effect=requests.HTTPError(response=response)), \
+                patch('shotwell_bench.providers.time.sleep') as sleep:
+            with self.assertRaisesRegex(RuntimeError, 'request rejected'):
+                generate('qwen35', 'Describe', [], SEG_SCHEMA)
+        sleep.assert_not_called()
+
+    def test_malformed_model_output_is_retried(self):
+        with patch.dict('os.environ', {'OPENROUTER_API_KEY': 'test-key'}), \
+                patch('shotwell_bench.providers._openrouter', side_effect=[
+                    ([{'end': 1}], {}), ({'segments': []}, {})]) as caller, \
+                patch('shotwell_bench.providers.time.sleep'):
+            result = generate('qwen35', 'Describe', [], SEG_SCHEMA)
+        self.assertEqual(result['output'], {'segments': []})
+        self.assertEqual(caller.call_count, 2)
+
     def test_opus_uses_direct_anthropic_vision_format(self):
         with patch.dict('os.environ', {'ANTHROPIC_KEY': 'test-key'}), \
                 patch('shotwell_bench.providers.requests.post') as post:
@@ -163,15 +201,55 @@ class ReferenceTests(unittest.TestCase):
                 run([], [], root / 'run', root / 'cache', guide_path=guide)
             self.assertEqual((root / 'run' / 'config.json').read_text(), original)
 
+    def test_resuming_run_preserves_model_input_metadata(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            guide = root / 'guide.txt'
+            guide.write_text('Guide')
+            run([], [], root / 'run', root / 'cache', guide_path=guide)
+            config_path = root / 'run' / 'config.json'
+            config = json.loads(config_path.read_text())
+            config['model_inputs'] = {'flora': {'temporal_model_fps': 4}}
+            config_path.write_text(json.dumps(config))
+            run([], [], root / 'run', root / 'cache', guide_path=guide)
+            self.assertEqual(json.loads(config_path.read_text())['model_inputs'],
+                             {'flora': {'temporal_model_fps': 4}})
+
     def test_retry_refusals_keeps_successful_tasks(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'model.jsonl'
             path.write_text(''.join(json.dumps(row) + '\n' for row in [
-                {'task_id': 'a', 'status': 'done', 'refusal_reason': 'PROHIBITED_CONTENT'},
-                {'task_id': 'b', 'status': 'done'},
+                {'task_id': 'a', 'kind': 'segmentation', 'status': 'done',
+                 'output': {'segments': []}, 'refusal_reason': 'PROHIBITED_CONTENT'},
+                {'task_id': 'b', 'kind': 'description', 'status': 'done',
+                 'output': {'description': 'Pick up the cup.'}},
+                {'task_id': 'c', 'kind': 'segmentation', 'status': 'done',
+                 'output': [{'end': 1}]},
             ]))
             self.assertEqual(_done_ids(path), {'a', 'b'})
             self.assertEqual(_done_ids(path, retry_refusals=True), {'b'})
+
+    def test_scoring_new_model_preserves_existing_scores(self):
+        episode = select_episodes(references(), 'homer_33')[0]
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'config.json').write_text(json.dumps({
+                'reference_sha256': hashlib.sha256(REFERENCE_PATH.read_bytes()).hexdigest(),
+                'guide_sha256': hashlib.sha256(GUIDE_PATH.read_bytes()).hexdigest(),
+            }))
+            (root / 'scores.json').write_text(json.dumps({
+                'benchmark': 'Shotwell-WGO-Bench', 'fps': 8,
+                'episode_ids': [episode['id']],
+                'models': {'astra': {'overall_f1': .5}},
+            }))
+            rows = {task.id: {'model_id': 'nvidia/flora'}
+                    for task in tasks_for_episode(episode)}
+            with patch('shotwell_bench.scoring._latest_rows', return_value=rows), \
+                    patch('shotwell_bench.scoring._segmentation', return_value={'f1': .5}), \
+                    patch('shotwell_bench.scoring._description', return_value={'f1': .4}):
+                result = score(['flora'], [episode], root)
+            self.assertEqual(result['models']['astra']['overall_f1'], .5)
+            self.assertAlmostEqual(result['models']['flora']['overall_f1'], .2)
 
 
 if __name__ == '__main__':
