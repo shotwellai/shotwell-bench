@@ -99,21 +99,22 @@ def _prompt(task, text):
             'segment boundaries. Return only JSON {"description":"..."}.')
 
 
-def _done_ids(path):
+def _done_ids(path, retry_refusals=False):
     if not path.exists():
         return set()
-    done = set()
+    done = {}
     for line in path.read_text().splitlines():
         try:
             row = json.loads(line)
         except json.JSONDecodeError:
             continue
         if row.get('status') == 'done':
-            done.add(row['task_id'])
-    return done
+            done[row['task_id']] = not (retry_refusals and row.get('refusal_reason'))
+    return {task_id for task_id, complete in done.items() if complete}
 
 
-def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=None):
+def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=None,
+        retry_refusals=False):
     out_dir = Path(out_dir)
     cache = Path(cache)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -130,7 +131,8 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
                 'episode_ids': list(episode_by_id)}
     (out_dir / 'config.json').write_text(json.dumps(metadata, indent=2) + '\n')
 
-    done_by_model = {model: _done_ids(out_dir / f'{model}.jsonl') for model in models}
+    done_by_model = {model: _done_ids(out_dir / f'{model}.jsonl', retry_refusals)
+                     for model in models}
     pending = [(model, task, out_dir / f'{model}.jsonl')
                for task in tasks for model in models
                if task.id not in done_by_model[model]]
@@ -167,6 +169,8 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
                    'core_start': task.core_start, 'core_end': task.core_end,
                    'segment_index': task.segment_index,
                    'output': result['output'], 'usage': result['usage']}
+            if result.get('refusal_reason'):
+                row['refusal_reason'] = result['refusal_reason']
         except Exception as exc:
             row = {'task_id': task.id, 'kind': task.kind, 'episode_id': task.episode_id,
                    'model': model, 'status': 'error', 'error': str(exc)[:1000]}

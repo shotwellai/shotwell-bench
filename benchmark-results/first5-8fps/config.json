@@ -1,0 +1,23 @@
+{
+  "fps": 8,
+  "frame_width": 512,
+  "contact_sheet": "4x2",
+  "segmentation_core_seconds": 10,
+  "context_seconds": 1,
+  "guide_sha256": "d69e7f1e113975b58eae7ba82b0256f488080293f555d5e60fa9ab58ba56e368",
+  "reference_sha256": "cb161d0bcf4c93563c7b313176b5fc57769a1e1ffa1d5300041e0aca8bcf1f5e",
+  "models": {
+    "astra": "gpt-6-astra",
+    "sol": "gpt-6.1-sol",
+    "luna": "gpt-6-luna",
+    "argon": "gemini-4-argon",
+    "opus": "anthropic/claude-opus-5.5"
+  },
+  "episode_ids": [
+    "wgo-bench-homer_1",
+    "wgo-bench-homer_2",
+    "wgo-bench-homer_3",
+    "wgo-bench-homer_4",
+    "wgo-bench-homer_5"
+  ]
+}

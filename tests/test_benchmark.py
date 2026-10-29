@@ -1,8 +1,13 @@
 import unittest
+import json
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
 
 from shotwell_bench.boundary_score import score_boundaries
 from shotwell_bench.alternatives import expand_alternatives
-from shotwell_bench.runner import references, select_episodes, tasks_for_episode
+from shotwell_bench.providers import ContentBlocked, generate
+from shotwell_bench.runner import SEG_SCHEMA, _done_ids, references, select_episodes, tasks_for_episode
 from shotwell_bench.scoring import _f1
 
 
@@ -60,6 +65,22 @@ class ReferenceTests(unittest.TestCase):
                           'Push the glass with the left hand.'])
         nested = expand_alternatives('[[Rub / Rinse] the spoon / IDLE]')
         self.assertEqual(nested, ['Rub the spoon', 'Rinse the spoon', 'IDLE'])
+
+    def test_policy_refusal_is_not_a_generated_annotation(self):
+        with patch('shotwell_bench.providers._vertex', side_effect=ContentBlocked('PROHIBITED_CONTENT')):
+            result = generate('argon', 'Describe the video', [], SEG_SCHEMA)
+        self.assertEqual(result['output'], {'segments': []})
+        self.assertEqual(result['refusal_reason'], 'PROHIBITED_CONTENT')
+
+    def test_retry_refusals_keeps_successful_tasks(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'model.jsonl'
+            path.write_text(''.join(json.dumps(row) + '\n' for row in [
+                {'task_id': 'a', 'status': 'done', 'refusal_reason': 'PROHIBITED_CONTENT'},
+                {'task_id': 'b', 'status': 'done'},
+            ]))
+            self.assertEqual(_done_ids(path), {'a', 'b'})
+            self.assertEqual(_done_ids(path, retry_refusals=True), {'b'})
 
 
 if __name__ == '__main__':

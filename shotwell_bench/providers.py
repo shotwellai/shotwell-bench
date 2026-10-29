@@ -23,6 +23,10 @@ _provider_limits = {'openai': threading.BoundedSemaphore(16),
                     'openrouter': threading.BoundedSemaphore(8)}
 
 
+class ContentBlocked(Exception):
+    """The provider rejected the visual input under its content policy."""
+
+
 def _vertex_token():
     with _token_lock:
         if _token['value'] and time.monotonic() < _token['until']:
@@ -96,8 +100,17 @@ def _vertex(model, prompt, images, schema, max_tokens):
                       headers={'Authorization': 'Bearer ' + _vertex_token()}, timeout=900)
     r.raise_for_status()
     body = r.json()
+    feedback = body.get('promptFeedback', {})
+    if feedback.get('blockReason'):
+        raise ContentBlocked(feedback['blockReason'])
     raw = ''.join(part.get('text', '') for candidate in body.get('candidates', [])
                   for part in candidate.get('content', {}).get('parts', []))
+    if not raw.strip():
+        finish_reasons = [candidate.get('finishReason')
+                          for candidate in body.get('candidates', [])]
+        raise ValueError(f'Empty Vertex response: finish_reasons={finish_reasons}, '
+                         f'usage={body.get("usageMetadata", {})}, '
+                         f'feedback={body.get("promptFeedback", {})}')
     return _json_text(raw), body.get('usageMetadata', {})
 
 
@@ -129,6 +142,10 @@ def generate(model_name, prompt, images, schema, max_tokens=4000):
             try:
                 result, usage = caller(model, prompt, images, schema, max_tokens)
                 return {'output': result, 'usage': usage, 'model_id': model}
+            except ContentBlocked as exc:
+                output = {'segments': []} if 'segments' in schema['properties'] else {'description': ''}
+                return {'output': output, 'usage': {}, 'model_id': model,
+                        'refusal_reason': str(exc)}
             except (requests.RequestException, ValueError, KeyError,
                     json.JSONDecodeError, subprocess.SubprocessError) as exc:
                 last = exc

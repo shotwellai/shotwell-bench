@@ -40,6 +40,8 @@ def main():
     run_command.add_argument('--stage', choices=['both', 'segmentation', 'description'],
                              default='both')
     run_command.add_argument('--limit-tasks', type=int)
+    run_command.add_argument('--retry-refusals', action='store_true',
+                             help='Rerun policy-refused tasks with the same cached frames')
     args = parser.parse_args()
     load_env(args.env)
     models = list(MODELS) if args.model == 'all' else [args.model]
@@ -48,7 +50,8 @@ def main():
         parser.error('No episodes selected')
     if args.command == 'run':
         run(models, episodes, args.run_dir, args.cache,
-            workers=args.workers, stage=args.stage, limit_tasks=args.limit_tasks)
+            workers=args.workers, stage=args.stage, limit_tasks=args.limit_tasks,
+            retry_refusals=args.retry_refusals)
     else:
         score(models, episodes, args.run_dir, workers=args.workers)
 

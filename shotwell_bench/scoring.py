@@ -203,6 +203,8 @@ def score(models, episodes, run_dir, workers=24):
         results['models'][model] = {
             'model_id': rows[next(iter(required_ids))]['model_id'],
             'segmentation': segmentation, 'description': description,
+            'refused_tasks': sum(bool(rows[task_id].get('refusal_reason'))
+                                 for task_id in required_ids),
             'overall_f1': segmentation['f1'] * description['f1']}
         print(f'{model}: seg {segmentation["f1"]:.3f}, '
               f'desc {description["f1"]:.3f}, '
