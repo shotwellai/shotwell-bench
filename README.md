@@ -1,6 +1,6 @@
-# Shotwell-WGO-Bench
+# Shotwell-Bench
 
-Shotwell-WGO-Bench measures how well a vision-language model (1) segments an egocentric video into actions and (2) describes actions inside fixed reference intervals. It builds on [WGO-Bench](https://huggingface.co/datasets/macrodata/WGO-Bench) with a detailed [annotation guide](https://docs.google.com/document/d/1DT8Nu9IEP5oZ7uSj0GgQoOuZyltjdQMlGYVQgc76qVI/edit) and references that accept boundary ranges and optional splits. See the [article](https://shotwell.ai/blog/shotwell-wgo-bench/) and [reference browser](https://shotwell.ai/blog/shotwell-wgo-bench/episodes/).
+Shotwell-Bench measures how well a vision-language model (1) segments an egocentric video into actions and (2) describes actions inside fixed reference intervals. It builds on [WGO-Bench](https://huggingface.co/datasets/macrodata/WGO-Bench) with a detailed [annotation guide](https://docs.google.com/document/d/1DT8Nu9IEP5oZ7uSj0GgQoOuZyltjdQMlGYVQgc76qVI/edit) and references that accept boundary ranges and optional splits. See the [article](https://shotwell.ai/blog/shotwell-bench/) and [reference browser](https://shotwell.ai/blog/shotwell-bench/episodes/).
 
 The repo contains **no videos**. `references/episodes.json` links each episode to a pinned, publicly hosted MP4 in [Nano1337/wgo-bench-videos](https://huggingface.co/datasets/Nano1337/wgo-bench-videos). The source dataset is [macrodata/WGO-Bench](https://huggingface.co/datasets/macrodata/WGO-Bench); its listed license is CC BY-NC-SA 4.0. The runner caches downloaded MP4s outside the repo. The current [Markdown guide](guide.md) matches the linked Google Doc in prose; the exact text guide used for the completed run is archived with its results.
 
@@ -25,7 +25,7 @@ All 11 completed episodes were evaluated with the updated guide and description 
 
 ## Five-episode pilot
 
-The first five episodes were run at 8 fps with the [earlier guide revision](https://github.com/shotwellai/shotwell-wgo-bench/blob/ed6788bcf9e1e437556748c8579bec6dec45476f/guide.txt) and the earlier, stricter description judge. The current [guide](guide.md) adds a rule treating head-camera adjustment as IDLE, and the current judge accepts compatible specificity and slight generalizations. The first five golden references are unchanged, but the scores below have not been rerun under either revision and should not be compared directly with the new run. Scores are micro F1 for segmentation and descriptions; overall F1 is their product. [Full scores, raw model outputs, judge decisions, and run config](benchmark-results/first5-8fps/) are included for audit.
+The first five episodes were run at 8 fps with the [earlier guide revision](https://github.com/shotwellai/shotwell-bench/blob/ed6788bcf9e1e437556748c8579bec6dec45476f/guide.txt) and the earlier, stricter description judge. The current [guide](guide.md) adds a rule treating head-camera adjustment as IDLE, and the current judge accepts compatible specificity and slight generalizations. The first five golden references are unchanged, but the scores below have not been rerun under either revision and should not be compared directly with the new run. Scores are micro F1 for segmentation and descriptions; overall F1 is their product. [Full scores, raw model outputs, judge decisions, and run config](benchmark-results/first5-8fps/) are included for audit.
 
 | Model | Segmentation F1 | Description F1 | Overall F1 | Refused windows |
 | --- | ---: | ---: | ---: | ---: |
@@ -46,7 +46,7 @@ Python 3.11+, `ffmpeg`, and `ffprobe` are required. Install with `python3 -m ven
 - `OPENROUTER_API_KEY`: Qwen3-VL-235B-A22B-Instruct and Qwen3.5-397B-A17B via OpenRouter.
 - Google Cloud ADC or `gcloud auth login`: Gemini 4 Argon via Vertex AI. `GOOGLE_CLOUD_PROJECT` defaults to `robot-data-qa`; set it to a project with model access.
 
-Never commit `.env` or run outputs with credentials. The first run downloads only the selected public MP4s to `~/.cache/shotwell-wgo-bench` (override with `--cache`).
+Never commit `.env` or run outputs with credentials. The first run downloads only the selected public MP4s to `~/.cache/shotwell-bench` (override with `--cache`).
 
 ## Run
 
@@ -95,7 +95,7 @@ This uses WGO-Bench's published completed-events prompt, 2-fps contact sheets
 with 224-pixel tiles, and the source dataset's episode instructions. Its raw
 segments and prompt are in
 `benchmark-results/wgo-prompt-examples/astra-official.jsonl`. The article's
-"Astra on Shotwell-WGO" rows instead come from the 8-fps guided run. The
+"Astra on Shotwell-Bench" rows instead come from the 8-fps guided run. The
 comparison markers report segmentation only and apply each benchmark's own
 boundary-matching rule, not the description judge.
 

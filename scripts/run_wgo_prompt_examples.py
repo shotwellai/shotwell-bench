@@ -115,7 +115,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--env', type=Path)
     parser.add_argument('--cache', type=Path,
-                        default=Path.home() / '.cache/shotwell-wgo-bench')
+                        default=Path.home() / '.cache/shotwell-bench')
     parser.add_argument('--out', type=Path,
                         default=Path('benchmark-results/wgo-prompt-examples/astra-official.jsonl'))
     args = parser.parse_args()

@@ -145,7 +145,7 @@ def export(run_dir, website_dir, task_labels, guide_path=None):
         'models': public_models,
     }))
     (website_dir.parent / 'scores.json').write_text(json.dumps({
-        'benchmark': 'Shotwell-WGO-Bench',
+        'benchmark': 'Shotwell-Bench',
         'episode_ids': scores['episode_ids'],
         'fps': config['fps'],
         'judge_rubric_version': JUDGE_RUBRIC_VERSION,

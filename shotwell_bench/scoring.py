@@ -205,7 +205,7 @@ def score(models, episodes, run_dir, workers=24, guide_path=None):
     if config['guide_sha256'] != hashlib.sha256(guide_path.read_bytes()).hexdigest():
         raise ValueError('Guide changed since generation')
     results_path = run_dir / 'scores.json'
-    results = {'benchmark': 'Shotwell-WGO-Bench', 'fps': 8,
+    results = {'benchmark': 'Shotwell-Bench', 'fps': 8,
                'episode_ids': [e['id'] for e in episodes], 'models': {}}
     if results_path.exists():
         existing = json.loads(results_path.read_text())

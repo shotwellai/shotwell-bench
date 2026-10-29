@@ -14,7 +14,7 @@ import modal
 REVISION = '78a0e4ac75d33509f077fdf985ebb51153920e7c'
 MODEL_ID = f'nvidia/Flora-TempSeg+Flora-Captioner@{REVISION}'
 INSTRUCTION = (
-    'Follow Shotwell-WGO annotation rules: segment complete or attempted hand actions, '
+    'Follow Shotwell-Bench annotation rules: segment complete or attempted hand actions, '
     'navigation, and IDLE. Each distinct action merits a segment; group overlapping '
     'actions, and group short repetitive motions using the same object and hand. '
     'Pick up only when an item is fully lifted from its supporting surface; moving '

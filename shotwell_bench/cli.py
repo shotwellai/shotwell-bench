@@ -24,7 +24,7 @@ def load_env(path):
 
 
 def main():
-    parser = argparse.ArgumentParser(prog='shotwell-wgo-bench')
+    parser = argparse.ArgumentParser(prog='shotwell-bench')
     commands = parser.add_subparsers(dest='command', required=True)
     for name in ('run', 'score'):
         command = commands.add_parser(name)
@@ -38,7 +38,7 @@ def main():
                              help='Guide file used for this run (defaults to guide.md)')
     run_command = commands.choices['run']
     run_command.add_argument('--cache', type=Path,
-                             default=Path.home() / '.cache/shotwell-wgo-bench')
+                             default=Path.home() / '.cache/shotwell-bench')
     run_command.add_argument('--stage', choices=['both', 'segmentation', 'description'],
                              default='both')
     run_command.add_argument('--limit-tasks', type=int)

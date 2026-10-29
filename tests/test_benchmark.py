@@ -238,7 +238,7 @@ class ReferenceTests(unittest.TestCase):
                 'guide_sha256': hashlib.sha256(GUIDE_PATH.read_bytes()).hexdigest(),
             }))
             (root / 'scores.json').write_text(json.dumps({
-                'benchmark': 'Shotwell-WGO-Bench', 'fps': 8,
+                'benchmark': 'Shotwell-Bench', 'fps': 8,
                 'episode_ids': [episode['id']],
                 'models': {'astra': {'overall_f1': .5}},
             }))
