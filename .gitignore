@@ -8,4 +8,5 @@ runs/
 results/
 *.mp4
 *.mcap
+*.egg-info/
 

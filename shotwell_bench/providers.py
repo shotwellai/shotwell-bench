@@ -20,6 +20,8 @@ MODELS = {
     'sonnet': ('anthropic', 'claude-sonnet-5-5'),
     'qwen': ('openrouter', 'qwen/qwen3-vl-235b-a22b-instruct'),
     'qwen35': ('openrouter', 'qwen/qwen3.5-397b-a17b'),
+    'kimi3': ('openrouter', 'moonshotai/kimi-k3'),
+    'kimi31pro': ('openrouter', 'moonshotai/kimi-k3.1-pro'),
 }
 JUDGE_MODEL = 'gpt-6-astra'
 _token_lock = threading.Lock()
@@ -202,6 +204,8 @@ def _openrouter(model, prompt, images, schema, max_tokens):
     }
     if model == 'qwen/qwen3.5-397b-a17b':
         payload['reasoning'] = {'enabled': False}
+    if model in ('moonshotai/kimi-k3', 'moonshotai/kimi-k3.1-pro'):
+        payload['reasoning'] = {'max_tokens': 1024}
     r = requests.post('https://openrouter.ai/api/v1/chat/completions', json=payload,
                       headers={'Authorization': 'Bearer ' + os.environ['OPENROUTER_API_KEY']},
                       timeout=900)

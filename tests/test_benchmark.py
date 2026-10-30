@@ -175,6 +175,22 @@ class ReferenceTests(unittest.TestCase):
         self.assertEqual(output['description'], 'Pick the cup.')
         self.assertEqual(usage['prompt_tokens'], 10)
 
+    def test_kimi_caps_reasoning_to_leave_room_for_json(self):
+        for model in ('moonshotai/kimi-k3', 'moonshotai/kimi-k3.1-pro'):
+            with self.subTest(model=model), \
+                    patch.dict('os.environ', {'OPENROUTER_API_KEY': 'test-key'}), \
+                    patch('shotwell_bench.providers.requests.post') as post:
+                post.return_value.json.return_value = {
+                    'choices': [{'message': {'content': '{"description":"Pick the cup."}'}}],
+                    'usage': {},
+                }
+                output, _ = _openrouter(model, 'Describe', [],
+                                        {'type': 'object'}, 2500)
+                payload = post.call_args.kwargs['json']
+                self.assertEqual(payload['reasoning'], {'max_tokens': 1024})
+                self.assertEqual(payload['max_tokens'], 2500)
+                self.assertEqual(output['description'], 'Pick the cup.')
+
     def test_openrouter_packs_long_8fps_contact_sheet_series(self):
         image = Image.new('RGB', (16, 8), 'white')
         buffer = io.BytesIO()

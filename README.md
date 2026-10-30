@@ -10,7 +10,7 @@ The snapshot contains the 11 selected Job 690 episodes: `homer_1`, `homer_2`, `h
 
 ## Eleven-episode run
 
-All 11 completed episodes were evaluated with the updated guide and description judge. The API models received 8-fps contact sheets; FLORA received 8-fps video but its native temporal model sampled internally at 4 fps and used a condensed instruction. The eight scored models share the same reference snapshot. The exact guide text, run config, model outputs, judgments, and scores are in [the archived results](benchmark-results/all11-8fps-2026-10-29-plus2/). The Markdown guide adds formatting only, but changes its byte hash, so use a new run directory for future runs.
+All 11 completed episodes were evaluated with the updated guide and description judge. The API models received 8-fps contact sheets; FLORA received 8-fps video but its native temporal model sampled internally at 4 fps and used a condensed instruction. The models shown below share the same guide and reference snapshot. The earlier runs' guide text, config, outputs, judgments, and scores are in [the archived results](benchmark-results/all11-8fps-2026-10-29-plus2/); [Kimi K3](benchmark-results/kimi3-all11-8fps-2026-10-30/) and [Kimi K3.1 Pro](benchmark-results/kimi31pro-all11-8fps-2026-10-30/) are archived separately with the same inputs and judge rubric. The older Qwen3-VL Instruct run remains in the archive but is omitted from the current comparison. The Markdown guide adds formatting only, but changes its byte hash, so use a new run directory for future runs.
 
 | Model | Segmentation F1 | Description F1 | Overall F1 |
 | --- | ---: | ---: | ---: |
@@ -20,8 +20,9 @@ All 11 completed episodes were evaluated with the updated guide and description 
 | NVIDIA FLORA | 0.529 | 0.670 | 0.354 |
 | Claude Opus 5.5 | 0.548 | 0.590 | 0.323 |
 | Claude Sonnet 5.5 | 0.520 | 0.489 | 0.254 |
+| Kimi K3.1 Pro (1,024 reasoning tokens) | 0.523 | 0.414 | 0.217 |
 | GPT-6 Luna | 0.474 | 0.432 | 0.204 |
-| Qwen3-VL 235B Instruct | 0.339 | 0.319 | 0.108 |
+| Kimi K3 (1,024 reasoning tokens) | 0.434 | 0.374 | 0.162 |
 
 ## Five-episode pilot
 
@@ -43,14 +44,14 @@ Python 3.11+, `ffmpeg`, and `ffprobe` are required. Install with `python3 -m ven
 
 - `OPENAI_KEY`: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna, and the text-only judge.
 - `ANTHROPIC_KEY`: Claude Opus 5.5 and Sonnet 5.5 via Anthropic's API.
-- `OPENROUTER_API_KEY`: Qwen3-VL-235B-A22B-Instruct and Qwen3.5-397B-A17B via OpenRouter.
+- `OPENROUTER_API_KEY`: Qwen3-VL-235B-A22B-Instruct, Qwen3.5-397B-A17B, Kimi K3, and Kimi K3.1 Pro via OpenRouter.
 - Google Cloud ADC or `gcloud auth login`: Gemini 4 Argon via Vertex AI. `GOOGLE_CLOUD_PROJECT` defaults to `robot-data-qa`; set it to a project with model access.
 
 Never commit `.env` or run outputs with credentials. The first run downloads only the selected public MP4s to `~/.cache/shotwell-bench` (override with `--cache`).
 
 ## Run
 
-All eight API models, first five completed episodes, with up to 32 concurrent calls:
+All ten API models, first five completed episodes, with up to 32 concurrent calls:
 
 ```bash
 python3 -m shotwell_bench run --model all --subset first5 \
@@ -59,9 +60,11 @@ python3 -m shotwell_bench score --model all --subset first5 \
   --workers 24 --env .env --run-dir runs/first5-8fps
 ```
 
-Run one API model with the corresponding script in `scripts/`, including `run_sonnet.sh`, `run_qwen.sh`, and `run_qwen35.sh`. `scripts/run_all.sh` runs all eight API models; FLORA has a separate GPU runner below. `--subset completed` (default) selects every description-ready episode; with the current reference export, all 11 are ready, so it selects the same episodes as `--subset all`. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
+Run one API model with the corresponding script in `scripts/`, including `run_sonnet.sh`, `run_qwen.sh`, `run_qwen35.sh`, `run_kimi3.sh`, and `run_kimi31pro.sh`. `scripts/run_all.sh` runs all ten API models; FLORA has a separate GPU runner below. `--subset completed` (default) selects every description-ready episode; with the current reference export, all 11 are ready, so it selects the same episodes as `--subset all`. A comma-separated list such as `--subset homer_1,homer_3` is also accepted. `--stage segmentation` or `--stage description` isolates a pass. Rerunning resumes from successful JSONL checkpoints and retries failed tasks.
 
 `scripts/run_qwen35.sh` adds the open-weight Qwen3.5-397B-A17B model through OpenRouter. This adapter disables its default thinking mode so the provider returns a JSON answer within the per-task output limit; the model name and this setting should both be reported with its score. The older Qwen3-VL run remains available for comparison.
+
+`scripts/run_kimi3.sh` and `scripts/run_kimi31pro.sh` add the open-weight Kimi K3 and Kimi K3.1 Pro models through OpenRouter. Their reasoning is capped at 1,024 tokens per request so the models have room to return JSON within the per-task output limit. The cap is recorded in run metadata and should accompany reported scores.
 
 NVIDIA FLORA runs through its pinned native TempSeg and Captioner pipeline on Modal H100 workers. Install the optional `modal` package, configure a Modal profile with access to the `flora-eval` volume, then run:
 
@@ -74,7 +77,7 @@ python3 -m shotwell_bench score --model flora --run-dir runs/your-run \
 
 The FLORA runner converts source video to 8 fps, but its released temporal model samples frames internally at **4 fps**. It accepts at most 2,000 instruction characters, so the adapter passes a concise guide summary rather than the full benchmark guide. These differences are recorded in `config.json` and must be disclosed beside any comparison with the API models' 8-fps contact-sheet results. FLORA's weights and inference code use NVIDIA's noncommercial research license; see the [official release](https://github.com/NVIDIA/Flora).
 
-Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The API candidates are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-luna`, `gemini-4-argon`, `claude-opus-5-5`, `claude-sonnet-5-5`, `qwen/qwen3-vl-235b-a22b-instruct`, and `qwen/qwen3.5-397b-a17b`; NVIDIA FLORA uses the separate GPU adapter above. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly. Qwen3-VL's Thinking variant was unavailable through the configured providers, so the older run uses the available Instruct variant.
+Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The API candidates are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-luna`, `gemini-4-argon`, `claude-opus-5-5`, `claude-sonnet-5-5`, `qwen/qwen3-vl-235b-a22b-instruct`, `qwen/qwen3.5-397b-a17b`, `moonshotai/kimi-k3`, and `moonshotai/kimi-k3.1-pro`; NVIDIA FLORA uses the separate GPU adapter above. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly. Qwen3-VL's Thinking variant was unavailable through the configured providers, so the older run uses the available Instruct variant.
 
 `--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals. Use a new run directory when changing the guide. To extend the archived eleven-episode run with another model, pass `--guide benchmark-results/all11-8fps-2026-10-29-plus2/guide.txt` so the exact guide hash matches; the root Markdown guide has the same prose but different bytes.
 
@@ -98,6 +101,36 @@ segments and prompt are in
 "Astra on Shotwell-Bench" rows instead come from the 8-fps guided run. The
 comparison markers report segmentation only and apply each benchmark's own
 boundary-matching rule, not the description judge.
+
+## WGO comparison archive
+
+The [full public WGO-Bench dataset](https://huggingface.co/datasets/macrodata/WGO-Bench)
+was evaluated independently for six additional model versions. These are
+**not** NVIDIA-reported scores or an exact reproduction of its unpublished
+prompts. All six models use the public WGO pipeline:
+2-fps timestamped contact sheets with 224-pixel tiles in a 5-column layout,
+followed by seeded relabeling of each predicted interval using up to five
+uniformly sampled frames from it and its neighboring predicted intervals.
+Reference labels and end times are not given to the generation stage. The
+public WGO rubric uses Gemini 3.5 Flash to judge temporally eligible captions;
+joint F1 is averaged equally across HomER, DROID, and Galaxea.
+
+Install the WGO dependencies with `pip install -e '.[wgo]'` and download the
+dataset outside the repository, then run the resumable stages:
+
+```bash
+curl -fL --continue-at - -o ~/.cache/shotwell-bench/wgo-annotations.parquet \
+  'https://huggingface.co/datasets/macrodata/WGO-Bench/resolve/main/data/annotations.parquet?download=true'
+python scripts/run_wgo_comparison.py --stage prepare
+python scripts/run_wgo_comparison.py --stage segment --workers 32 --env .env
+python scripts/run_wgo_comparison.py --stage caption --workers 24 --env .env
+python scripts/score_wgo_comparison.py --model-workers 6 --workers 8 --env .env
+```
+
+The scripts default to `benchmark-results/wgo-ranking-2026-10-30-v3` and save
+raw segmentation, caption, judgment, and score files there. Repeating any
+stage skips completed tasks. The WGO scores are not directly comparable with
+Shotwell's selected 11 episodes and different scoring rule.
 
 ## Scoring
 

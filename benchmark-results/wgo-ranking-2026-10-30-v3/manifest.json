@@ -1,0 +1,27 @@
+{
+  "dataset": "https://huggingface.co/datasets/macrodata/WGO-Bench",
+  "episodes": 100,
+  "prediction_duration_source": "ffprobe_video_duration",
+  "segmentation_prompt": "Reconstruct the sequence of manipulation events in this video from timestamped contact sheets.\n\nReturn only JSON with this shape: {{\"segments\":[{{\"start_sec\":0.0,\"end_sec\":1.0,\"subtask\":\"short action description\"}}]}}\n\nRules:\n- Segment completed manipulation events, not every visible movement.\n- Good boundaries happen when a held object changes, an object is placed or released, a tool starts or stops changing a surface, a container/door/lid opens or closes, or contents move between containers.\n- Do not split approach, grasp adjustment, small repositioning, and retreat unless the world state changes.\n- Do not merge separate pick/place/open/close/pour/wipe events when they complete different states.\n- Most segments should be 2-10 seconds. Shorter segments are fine for quick pick, place, open, close, or release events.\n- Use the visible timestamps for start_sec and end_sec.\n- Prioritize temporal boundaries over label wording.\n\nEpisode instruction: {instruction}",
+  "caption_prompt": "Annotate one fixed segment from a longer video.\nReturn only JSON with a short descriptive subtask label in the description field.\nThe three images are the previous, current, and next predicted segments, respectively. A missing neighbor is blank. Each image is timestamped with absolute video time.\n\nEpisode instruction: {instruction}\nTarget segment: {index} of {count}\nTarget time: {start:.2f}s to {end:.2f}s\nOriginal predicted label for this exact segment: {seed}\n\nLabel only the current segment. Use neighboring images only to disambiguate what changed during the current segment. Treat the original predicted label as a strong prior, not ground truth. Verify it and make only necessary corrections: keep the main action and object when they are right, but replace a wrong action, object, destination, or state change. Name the completed visible change and its main object in one concise phrase. Do not split or merge this segment, describe neighboring events, or mention uncertainty, timestamps, or invisible intent.",
+  "segmentation_input": {
+    "fps": 2,
+    "tile": [
+      224,
+      224
+    ],
+    "sheet": [
+      5,
+      4
+    ],
+    "jpeg_quality": 90,
+    "frame_cap": 1024
+  },
+  "caption_input": {
+    "frame_grid_fps": 4,
+    "uniform_frames_per_predicted_segment": 5,
+    "context": "previous,current,next_predicted_segments",
+    "seeded_relabeling": true,
+    "recipe": "wgo-neighbor-seeded-v1"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "sol": {
+    "model": "sol",
+    "joint_f1": 0.4620627411030965,
+    "subsets": {
+      "HomER": {
+        "predicted": 488,
+        "reference": 470,
+        "matched": 97,
+        "segmentation_matched": 161,
+        "joint_f1": 0.20250521920668058,
+        "segmentation_f1": 0.33611691022964507
+      },
+      "DROID": {
+        "predicted": 139,
+        "reference": 150,
+        "matched": 93,
+        "segmentation_matched": 113,
+        "joint_f1": 0.643598615916955,
+        "segmentation_f1": 0.7820069204152249
+      },
+      "Galaxea": {
+        "predicted": 114,
+        "reference": 123,
+        "matched": 64,
+        "segmentation_matched": 88,
+        "joint_f1": 0.540084388185654,
+        "segmentation_f1": 0.7426160337552743
+      }
+    },
+    "refused_segmentation_calls": 0,
+    "refused_caption_calls": 0,
+    "source": "independent_replication",
+    "judge": "gemini-3.5-flash",
+    "dataset": "macrodata/WGO-Bench",
+    "episodes": 100
+  },
+  "luna": {
+    "model": "luna",
+    "joint_f1": 0.21004852531620544,
+    "subsets": {
+      "HomER": {
+        "predicted": 258,
+        "reference": 470,
+        "matched": 42,
+        "segmentation_matched": 77,
+        "joint_f1": 0.11538461538461539,
+        "segmentation_f1": 0.21153846153846154
+      },
+      "DROID": {
+        "predicted": 117,
+        "reference": 150,
+        "matched": 36,
+        "segmentation_matched": 51,
+        "joint_f1": 0.2696629213483146,
+        "segmentation_f1": 0.38202247191011235
+      },
+      "Galaxea": {
+        "predicted": 81,
+        "reference": 123,
+        "matched": 25,
+        "segmentation_matched": 31,
+        "joint_f1": 0.24509803921568626,
+        "segmentation_f1": 0.30392156862745096
+      }
+    },
+    "refused_segmentation_calls": 0,
+    "refused_caption_calls": 0,
+    "source": "independent_replication",
+    "judge": "gemini-3.5-flash",
+    "dataset": "macrodata/WGO-Bench",
+    "episodes": 100
+  },
+  "argon": {
+    "model": "argon",
+    "joint_f1": 0.4897074518499646,
+    "subsets": {
+      "HomER": {
+        "predicted": 341,
+        "reference": 470,
+        "matched": 87,
+        "segmentation_matched": 116,
+        "joint_f1": 0.21454993834771888,
+        "segmentation_f1": 0.28606658446362515
+      },
+      "DROID": {
+        "predicted": 139,
+        "reference": 150,
+        "matched": 89,
+        "segmentation_matched": 105,
+        "joint_f1": 0.615916955017301,
+        "segmentation_f1": 0.726643598615917
+      },
+      "Galaxea": {
+        "predicted": 115,
+        "reference": 123,
+        "matched": 76,
+        "segmentation_matched": 92,
+        "joint_f1": 0.6386554621848739,
+        "segmentation_f1": 0.773109243697479
+      }
+    },
+    "refused_segmentation_calls": 0,
+    "refused_caption_calls": 5,
+    "source": "independent_replication",
+    "judge": "gemini-3.5-flash",
+    "dataset": "macrodata/WGO-Bench",
+    "episodes": 100
+  },
+  "opus": {
+    "model": "opus",
+    "joint_f1": 0.3078096993905874,
+    "subsets": {
+      "HomER": {
+        "predicted": 379,
+        "reference": 470,
+        "matched": 93,
+        "segmentation_matched": 143,
+        "joint_f1": 0.21908127208480566,
+        "segmentation_f1": 0.336866902237927
+      },
+      "DROID": {
+        "predicted": 195,
+        "reference": 150,
+        "matched": 64,
+        "segmentation_matched": 78,
+        "joint_f1": 0.3710144927536232,
+        "segmentation_f1": 0.45217391304347826
+      },
+      "Galaxea": {
+        "predicted": 111,
+        "reference": 123,
+        "matched": 39,
+        "segmentation_matched": 52,
+        "joint_f1": 0.3333333333333333,
+        "segmentation_f1": 0.4444444444444444
+      }
+    },
+    "refused_segmentation_calls": 0,
+    "refused_caption_calls": 0,
+    "source": "independent_replication",
+    "judge": "gemini-3.5-flash",
+    "dataset": "macrodata/WGO-Bench",
+    "episodes": 100
+  },
+  "sonnet": {
+    "model": "sonnet",
+    "joint_f1": 0.08458140302652707,
+    "subsets": {
+      "HomER": {
+        "predicted": 353,
+        "reference": 470,
+        "matched": 53,
+        "segmentation_matched": 100,
+        "joint_f1": 0.12879708383961117,
+        "segmentation_f1": 0.24301336573511542
+      },
+      "DROID": {
+        "predicted": 271,
+        "reference": 150,
+        "matched": 9,
+        "segmentation_matched": 27,
+        "joint_f1": 0.04275534441805225,
+        "segmentation_f1": 0.12826603325415678
+      },
+      "Galaxea": {
+        "predicted": 169,
+        "reference": 123,
+        "matched": 12,
+        "segmentation_matched": 31,
+        "joint_f1": 0.0821917808219178,
+        "segmentation_f1": 0.21232876712328766
+      }
+    },
+    "refused_segmentation_calls": 0,
+    "refused_caption_calls": 0,
+    "source": "independent_replication",
+    "judge": "gemini-3.5-flash",
+    "dataset": "macrodata/WGO-Bench",
+    "episodes": 100
+  },
+  "kimi31pro": {
+    "model": "kimi31pro",
+    "joint_f1": 0.20480239611120266,
+    "subsets": {
+      "HomER": {
+        "predicted": 337,
+        "reference": 470,
+        "matched": 51,
+        "segmentation_matched": 99,
+        "joint_f1": 0.12639405204460966,
+        "segmentation_f1": 0.24535315985130113
+      },
+      "DROID": {
+        "predicted": 140,
+        "reference": 150,
+        "matched": 39,
+        "segmentation_matched": 62,
+        "joint_f1": 0.2689655172413793,
+        "segmentation_f1": 0.42758620689655175
+      },
+      "Galaxea": {
+        "predicted": 87,
+        "reference": 123,
+        "matched": 23,
+        "segmentation_matched": 40,
+        "joint_f1": 0.21904761904761905,
+        "segmentation_f1": 0.38095238095238093
+      }
+    },
+    "refused_segmentation_calls": 0,
+    "refused_caption_calls": 0,
+    "source": "independent_replication",
+    "judge": "gemini-3.5-flash",
+    "dataset": "macrodata/WGO-Bench",
+    "episodes": 100
+  }
+}

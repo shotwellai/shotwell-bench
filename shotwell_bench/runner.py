@@ -133,6 +133,8 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
                 'guide_sha256': hashlib.sha256(guide_path.read_bytes()).hexdigest(),
                 'reference_sha256': hashlib.sha256(REFERENCE_PATH.read_bytes()).hexdigest(),
                 'models': {name: MODELS[name][1] for name in models},
+                'model_options': {name: {'reasoning': {'max_tokens': 1024}}
+                                  for name in models if name in ('kimi3', 'kimi31pro')},
                 'episode_ids': list(episode_by_id)}
     config_path = out_dir / 'config.json'
     if config_path.exists():
@@ -145,6 +147,8 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
             if name in existing['models'] and existing['models'][name] != model_id:
                 raise ValueError(f'Run config mismatch for model {name}')
         metadata['models'] = {**existing['models'], **metadata['models']}
+        metadata['model_options'] = {**existing.get('model_options', {}),
+                                     **metadata['model_options']}
         metadata = {**existing, **metadata}
     config_path.write_text(json.dumps(metadata, indent=2) + '\n')
 

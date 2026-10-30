@@ -20,6 +20,8 @@ MODEL_NAMES = {
     'qwen': 'Qwen3-VL 235B Instruct',
     'qwen35': 'Qwen3.5 397B',
     'flora': 'NVIDIA FLORA',
+    'kimi3': 'Kimi K3',
+    'kimi31pro': 'Kimi K3.1 Pro',
 }
 
 

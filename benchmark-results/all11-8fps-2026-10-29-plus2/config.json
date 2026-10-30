@@ -37,5 +37,6 @@
       "pipeline": "NVIDIA native TempSeg + Captioner",
       "instruction": "Follow Shotwell-WGO annotation rules: segment complete or attempted hand actions, navigation, and IDLE. Each distinct action merits a segment; group overlapping actions, and group short repetitive motions using the same object and hand. Pick up only when an item is fully lifted from its supporting surface; moving an item along a surface is one Move action, not Pick up plus Place. Ignore contact without effect, brief pats and clothing alignment, passive rinsing, and head-camera adjustment. IDLE requires at least 1.5 seconds, navigation at least 1 second. Caption in imperative form: verb, object, acting hand(s), and tool when used. For overlapping actions, join full clauses with and. For a placed item, give the destination; for an item slid on a surface, give direction. Do not invent intentions or unseen details."
     }
-  }
+  },
+  "model_options": {}
 }

@@ -1,0 +1,32 @@
+{
+  "fps": 8,
+  "frame_width": 512,
+  "contact_sheet": "4x2",
+  "segmentation_core_seconds": 10,
+  "context_seconds": 1,
+  "guide_sha256": "6bbcf11f7d9cf232f14213908228d0eedbb7ff81fb83e89490be6fa3e321a4f8",
+  "reference_sha256": "5ff9337869cbc2a40c0385ee4df2a09701a8a9d15cc7f042ffd2dcef3e0bf84c",
+  "models": {
+    "kimi3": "moonshotai/kimi-k3"
+  },
+  "episode_ids": [
+    "wgo-bench-homer_1",
+    "wgo-bench-homer_2",
+    "wgo-bench-homer_3",
+    "wgo-bench-homer_4",
+    "wgo-bench-homer_5",
+    "wgo-bench-homer_9",
+    "wgo-bench-homer_33",
+    "wgo-bench-homer_37",
+    "wgo-bench-homer_40",
+    "wgo-bench-homer_41",
+    "wgo-bench-homer_48"
+  ],
+  "model_options": {
+    "kimi3": {
+      "reasoning": {
+        "max_tokens": 1024
+      }
+    }
+  }
+}

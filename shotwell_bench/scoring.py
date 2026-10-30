@@ -209,8 +209,10 @@ def score(models, episodes, run_dir, workers=24, guide_path=None):
                'episode_ids': [e['id'] for e in episodes], 'models': {}}
     if results_path.exists():
         existing = json.loads(results_path.read_text())
-        if any(existing[key] != results[key] for key in ('benchmark', 'fps', 'episode_ids')):
+        if (existing['benchmark'] not in ('Shotwell-Bench', 'Shotwell-WGO-Bench')
+                or any(existing[key] != results[key] for key in ('fps', 'episode_ids'))):
             raise ValueError('Existing scores use a different benchmark selection')
+        results['benchmark'] = existing['benchmark']
         results['models'] = existing['models']
     for model in models:
         rows = _latest_rows(run_dir / f'{model}.jsonl')
