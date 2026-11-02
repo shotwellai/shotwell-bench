@@ -14,6 +14,7 @@ from PIL import Image
 MODELS = {
     'astra': ('openai', 'gpt-6-astra'),
     'sol': ('openai', 'gpt-6.1-sol'),
+    'terra': ('openai', 'gpt-6.1-terra'),
     'luna': ('openai', 'gpt-6-luna'),
     'argon': ('vertex', 'gemini-4-argon'),
     'opus': ('anthropic', 'claude-opus-5-5'),

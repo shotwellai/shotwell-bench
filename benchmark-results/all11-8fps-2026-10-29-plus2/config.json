@@ -15,7 +15,8 @@
     "qwen": "qwen/qwen3-vl-235b-a22b-instruct",
     "sonnet": "claude-sonnet-5-5",
     "qwen35": "qwen/qwen3.5-397b-a17b",
-    "flora": "nvidia/Flora-TempSeg+Flora-Captioner@78a0e4ac75d33509f077fdf985ebb51153920e7c"
+    "flora": "nvidia/Flora-TempSeg+Flora-Captioner@78a0e4ac75d33509f077fdf985ebb51153920e7c",
+    "terra": "gpt-6.1-terra"
   },
   "episode_ids": [
     "wgo-bench-homer_1",

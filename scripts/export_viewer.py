@@ -13,6 +13,7 @@ from shotwell_bench.scoring import JUDGE_RUBRIC_VERSION, judgment_key
 MODEL_NAMES = {
     'astra': 'GPT-6 Astra',
     'sol': 'GPT-6.1 Sol',
+    'terra': 'GPT-6.1 Terra',
     'argon': 'Gemini 4 Argon',
     'opus': 'Claude Opus 5.5',
     'luna': 'GPT-6 Luna',

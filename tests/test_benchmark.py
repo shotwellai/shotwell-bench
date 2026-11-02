@@ -95,6 +95,14 @@ class ReferenceTests(unittest.TestCase):
         self.assertEqual(result['output'], {'segments': []})
         self.assertEqual(result['refusal_reason'], 'PROHIBITED_CONTENT')
 
+    def test_terra_uses_openai_adapter(self):
+        with patch.dict('os.environ', {'OPENAI_KEY': 'test-key'}), \
+                patch('shotwell_bench.providers._openai',
+                      return_value=({'segments': []}, {'input_tokens': 1})) as caller:
+            result = generate('terra', 'Describe the video', [], SEG_SCHEMA)
+        self.assertEqual(result['model_id'], 'gpt-6.1-terra')
+        caller.assert_called_once_with('gpt-6.1-terra', 'Describe the video', [], SEG_SCHEMA, 4000)
+
     def test_openrouter_in_flight_budget_is_retried(self):
         response = requests.Response()
         response.status_code = 402
