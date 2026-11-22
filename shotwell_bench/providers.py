@@ -14,10 +14,14 @@ from PIL import Image
 MODELS = {
     'astra': ('openai', 'gpt-6-astra'),
     'sol': ('openai', 'gpt-6.1-sol'),
+    'astra62': ('openai', 'gpt-6.2-astra'),
+    'sol62': ('openai', 'gpt-6.2-sol'),
     'terra': ('openai', 'gpt-6.1-terra'),
     'luna': ('openai', 'gpt-6-luna'),
     'argon': ('vertex', 'gemini-4-argon'),
+    'carbon': ('vertex', 'gemini-4-carbon'),
     'opus': ('anthropic', 'claude-opus-5-5'),
+    'fable': ('anthropic', 'claude-fable-5-2'),
     'sonnet': ('anthropic', 'claude-sonnet-5-5'),
     'qwen': ('openrouter', 'qwen/qwen3-vl-235b-a22b-instruct'),
     'qwen35': ('openrouter', 'qwen/qwen3.5-397b-a17b'),
@@ -157,6 +161,12 @@ def _anthropic(model, prompt, images, schema, max_tokens):
                                'anthropic-version': '2023-06-01'}, timeout=900)
     r.raise_for_status()
     body = r.json()
+    if body.get('stop_reason') == 'refusal':
+        # A safety classifier declined the input (HTTP 200). The benchmark records it as a refusal and
+        # scores the window as producing no annotation; it does not retry on another model.
+        details = body.get('stop_details') or {}
+        raise ContentBlocked(f'Anthropic refusal: category={details.get("category")} '
+                             f'explanation={details.get("explanation")!r}')
     raw = ''.join(part.get('text', '') for part in body.get('content', [])
                   if part.get('type') == 'text')
     if not raw.strip():
@@ -251,6 +261,15 @@ def generate(model_name, prompt, images, schema, max_tokens=4000):
                 status = exc.response.status_code if exc.response is not None else None
                 in_flight_limit = (status == 402 and exc.response is not None and
                                    'in_flight_budget_exhausted' in exc.response.text)
+                if status == 401 and provider == 'vertex':
+                    # A cached gcloud token that Vertex no longer accepts (2026-11-17 Carbon run: 227 calls
+                    # failed with ACCESS_TOKEN_TYPE_UNSUPPORTED after a refresh). Drop it and fetch a new one.
+                    with _token_lock:
+                        _token.update(value=None, until=0.0)
+                    last = exc
+                    if attempt < 4:
+                        time.sleep(min(90, 3 * 2 ** attempt))
+                    continue
                 if status is not None and 400 <= status < 500 and status != 429 and not in_flight_limit:
                     raise RuntimeError(f'{model_name} request rejected: {exc.response.text[:500]}') from exc
                 last = exc
