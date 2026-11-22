@@ -133,8 +133,13 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
                 'guide_sha256': hashlib.sha256(guide_path.read_bytes()).hexdigest(),
                 'reference_sha256': hashlib.sha256(REFERENCE_PATH.read_bytes()).hexdigest(),
                 'models': {name: MODELS[name][1] for name in models},
-                'model_options': {name: {'reasoning': {'max_tokens': 1024}}
-                                  for name in models if name in ('kimi3', 'kimi31pro')},
+                'model_options': {**{name: {'reasoning': {'max_tokens': 1024}}
+                                     for name in models if name in ('kimi3', 'kimi31pro')},
+                                  **{name: {'thinking': 'adaptive (always on)', 'effort': 'high (API default)',
+                                            'max_tokens': 16000}
+                                     for name in models if name == 'fable'},
+                                  **{name: {'thinking': 'API default', 'maxOutputTokens': 64000}
+                                     for name in models if name == 'carbon'}},
                 'episode_ids': list(episode_by_id)}
     config_path = out_dir / 'config.json'
     if config_path.exists():
@@ -182,8 +187,18 @@ def run(models, episodes, out_dir, cache, workers=32, stage='both', limit_tasks=
         images = contact_sheets(ep, task.start, task.end, cache)
         schema = SEG_SCHEMA if task.kind == 'segmentation' else DESC_SCHEMA
         try:
-            max_tokens = (1000 if task.kind == 'segmentation' else 300) if model == 'qwen35' else (
-                5000 if task.kind == 'segmentation' else 2500)
+            if model == 'qwen35':
+                max_tokens = 1000 if task.kind == 'segmentation' else 300
+            elif model == 'fable':
+                # Claude Fable 5.2 always thinks, and its thinking tokens count against max_tokens; the Opus
+                # limits (5000 / 2500) would cut the JSON answer off. Effort stays at the API default (high).
+                max_tokens = 16000
+            elif model == 'carbon':
+                # Gemini 4 Carbon's thinking also counts against maxOutputTokens: a third of segmentation calls hit
+                # 5000 with 3 answer tokens, and 5 of 347 still hit 16000. Thinking level stays at the API default.
+                max_tokens = 64000
+            else:
+                max_tokens = 5000 if task.kind == 'segmentation' else 2500
             result = generate(model, _prompt(task, guide_text), images, schema,
                               max_tokens=max_tokens)
             row = {'task_id': task.id, 'kind': task.kind, 'episode_id': task.episode_id,

@@ -14,16 +14,29 @@ All 11 completed episodes were evaluated with the updated guide and description 
 
 | Model | Segmentation F1 | Description F1 | Overall F1 |
 | --- | ---: | ---: | ---: |
-| GPT-6 Astra | 0.773 | 0.709 | **0.548** |
+| GPT-6.2 Astra | 0.790 | 0.751 | **0.593** |
+| GPT-6.2 Sol | 0.768 | 0.739 | 0.568 |
+| GPT-6 Astra | 0.773 | 0.709 | 0.548 |
 | GPT-6.1 Sol | 0.756 | 0.676 | 0.511 |
+| Gemini 4 Carbon | 0.738 | 0.674 | 0.497 |
 | GPT-6.1 Terra | 0.740 | 0.668 | 0.494 |
 | Gemini 4 Argon | 0.694 | 0.672 | 0.466 |
+| Claude Fable 5.2 | 0.699 | 0.661 | 0.462 |
 | NVIDIA FLORA | 0.529 | 0.670 | 0.354 |
 | Claude Opus 5.5 | 0.548 | 0.590 | 0.323 |
 | Claude Sonnet 5.5 | 0.520 | 0.489 | 0.254 |
 | Kimi K3.1 Pro (1,024 reasoning tokens) | 0.523 | 0.414 | 0.217 |
 | GPT-6 Luna | 0.474 | 0.432 | 0.204 |
 | Kimi K3 (1,024 reasoning tokens) | 0.434 | 0.374 | 0.162 |
+
+### November 2026 additions
+
+GPT-6.2 Astra, GPT-6.2 Sol, Gemini 4 Carbon, and Claude Fable 5.2 were run on the same 11 episodes with the archived guide (`benchmark-results/all11-8fps-2026-10-29-plus2/guide.txt`), the same 8 fps contact sheets, and the same GPT-6 Astra judge and rubric. Their raw outputs, judgments, and configs are in [gpt62-all11-8fps-2026-11-17](benchmark-results/gpt62-all11-8fps-2026-11-17/), [carbon-all11-8fps-2026-11-17](benchmark-results/carbon-all11-8fps-2026-11-17/), and [fable52-all11-8fps-2026-11-13](benchmark-results/fable52-all11-8fps-2026-11-13/). Disclose these settings beside the scores:
+
+- The GPT-6.2 models used `medium` reasoning effort and the stock output limits, like the GPT-6 and 6.1 rows.
+- Claude Fable 5.2 ran with `max_tokens` 16,000 and Gemini 4 Carbon with `maxOutputTokens` 64,000. Both models always think, their thinking counts against the output limit, and the stock limits cut the JSON answer off (Carbon returned 3 answer tokens on a third of segmentation calls at 5,000). Thinking effort stayed at each API's default.
+- Carbon refused 20 windows under Vertex AI content policy, 19 of them the same windows Argon refused. They count as missing annotations.
+- The article's cost chart prices GPT-6.2 Astra at $8 / $40, GPT-6.2 Sol at $2 / $10, Claude Fable 5.2 at $8 / $40, and Carbon at Google's standard $4 / $20 catalog rate per million tokens. The rendered charts and the merged `scores.json` are in [charts-2026-11-17](benchmark-results/charts-2026-11-17/).
 
 ## Five-episode pilot
 
@@ -43,10 +56,10 @@ Argon refused two image windows under its provider's content policy, including o
 
 Python 3.11+, `ffmpeg`, and `ffprobe` are required. Install with `python3 -m venv .venv && .venv/bin/pip install -e .` and activate the environment. Copy `.env.example` to `.env` and fill in your own credentials, or set environment variables directly:
 
-- `OPENAI_KEY`: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, GPT-6 Luna, and the text-only judge.
-- `ANTHROPIC_KEY`: Claude Opus 5.5 and Sonnet 5.5 via Anthropic's API.
+- `OPENAI_KEY`: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Luna, and the text-only judge.
+- `ANTHROPIC_KEY`: Claude Opus 5.5, Sonnet 5.5, and Fable 5.2 via Anthropic's API.
 - `OPENROUTER_API_KEY`: Qwen3-VL-235B-A22B-Instruct, Qwen3.5-397B-A17B, Kimi K3, and Kimi K3.1 Pro via OpenRouter.
-- Google Cloud ADC or `gcloud auth login`: Gemini 4 Argon via Vertex AI. `GOOGLE_CLOUD_PROJECT` defaults to `robot-data-qa`; set it to a project with model access.
+- Google Cloud ADC or `gcloud auth login`: Gemini 4 Argon and Gemini 4 Carbon via Vertex AI. `GOOGLE_CLOUD_PROJECT` defaults to `robot-data-qa`; set it to a project with model access.
 
 Never commit `.env` or run outputs with credentials. The first run downloads only the selected public MP4s to `~/.cache/shotwell-bench` (override with `--cache`).
 
@@ -78,7 +91,7 @@ python3 -m shotwell_bench score --model flora --run-dir runs/your-run \
 
 The FLORA runner converts source video to 8 fps, but its released temporal model samples frames internally at **4 fps**. It accepts at most 2,000 instruction characters, so the adapter passes a concise guide summary rather than the full benchmark guide. These differences are recorded in `config.json` and must be disclosed beside any comparison with the API models' 8-fps contact-sheet results. FLORA's weights and inference code use NVIDIA's noncommercial research license; see the [official release](https://github.com/NVIDIA/Flora).
 
-Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The API candidates are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6.1-terra`, `gpt-6-luna`, `gemini-4-argon`, `claude-opus-5-5`, `claude-sonnet-5-5`, `qwen/qwen3-vl-235b-a22b-instruct`, `qwen/qwen3.5-397b-a17b`, `moonshotai/kimi-k3`, and `moonshotai/kimi-k3.1-pro`; NVIDIA FLORA uses the separate GPU adapter above. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly. Qwen3-VL's Thinking variant was unavailable through the configured providers, so the older run uses the available Instruct variant.
+Results appear in `<run-dir>/scores.json`; per-model raw outputs and blinded judge decisions remain in JSONL files alongside it. `config.json` records exact model IDs, guide/reference hashes, frame settings, and episode IDs. Keep it with the run for reproducibility. The API candidates are `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6.1-terra`, `gpt-6.2-astra`, `gpt-6.2-sol`, `gpt-6-luna`, `gemini-4-argon`, `gemini-4-carbon`, `claude-opus-5-5`, `claude-sonnet-5-5`, `claude-fable-5-2`, `qwen/qwen3-vl-235b-a22b-instruct`, `qwen/qwen3.5-397b-a17b`, `moonshotai/kimi-k3`, and `moonshotai/kimi-k3.1-pro`; NVIDIA FLORA uses the separate GPU adapter above. The archived five-episode pilot used Opus through OpenRouter; the current run uses Anthropic directly. Qwen3-VL's Thinking variant was unavailable through the configured providers, so the older run uses the available Instruct variant.
 
 `--retry-refusals` reruns only policy-refused tasks with the same cached 8 fps frames, retaining the earlier refusal rows for audit. Repeated policy blocks remain recorded as refusals. Use a new run directory when changing the guide. To extend the archived eleven-episode run with another model, pass `--guide benchmark-results/all11-8fps-2026-10-29-plus2/guide.txt` so the exact guide hash matches; the root Markdown guide has the same prose but different bytes.
 

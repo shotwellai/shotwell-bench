@@ -1,0 +1,1312 @@
+{
+  "benchmark": "Shotwell-Bench",
+  "fps": 8,
+  "episode_ids": [
+    "wgo-bench-homer_1",
+    "wgo-bench-homer_2",
+    "wgo-bench-homer_3",
+    "wgo-bench-homer_4",
+    "wgo-bench-homer_5",
+    "wgo-bench-homer_9",
+    "wgo-bench-homer_33",
+    "wgo-bench-homer_37",
+    "wgo-bench-homer_40",
+    "wgo-bench-homer_41",
+    "wgo-bench-homer_48"
+  ],
+  "models": {
+    "carbon": {
+      "model_id": "gemini-4-carbon",
+      "segmentation": {
+        "precision": 0.7120622568093385,
+        "recall": 0.7656903765690377,
+        "f1": 0.7379032258064517,
+        "tp": 183,
+        "fp": 74,
+        "fn": 56,
+        "major_total": 201,
+        "major_hits": 145,
+        "optional_hits": 38,
+        "prediction_total": 257,
+        "by_episode": {
+          "wgo-bench-homer_1": {
+            "major_total": 21,
+            "major_hits": 15,
+            "missed_majors": 6,
+            "minor_total": 15,
+            "minor_hits": 7,
+            "unused_minors": 8,
+            "prediction_total": 25,
+            "matched_predictions": 22,
+            "extra_predictions": 3,
+            "total_penalty": 9,
+            "predicted_boundaries": [
+              {
+                "time": 5.125,
+                "description": "Screw on the lid with the left hand and steady the pitcher with the right hand."
+              },
+              {
+                "time": 8.0,
+                "description": "Screw on the lid with the right hand and steady the pitcher with the left hand."
+              },
+              {
+                "time": 10.38,
+                "description": "Pick up the jug with the right hand."
+              },
+              {
+                "time": 20.5,
+                "description": "Pour water into the glass with the pitcher with the right hand and steady the glass with the left hand."
+              },
+              {
+                "time": 21.75,
+                "description": "Place the pitcher on the table with the right hand."
+              },
+              {
+                "time": 26.25,
+                "description": "Turn the pitcher lid with the right hand and steady the pitcher with the left hand."
+              },
+              {
+                "time": 27.5,
+                "description": "Pick up the pitcher with both hands."
+              },
+              {
+                "time": 58.25,
+                "description": "Pour water from the pitcher into the glass with the right hand and steady the glass with the left hand."
+              },
+              {
+                "time": 61.12,
+                "description": "Pour water into the glass with the pitcher with the right hand and steady the glass with the left hand."
+              },
+              {
+                "time": 66.38,
+                "description": "IDLE"
+              },
+              {
+                "time": 67.25,
+                "description": "Place the pitcher on the table with the right hand."
+              },
+              {
+                "time": 69.25,
+                "description": "Unscrew the pitcher lid with the left hand unsuccessfully and steady the pitcher with the right hand."
+              },
+              {
+                "time": 72.75,
+                "description": "Screw the lid on the pitcher with the right hand and steady the pitcher with the left hand."
+              },
+              {
+                "time": 74.12,
+                "description": "Pick up the pitcher with the right hand."
+              },
+              {
+                "time": 79.0,
+                "description": "Pour water into a glass with the pitcher with the right hand and steady a glass with the left hand."
+              },
+              {
+                "time": 79.62,
+                "description": "Slide a glass right with the left hand and hold the pitcher in the right hand."
+              },
+              {
+                "time": 82.88,
+                "description": "Slide a glass left with the left hand and hold the pitcher in the right hand."
+              },
+              {
+                "time": 134.0,
+                "description": "Pour water into a glass with the right hand and steady a glass with the left hand."
+              },
+              {
+                "time": 137.25,
+                "description": "Pour water into a glass with the right hand and steady a glass with the left hand."
+              },
+              {
+                "time": 140.25,
+                "description": "Pour water from the pitcher into the glass with the right hand and steady the glass with the left hand."
+              },
+              {
+                "time": 141.5,
+                "description": "Place the pitcher on the table with the right hand."
+              },
+              {
+                "time": 145.38,
+                "description": "Pull a glass with the right hand and push a glass with the left hand."
+              },
+              {
+                "time": 147.5,
+                "description": "IDLE"
+              },
+              {
+                "time": 152.25,
+                "description": "Push a glass with both hands."
+              },
+              {
+                "time": 157.12,
+                "description": "Slide the pitcher left with both hands."
+              }
+            ]
+          },
+          "wgo-bench-homer_2": {
+            "major_total": 36,
+            "major_hits": 21,
+            "missed_majors": 15,
+            "minor_total": 28,
+            "minor_hits": 10,
+            "unused_minors": 18,
+            "prediction_total": 61,
+            "matched_predictions": 31,
+            "extra_predictions": 30,
+            "total_penalty": 45,
+            "predicted_boundaries": [
+              {
+                "time": 2.75,
+                "description": "Squeeze the sponge with the right hand and turn on the faucet with the left hand."
+              },
+              {
+                "time": 7.0,
+                "description": "Squeeze the sponge with the right hand."
+              },
+              {
+                "time": 11.25,
+                "description": "Press the soap dispenser with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 14.0,
+                "description": "Squeeze the sponge with the right hand."
+              },
+              {
+                "time": 15.12,
+                "description": "Rub the sponge with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 17.0,
+                "description": "Adjust the faucet with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 19.5,
+                "description": "Rub the sponge with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 20.12,
+                "description": "Slide a mug right with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 22.0,
+                "description": "Slide a mug right with the left hand and pick up a spoon with the right hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 23.12,
+                "description": "Transfer the spoon from the right hand to the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 25.62,
+                "description": "Scrub the spoon with the sponge with the right hand and hold the spoon in the left hand."
+              },
+              {
+                "time": 27.38,
+                "description": "Rub the spoon with the right hand and hold the spoon in the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 27.88,
+                "description": "Flip the spoon with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 28.75,
+                "description": "Rub the spoon with the right hand and hold the spoon in the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 31.0,
+                "description": "Pick up a mug with the right hand and place the spoon on the dishes on the mat with the left hand."
+              },
+              {
+                "time": 37.62,
+                "description": "Scrub the mug with the sponge with the right hand and hold the mug in the left hand."
+              },
+              {
+                "time": 37.88,
+                "description": "Place the sponge in the sink with the right hand and hold the mug in the left hand."
+              },
+              {
+                "time": 42.25,
+                "description": "Rub the mug with the left hand and hold the mug in the right hand."
+              },
+              {
+                "time": 43.0,
+                "description": "Flip the mug with both hands."
+              },
+              {
+                "time": 47.12,
+                "description": "Place the mug on the mat with both hands."
+              },
+              {
+                "time": 48.5,
+                "description": "Pick up the sponge with the right hand."
+              },
+              {
+                "time": 49.12,
+                "description": "Squeeze the sponge with both hands."
+              },
+              {
+                "time": 51.5,
+                "description": "Squeeze the sponge with the right hand and pick up the mug with the left hand."
+              },
+              {
+                "time": 55.5,
+                "description": "Scrub the mug with the sponge with the right hand and hold the mug in the left hand."
+              },
+              {
+                "time": 55.75,
+                "description": "Place the sponge in the sink with the right hand and hold the mug in the left hand."
+              },
+              {
+                "time": 57.12,
+                "description": "Rub the mug with the right hand and hold the mug in the left hand."
+              },
+              {
+                "time": 58.5,
+                "description": "Rub the mug with the left hand and hold the mug in the right hand."
+              },
+              {
+                "time": 59.25,
+                "description": "Rub the mug with the right hand and hold the mug in the left hand."
+              },
+              {
+                "time": 59.75,
+                "description": "Flip the mug with both hands."
+              },
+              {
+                "time": 62.25,
+                "description": "Place the cup on the counter with the left hand."
+              },
+              {
+                "time": 64.88,
+                "description": "Pick up the sponge with the right hand and pick up the glass with the left hand."
+              },
+              {
+                "time": 69.38,
+                "description": "Scrub the glass with the sponge with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 69.75,
+                "description": "Place the sponge in the sink with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 76.75,
+                "description": "Rub the glass with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 78.625,
+                "description": "IDLE"
+              },
+              {
+                "time": 80.62,
+                "description": "Rub the glass with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 82.5,
+                "description": "Place the glass on a bowl on the mat with the left hand and flip the glass with the left hand."
+              },
+              {
+                "time": 84.38,
+                "description": "Pick up the sponge with the right hand and steady the plate with the left hand."
+              },
+              {
+                "time": 85.25,
+                "description": "Squeeze the sponge with both hands."
+              },
+              {
+                "time": 96.13,
+                "description": "Scrub the plate with the sponge with the right hand and hold the plate in the left hand."
+              },
+              {
+                "time": 97.68,
+                "description": "IDLE"
+              },
+              {
+                "time": 99.65,
+                "description": "Place the plate on a bowl on the counter with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 101.125,
+                "description": "Pick up a bowl with both hands and hold the sponge in the right hand."
+              },
+              {
+                "time": 108.625,
+                "description": "Scrub the bowl with the sponge with the right hand and hold the bowl in the left hand."
+              },
+              {
+                "time": 110.125,
+                "description": "IDLE"
+              },
+              {
+                "time": 112.75,
+                "description": "Scrub the bowl with the sponge with the right hand and hold the bowl in the left hand."
+              },
+              {
+                "time": 114.75,
+                "description": "IDLE"
+              },
+              {
+                "time": 116.0,
+                "description": "Place the bowl on a bowl on the mat with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 117.125,
+                "description": "Squeeze the sponge with both hands."
+              },
+              {
+                "time": 119.25,
+                "description": "Rub the drain with the left hand and wipe the sink with the sponge with the right hand and push the spoon with the left hand."
+              },
+              {
+                "time": 122.65,
+                "description": "Press the sink strainer with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 123.25,
+                "description": "Pick up the ladle with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 129.88,
+                "description": "Scrub the ladle with the sponge with the right hand and hold the ladle in the left hand."
+              },
+              {
+                "time": 133.38,
+                "description": "Scrub the ladle with the sponge with the right hand and hold the ladle in the left hand."
+              },
+              {
+                "time": 134.75,
+                "description": "Place the ladle on the towel on the counter with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 140.75,
+                "description": "Scrub the sink with the sponge with the right hand."
+              },
+              {
+                "time": 143.75,
+                "description": "Squeeze the sponge with both hands."
+              },
+              {
+                "time": 145.25,
+                "description": "Squeeze the sponge with the right hand."
+              },
+              {
+                "time": 146.5,
+                "description": "Place the sponge in the basket with the right hand."
+              },
+              {
+                "time": 150.12,
+                "description": "IDLE"
+              },
+              {
+                "time": 151.38,
+                "description": "Turn off the faucet with the right hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_3": {
+            "major_total": 10,
+            "major_hits": 7,
+            "missed_majors": 3,
+            "minor_total": 2,
+            "minor_hits": 2,
+            "unused_minors": 0,
+            "prediction_total": 10,
+            "matched_predictions": 9,
+            "extra_predictions": 1,
+            "total_penalty": 4,
+            "predicted_boundaries": [
+              {
+                "time": 1.5,
+                "description": "IDLE"
+              },
+              {
+                "time": 2.75,
+                "description": "Pick up the bag with the left hand."
+              },
+              {
+                "time": 4.0,
+                "description": "Reorient the bag with both hands."
+              },
+              {
+                "time": 8.5,
+                "description": "Pour the powder into the pan with the left hand."
+              },
+              {
+                "time": 10.5,
+                "description": "Place the packet on the counter with the left hand."
+              },
+              {
+                "time": 11.62,
+                "description": "Pick up the cup with the left hand."
+              },
+              {
+                "time": 17.25,
+                "description": "Pour the water into the pan with the left hand."
+              },
+              {
+                "time": 18.62,
+                "description": "Place the cup on the counter with the left hand."
+              },
+              {
+                "time": 19.5,
+                "description": "Pick up the spoon with the left hand."
+              },
+              {
+                "time": 132.88,
+                "description": "Stir the liquid with the spoon with the left hand and steady the pan with the right hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_4": {
+            "major_total": 14,
+            "major_hits": 7,
+            "missed_majors": 7,
+            "minor_total": 8,
+            "minor_hits": 5,
+            "unused_minors": 3,
+            "prediction_total": 19,
+            "matched_predictions": 12,
+            "extra_predictions": 7,
+            "total_penalty": 14,
+            "predicted_boundaries": [
+              {
+                "time": 14.75,
+                "description": "Wipe the cabinet with the cloth with the right hand."
+              },
+              {
+                "time": 15.25,
+                "description": "Transfer the cloth from the right hand to the left hand."
+              },
+              {
+                "time": 23.62,
+                "description": "Wipe the cabinet with the cloth with the left hand."
+              },
+              {
+                "time": 26.25,
+                "description": "Open a drawer with the right hand and hold the cloth in the left hand."
+              },
+              {
+                "time": 27.12,
+                "description": "Transfer the cloth from the left hand to the right hand."
+              },
+              {
+                "time": 44.625,
+                "description": "Wipe the drawer with the cloth with the right hand and steady the drawer with the left hand."
+              },
+              {
+                "time": 51.12,
+                "description": "Wipe the table with the cloth with the right hand."
+              },
+              {
+                "time": 52.5,
+                "description": "Wipe the table with the cloth with both hands."
+              },
+              {
+                "time": 53.62,
+                "description": "Wipe the table with the cloth with the right hand."
+              },
+              {
+                "time": 54.75,
+                "description": "Pick up the cloth with both hands."
+              },
+              {
+                "time": 57.88,
+                "description": "Unfold the cloth with both hands."
+              },
+              {
+                "time": 58.25,
+                "description": "Place the cloth on the table with both hands."
+              },
+              {
+                "time": 59.88,
+                "description": "Fold the cloth with both hands."
+              },
+              {
+                "time": 60.5,
+                "description": "Fold the cloth with both hands."
+              },
+              {
+                "time": 79.0,
+                "description": "Wipe the cabinet with the cloth with the right hand."
+              },
+              {
+                "time": 87.0,
+                "description": "Wipe the cabinet with the cloth with both hands."
+              },
+              {
+                "time": 88.62,
+                "description": "Fold the cloth with both hands."
+              },
+              {
+                "time": 106.38,
+                "description": "Wipe the table with the cloth with both hands."
+              },
+              {
+                "time": 126.38,
+                "description": "Wipe the table with the cloth with the right hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_5": {
+            "major_total": 10,
+            "major_hits": 7,
+            "missed_majors": 3,
+            "minor_total": 8,
+            "minor_hits": 2,
+            "unused_minors": 6,
+            "prediction_total": 12,
+            "matched_predictions": 9,
+            "extra_predictions": 3,
+            "total_penalty": 6,
+            "predicted_boundaries": [
+              {
+                "time": 4.75,
+                "description": "Wipe a shelf with the cloth with the right hand."
+              },
+              {
+                "time": 12.5,
+                "description": "Wipe the shelf with the cloth with the right hand."
+              },
+              {
+                "time": 14.25,
+                "description": "Wipe the shelf with the cloth with the right hand."
+              },
+              {
+                "time": 20.125,
+                "description": "Wipe the book with the cloth with the right hand and steady the book with the left hand."
+              },
+              {
+                "time": 28.875,
+                "description": "Wipe a shelf with the cloth with the right hand."
+              },
+              {
+                "time": 38.88,
+                "description": "Wipe the shelf with the cloth with the right hand."
+              },
+              {
+                "time": 39.62,
+                "description": "Unfold the cloth with both hands."
+              },
+              {
+                "time": 42.5,
+                "description": "Wipe the shelf with the cloth with both hands."
+              },
+              {
+                "time": 44.62,
+                "description": "Wipe the shelf with the cloth with the right hand."
+              },
+              {
+                "time": 68.38,
+                "description": "Wipe the shelf with the cloth with the right hand."
+              },
+              {
+                "time": 91.125,
+                "description": "Wipe a shelf with the cloth with the right hand."
+              },
+              {
+                "time": 107.38,
+                "description": "Wipe a shelf with the cloth with the right hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_9": {
+            "major_total": 18,
+            "major_hits": 5,
+            "missed_majors": 13,
+            "minor_total": 5,
+            "minor_hits": 2,
+            "unused_minors": 3,
+            "prediction_total": 15,
+            "matched_predictions": 7,
+            "extra_predictions": 8,
+            "total_penalty": 21,
+            "predicted_boundaries": [
+              {
+                "time": 3.25,
+                "description": "IDLE"
+              },
+              {
+                "time": 3.75,
+                "description": "Pick up the glass with the left hand and pick up the sponge with the right hand."
+              },
+              {
+                "time": 4.5,
+                "description": "Scrub the glass with the sponge with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 4.75,
+                "description": "Place the glass in the sink with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 5.62,
+                "description": "Turn on the tap with the left hand and place the sponge in the sink with the right hand."
+              },
+              {
+                "time": 6.0,
+                "description": "Pick up the glass with the left hand."
+              },
+              {
+                "time": 6.62,
+                "description": "Rub the glass with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 6.88,
+                "description": "Pick up the sponge with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 8.88,
+                "description": "Scrub the glass with the sponge with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 9.12,
+                "description": "Place the glass in the sink with the left hand and hold the sponge in the right hand."
+              },
+              {
+                "time": 10.25,
+                "description": "Turn off the faucet with the left hand and hold the glass in the right hand."
+              },
+              {
+                "time": 13.88,
+                "description": "Rub the glass with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 15.88,
+                "description": "Put the sponge in the glass with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 22.25,
+                "description": "Rub the glass with the right hand and hold the glass in the left hand."
+              },
+              {
+                "time": 23.12,
+                "description": "Pick up the cloth with the right hand and hold the glass in the left hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_33": {
+            "major_total": 26,
+            "major_hits": 25,
+            "missed_majors": 1,
+            "minor_total": 2,
+            "minor_hits": 2,
+            "unused_minors": 0,
+            "prediction_total": 29,
+            "matched_predictions": 27,
+            "extra_predictions": 2,
+            "total_penalty": 3,
+            "predicted_boundaries": [
+              {
+                "time": 3.25,
+                "description": "Pick up the knife with the right hand."
+              },
+              {
+                "time": 5.75,
+                "description": "Pick up the onion with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 11.25,
+                "description": "Cut the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 12.25,
+                "description": "Place the onion piece on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 17.0,
+                "description": "Cut the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 17.88,
+                "description": "Place the onion piece on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 20.25,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 21.12,
+                "description": "Place the onion peel on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 22.75,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 23.38,
+                "description": "Place the onion peel on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 25.12,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 25.75,
+                "description": "Place the onion peel on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 28.75,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 30.0,
+                "description": "Place the onion peel on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 33.0,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 33.5,
+                "description": "Place the onion peel on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 35.25,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 35.75,
+                "description": "Place the onion peel on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 38.88,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 39.5,
+                "description": "Place the onion peel on the counter with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 40.75,
+                "description": "Peel the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 41.62,
+                "description": "Place the onion peel on the counter with the right hand and hold the knife in the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 47.12,
+                "description": "Cut the onion with the knife with the right hand and hold the onion in the left hand."
+              },
+              {
+                "time": 48.25,
+                "description": "Transfer an onion half from the left hand to the right hand and hold an onion half in the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 49.12,
+                "description": "Place an onion half on the cutting board with the left hand and place an onion half on the cutting board with the right hand and hold the knife in the right hand."
+              },
+              {
+                "time": 50.0,
+                "description": "Rotate an onion half with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 50.12,
+                "description": "Rotate an onion with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 63.38,
+                "description": "Cut the onion with the knife with the right hand and steady the onion with the left hand."
+              },
+              {
+                "time": 64.75,
+                "description": "Rotate the onion with the left hand and hold the knife in the right hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_37": {
+            "major_total": 15,
+            "major_hits": 13,
+            "missed_majors": 2,
+            "minor_total": 15,
+            "minor_hits": 3,
+            "unused_minors": 12,
+            "prediction_total": 23,
+            "matched_predictions": 16,
+            "extra_predictions": 7,
+            "total_penalty": 9,
+            "predicted_boundaries": [
+              {
+                "time": 1.62,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 2.12,
+                "description": "Rotate the tomato with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 7.38,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 8.0,
+                "description": "Rotate the tomato with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 14.75,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 15.5,
+                "description": "Pull a tomato slice with the left hand and slide tomato slices right with the knife with the right hand."
+              },
+              {
+                "time": 24.0,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 24.88,
+                "description": "Pick up a tomato with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 25.5,
+                "description": "Place the tomato on the cutting board with the left hand and push the tomato pieces with the knife with the right hand."
+              },
+              {
+                "time": 31.25,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 32.75,
+                "description": "Rotate the tomato with the left hand and push the tomato pieces with the knife with the right hand."
+              },
+              {
+                "time": 46.25,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 48.12,
+                "description": "Pick a piece of tomato with the left hand and slide the tomatoes right with the knife with the right hand."
+              },
+              {
+                "time": 48.62,
+                "description": "Place the piece of tomato on the cutting board with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 52.5,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 53.88,
+                "description": "Rotate the tomato with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 59.0,
+                "description": "Cut the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 59.5,
+                "description": "Slide the tomato left with the left hand and hold the knife in the right hand."
+              },
+              {
+                "time": 62.0,
+                "description": "Chop the tomato with the knife with the right hand and steady the tomato with the left hand."
+              },
+              {
+                "time": 62.75,
+                "description": "Pick up the tomato with the right hand and hold the knife in the right hand."
+              },
+              {
+                "time": 63.88,
+                "description": "Place the tomato in the bowl with both hands and hold the knife in the right hand."
+              },
+              {
+                "time": 65.38,
+                "description": "Place the knife on the cutting board with the right hand."
+              },
+              {
+                "time": 65.75,
+                "description": "Pick up a tomato piece with the right hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_40": {
+            "major_total": 10,
+            "major_hits": 8,
+            "missed_majors": 2,
+            "minor_total": 5,
+            "minor_hits": 2,
+            "unused_minors": 3,
+            "prediction_total": 14,
+            "matched_predictions": 10,
+            "extra_predictions": 4,
+            "total_penalty": 6,
+            "predicted_boundaries": [
+              {
+                "time": 0.88,
+                "description": "Pick up the spray bottle with the right hand and hold the cloth in the left hand."
+              },
+              {
+                "time": 3.12,
+                "description": "Spray the table with the spray bottle with the right hand and hold the cloth in the left hand."
+              },
+              {
+                "time": 8.88,
+                "description": "Wipe the table with the cloth with the left hand and hold the spray bottle in the right hand."
+              },
+              {
+                "time": 9.62,
+                "description": "Spray the table with the spray bottle with the right hand and hold the cloth in the left hand."
+              },
+              {
+                "time": 22.38,
+                "description": "Wipe the table with the cloth with the left hand and hold the spray bottle in the right hand."
+              },
+              {
+                "time": 23.0,
+                "description": "Spray the table with the spray bottle with the right hand and hold the cloth in the left hand."
+              },
+              {
+                "time": 29.0,
+                "description": "Wipe the table with the cloth with the left hand and hold the spray bottle in the right hand."
+              },
+              {
+                "time": 29.38,
+                "description": "Transfer the spray bottle from the right hand to the left hand."
+              },
+              {
+                "time": 30.625,
+                "description": "Slide the spray bottle left with the left hand and pick up the cloth with the right hand."
+              },
+              {
+                "time": 31.875,
+                "description": "Pick up the spray bottle with the left hand and hold the cloth in the right hand."
+              },
+              {
+                "time": 33.0,
+                "description": "Spray the table with the spray bottle with the left hand and hold the cloth in the right hand."
+              },
+              {
+                "time": 34.0,
+                "description": "Wipe the table with the cloth with the right hand and hold the spray bottle in the left hand."
+              },
+              {
+                "time": 34.625,
+                "description": "Unfold the cloth with the right hand and hold the spray bottle in the left hand."
+              },
+              {
+                "time": 59.25,
+                "description": "Wipe the table with the cloth with the right hand and place the spray bottle on the table with the left hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_41": {
+            "major_total": 15,
+            "major_hits": 11,
+            "missed_majors": 4,
+            "minor_total": 5,
+            "minor_hits": 2,
+            "unused_minors": 3,
+            "prediction_total": 20,
+            "matched_predictions": 13,
+            "extra_predictions": 7,
+            "total_penalty": 11,
+            "predicted_boundaries": [
+              {
+                "time": 4.25,
+                "description": "IDLE"
+              },
+              {
+                "time": 6.38,
+                "description": "Walk to the counter."
+              },
+              {
+                "time": 8.38,
+                "description": "Pick up a bottle with both hands."
+              },
+              {
+                "time": 12.25,
+                "description": "Walk to the stove and carry the bottle in both hands."
+              },
+              {
+                "time": 14.88,
+                "description": "Place the bottle on the stove with both hands."
+              },
+              {
+                "time": 17.12,
+                "description": "Walk to the counter."
+              },
+              {
+                "time": 18.38,
+                "description": "Pull a bottle with the left hand and push a bottle with the right hand."
+              },
+              {
+                "time": 19.38,
+                "description": "Pick up the bottle with both hands."
+              },
+              {
+                "time": 23.38,
+                "description": "Walk to the stove and carry the bottle in both hands."
+              },
+              {
+                "time": 25.5,
+                "description": "Place the bottle on the stove with both hands."
+              },
+              {
+                "time": 28.75,
+                "description": "Walk to the counter."
+              },
+              {
+                "time": 29.25,
+                "description": "Pick up the bottle with the left hand."
+              },
+              {
+                "time": 29.62,
+                "description": "Place the bottle on the counter with the left hand."
+              },
+              {
+                "time": 33.12,
+                "description": "IDLE"
+              },
+              {
+                "time": 33.62,
+                "description": "Pick up the bottle with both hands."
+              },
+              {
+                "time": 41.75,
+                "description": "Walk to the stove and carry the bottle in both hands."
+              },
+              {
+                "time": 44.12,
+                "description": "Place the bottle on the stove with both hands."
+              },
+              {
+                "time": 45.5,
+                "description": "Slide a bottle right with the right hand and slide a bottle left with the left hand."
+              },
+              {
+                "time": 48.25,
+                "description": "Pull a bottle with the right hand."
+              },
+              {
+                "time": 49.62,
+                "description": "Slide a bottle left with the right hand and push a bottle with the left hand."
+              }
+            ]
+          },
+          "wgo-bench-homer_48": {
+            "major_total": 26,
+            "major_hits": 26,
+            "missed_majors": 0,
+            "minor_total": 4,
+            "minor_hits": 1,
+            "unused_minors": 3,
+            "prediction_total": 29,
+            "matched_predictions": 27,
+            "extra_predictions": 2,
+            "total_penalty": 2,
+            "predicted_boundaries": [
+              {
+                "time": 1.62,
+                "description": "IDLE"
+              },
+              {
+                "time": 2.38,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 4.62,
+                "description": "Place the container on the microwave with both hands."
+              },
+              {
+                "time": 6.0,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 8.75,
+                "description": "Place the container on the container on the microwave with both hands."
+              },
+              {
+                "time": 10.25,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 13.5,
+                "description": "Place the container on the stack of containers on the table with both hands."
+              },
+              {
+                "time": 15.62,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 17.38,
+                "description": "Place the container on the table with both hands."
+              },
+              {
+                "time": 19.38,
+                "description": "Pick up a lid with both hands."
+              },
+              {
+                "time": 21.75,
+                "description": "Place the container on the container on the microwave with both hands."
+              },
+              {
+                "time": 23.88,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 27.25,
+                "description": "Place the container on the stack of containers on the microwave with both hands."
+              },
+              {
+                "time": 29.0,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 33.0,
+                "description": "Place the container on the stack of containers on the microwave with both hands."
+              },
+              {
+                "time": 35.25,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 38.0,
+                "description": "Place the container on the microwave with both hands."
+              },
+              {
+                "time": 40.12,
+                "description": "Pick up the stack of containers with both hands."
+              },
+              {
+                "time": 41.5,
+                "description": "Place the stack of containers on the counter with both hands."
+              },
+              {
+                "time": 41.88,
+                "description": "Pick up a container with the left hand."
+              },
+              {
+                "time": 42.5,
+                "description": "Place the container on the counter with the left hand."
+              },
+              {
+                "time": 43.0,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 44.38,
+                "description": "Place the container on the counter with the left hand."
+              },
+              {
+                "time": 44.75,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 46.25,
+                "description": "Place the container on the stack of containers on the shelf with both hands."
+              },
+              {
+                "time": 47.62,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 49.62,
+                "description": "Place the container on the stack of containers on the shelf with both hands."
+              },
+              {
+                "time": 51.62,
+                "description": "Pick up a container with both hands."
+              },
+              {
+                "time": 54.12,
+                "description": "Place the container on the stack of containers on the table with both hands."
+              }
+            ]
+          }
+        }
+      },
+      "description": {
+        "precision": 0.6646706586826348,
+        "recall": 0.683076923076923,
+        "f1": 0.6737481031866464,
+        "tp": 222,
+        "fp": 112,
+        "fn": 103,
+        "required_details": 325,
+        "valid_segments": 112,
+        "segment_total": 221,
+        "by_episode": {
+          "wgo-bench-homer_1": {
+            "required": 38,
+            "matched": 27,
+            "unsupported": 10,
+            "valid_segments": 12,
+            "segments": 22
+          },
+          "wgo-bench-homer_2": {
+            "required": 62,
+            "matched": 41,
+            "unsupported": 37,
+            "valid_segments": 8,
+            "segments": 42
+          },
+          "wgo-bench-homer_3": {
+            "required": 14,
+            "matched": 8,
+            "unsupported": 6,
+            "valid_segments": 7,
+            "segments": 12
+          },
+          "wgo-bench-homer_4": {
+            "required": 19,
+            "matched": 16,
+            "unsupported": 3,
+            "valid_segments": 14,
+            "segments": 17
+          },
+          "wgo-bench-homer_5": {
+            "required": 12,
+            "matched": 10,
+            "unsupported": 1,
+            "valid_segments": 9,
+            "segments": 11
+          },
+          "wgo-bench-homer_9": {
+            "required": 30,
+            "matched": 5,
+            "unsupported": 21,
+            "valid_segments": 3,
+            "segments": 19
+          },
+          "wgo-bench-homer_33": {
+            "required": 44,
+            "matched": 42,
+            "unsupported": 4,
+            "valid_segments": 23,
+            "segments": 27
+          },
+          "wgo-bench-homer_37": {
+            "required": 32,
+            "matched": 25,
+            "unsupported": 6,
+            "valid_segments": 9,
+            "segments": 16
+          },
+          "wgo-bench-homer_40": {
+            "required": 22,
+            "matched": 17,
+            "unsupported": 4,
+            "valid_segments": 7,
+            "segments": 11
+          },
+          "wgo-bench-homer_41": {
+            "required": 21,
+            "matched": 13,
+            "unsupported": 4,
+            "valid_segments": 8,
+            "segments": 17
+          },
+          "wgo-bench-homer_48": {
+            "required": 31,
+            "matched": 18,
+            "unsupported": 16,
+            "valid_segments": 12,
+            "segments": 27
+          }
+        },
+        "judge_model": "gpt-6-astra",
+        "judge_rubric_version": "core-action-v2"
+      },
+      "refused_tasks": 20,
+      "overall_f1": 0.49716089872240443
+    }
+  }
+}
